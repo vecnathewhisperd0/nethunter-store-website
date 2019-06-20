@@ -5,8 +5,8 @@ title: Kali NetHunter App Store - Android App Repository for Penetraton Testing 
 header-title: NetHunter Store
 description: >
   © 2010-2019 Kali Linux and Contributors
-baseurl: "/nh-store" # the subpath of your site, e.g. /fdroid-website
-url: "https://re4son-kernel.com" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /fdroid-website
+url: "https://store.nethunter.com" # the base hostname & protocol for your site
 
 include:
   - "_pages"

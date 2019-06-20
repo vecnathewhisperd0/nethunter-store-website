@@ -17,10 +17,10 @@ https://github.com/untra/polyglot/issues/79 -->
 <div class="download-and-screenshot">
     <div class="download">
         <div class="button">
-            <a class="material-button" href=" https://store.nethunter.com/NetHunter-Store.apk">{{ strings.download_fdroid }}</a>
+            <a class="material-button" href=" https://store.nethunter.com/en/NetHunter-Store.apk">{{ strings.download_fdroid }}</a>
         </div>
         <div class="gpg">
-            <a href=" https://store.nethunter.com/NetHunter-Store.apk.asc">{{ strings.gpg_signature }}</a>
+            <a href=" https://store.nethunter.com/en/NetHunter-Store.apk.asc">{{ strings.gpg_signature }}</a>
         </div>
         <div class="qr">
             <img src="{{ site.baseurl }}/assets/download-nethunter-store-qr.png" />
