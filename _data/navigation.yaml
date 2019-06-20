@@ -1,15 +1,7 @@
+- key       : home
+  url       : /
 - key       : browse
   url       : /packages/
 - key       : forum
-  url       : https://forum.f-droid.org
+  url       : https://forums.kali.org
   external  : true
-- key       : documentation
-  url       : /docs/
-- key       : news
-  url       : /news/
-- key       : issues
-  url       : /issues/
-- key       : contribute
-  url       : /contribute/
-- key       : about
-  url       : /about/

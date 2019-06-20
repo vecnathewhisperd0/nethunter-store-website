@@ -29,31 +29,6 @@ layout: default-package-sidebar
 	<div class="package-description">
 		{{ page.description }}
 	</div>
-	{% if page.anti_features != nil or page.packages.first.anti_features != nil %}
-	<div class="package-anti-features">
-		<details>
-			<summary class="package-anti-features-summary">
-				{{ strings.anti_features_warning }}
-			</summary>
-			<ul class="package-version-anti-features-list">
-				{% for anti_feature in page.anti_features %}
-				<li>
-				  <a href="https://f-droid.org/wiki/page/Antifeature:{{ anti_feature }}">
-				    {{ anti_feature }}
-				  </a>
-				</li>
-				{% endfor %}
-				{% for anti_feature in page.packages.first.anti_features %}
-				<li>
-				  <a href="https://f-droid.org/wiki/page/Antifeature:{{ anti_feature }}">
-				    {{ anti_feature }}
-				  </a>
-				</li>
-				{% endfor %}
-			</ul>
-		</details>
-	</div>
-	{% endif %}
 	<ul class="package-links">
 		{% if page.author_email != "" and page.author_email != nil %}
 		<div class="package-link">
@@ -97,10 +72,7 @@ layout: default-package-sidebar
 		</li>
 		{% endif %}
 		<li class="package-link">
-			<a href="https://gitlab.com/fdroid/fdroiddata/tree/master/metadata/{{ page.package_name }}.yml">{{ strings.build_metadata }}</a>
-		</li>
-		<li class="package-link">
-			<a href="https://f-droid.org/wiki/page/{{page.package_name}}">{{ strings.technical_info }}</a>
+			<a href="https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/tree/master/metadata/{{ page.package_name }}.yml">{{ strings.build_metadata }}</a>
 		</li>
 	</ul>
 
@@ -165,7 +137,7 @@ layout: default-package-sidebar
 		<!-- The FDroid.apk links need the space at the start of the href=""
 				 to disable the polyglot link "relativization":
 				 https://github.com/untra/polyglot/issues/79 -->
-		<a href=" https://f-droid.org/FDroid.apk" class="material-button">{{ site.data.strings.index.download_fdroid }}</a>
+		<a href="https://store.nethunter.com/nethunter-store.apk" class="material-button">{{ site.data.strings.index.download_fdroid }}</a>
 		<ul class="package-versions-list">
 			{% for package in page.packages %}
 			<li class="package-version">

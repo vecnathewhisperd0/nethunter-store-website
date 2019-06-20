@@ -12,20 +12,16 @@
         "UpstreamNonFree": "The upstream source code is not entirely Free"
     },
     "index": {
-        "download_fdroid": "Download F-Droid",
+        "download_fdroid": "Download Store App",
         "gpg_signature": "PGP Signature",
-        "introduction": "F-Droid is an installable catalogue of FOSS (Free and Open Source Software) applications for the Android platform. The client makes it easy to browse, install, and keep track of updates on your device.",
+        "introduction": " The NetHunter App Store is an installable catalogue of Android applications for penetraation testing and forensics. The client makes it easy to browse, install, and keep track of updates on your device.",
         "screenshot": "F-Droid Android app screenshot",
-        "title": "What is F-Droid?"
+        "title": "What is the NetHunter App Store?"
     },
     "navigation": {
-        "about": "About",
+        "home": "Home",
         "browse": "Browse",
-        "contribute": "Contribute",
-        "documentation": "Docs",
-        "forum": "Forum",
-        "issues": "Issues",
-        "news": "News"
+        "forum": "Forum"
     },
     "package": {
         "anti_features": "Anti-Features",
