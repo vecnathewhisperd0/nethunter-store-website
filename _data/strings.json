@@ -14,7 +14,7 @@
     "index": {
         "download_fdroid": "Download Store App",
         "gpg_signature": "PGP Signature",
-        "introduction": " The Kali NetHunter App Store is an installable catalogue of Android applications for penetraation testing and forensics. The client makes it easy to browse, install, and keep track of updates on your device.",
+        "introduction": " The Kali NetHunter App Store is an installable catalogue of Android applications for penetration testing and forensics. The client makes it easy to browse, install, and keep track of updates on your device.",
         "screenshot": "F-Droid Android app screenshot",
         "title": "What is the Kali NetHunter App Store?"
     },

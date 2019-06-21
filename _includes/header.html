@@ -11,7 +11,7 @@
         {% if nav-item.external %}
           <a class="page-link" href="{{ nav-item.url }}">{{ title }}</a>
         {% else %}
-          <a class="page-link {% if page.url contains nav-item.url %} current {% endif %}" href="{{ nav-item.url | prepend: site.baseurl }}">{{ title }}</a>
+          <a class="page-link {% if nav-item.url != '/' and page.url contains nav-item.url %} current {% elsif nav-item.url == '/' and page.url == nav-item.url %} current {% endif %}" href="{{ nav-item.url | prepend: site.baseurl }}">{{ title }}</a>
         {% endif %}
       {% endif %}
     {% endfor %}
