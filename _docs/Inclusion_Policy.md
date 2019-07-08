@@ -4,8 +4,8 @@ title: Inclusion Policy
 
 ---
 
-All applications in the repository must be free software.
-We do accept binary apk into the repo as long as they are free.
+All applications in the repository must be free software.  
+We do accept binary apk into the repo as long as they are free.  
 
 For open source software that we are asked to build, please note:
 
