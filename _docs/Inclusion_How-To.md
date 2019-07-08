@@ -65,7 +65,7 @@ When proposing inclusion this way, it is assumed that:
     what you are doing.
 
 Recommended steps to propose inclusion this way are written on the [NetHunter Store
-application metadata repository](https://gitlab.com/fdroid/fdroiddata/blob/master/CONTRIBUTING.md).
+application metadata repository](https://gitlab.com/fdroid/nethunter-storedata/blob/master/CONTRIBUTING.md).
 
 Application Review Process
 --------------------------
@@ -93,15 +93,10 @@ This is a nonexhaustive list of what a reviewer would do:
     licenses are consistent with corresponding license/README files.
 -   They will check if your application uses any pre-compiled libraries or
     binary blobs.
--   They will look at your non-source code files to identify [non-free
-    resources](https://NetHunter Store.org/wiki/page/Antifeature:NonFreeAssets) used in
-    your application.
 -   They will skim through the source code to see if your application
     uses non-Free dependencies, shows advertisements, tracks users,
     promotes non-Free services/applications, or does anything that is
     harmful or otherwise undesirable for users.
--   They will list a summary of any [_AntiFeatures_](https://NetHunter Store.org/wiki/page/Antifeatures) in
-    your application.
 -   They will try patching your application to remove usage of
     third-party proprietary software (if there is any).
 -   They will try to determine a suitable update process for your
@@ -115,20 +110,20 @@ This is a nonexhaustive list of what a reviewer would do:
 -   They will try to build your application in an isolated environment to
     see if the process succeeds and yield a functional APK.
 -   If all went smoothly, they will add a new metadata file to their
-    local fdroiddata git repository and synchronizes the change
+    local nethunter-storedata git repository and synchronizes the change
     to GitLab.
 
 In the case that the application failed some steps in the review, feedback
 will be given in the original submission queue thread where the proposal
 was posted.
 
-Once the fdroiddata repository is updated on GitLab, it's mostly just a
+Once the nethunter-storedata repository is updated on GitLab, it's mostly just a
 matter of time before NetHunter Store's official build server will fetch, build,
 and publish your application on the main NetHunter Store repository.
 
 You can confirm the inclusion of your application by looking at the [GitLab
-fdroiddata revision
-history](https://gitlab.com/fdroid/fdroiddata/commits/master).
+nethunter-storedata revision
+history](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/commits/master).
 
 ### Special Consideration of Metadata Merge Request
 
@@ -139,7 +134,7 @@ application source code. Steps about writing and committing metadata
 are omitted, as they will use the original metadata file you proprosed.
 Feedback will be given on the original merge request thread that the
 application was proposed; and once the process is completed, the request
-will be merged to the `master` branch of the fdroiddata
+will be merged to the `master` branch of the nethunter-storedata
 GitLab repository.
 
 In an attempt to optimize the process, when you proposed inclusion via
@@ -152,7 +147,7 @@ sneaked in this way will be dealt with after the fact.
 Build Process
 -------------
 
-After the application metadata is added to fdroiddata GitLab repository,
+After the application metadata is added to nethunter-storedata GitLab repository,
 the next step is for the main NetHunter Store build server to fetch
 the applications source code and related components, build the application,
 and publish it on the main NetHunter Store repository.
@@ -164,18 +159,18 @@ all the submitter needs to do is to wait for it to finish.
 A record of the build process for each application is provided on the NetHunter Store wiki, as a
 subpage `lastbuild` of the applications information
 page (e.g. [here is the lastbuild page for the NetHunter Store
-Client](https://NetHunter Store.org/wiki/page/org.fdroid.fdroid/lastbuild)).
+Client](https://store.nethunter.com/wiki/page/com.nethunter.store/lastbuild)).
 This is useful to aid in diagnosing problems when the build unexpectedly
 failed.
 
 ### Metadata Refreshing Process
 
 When the scheduled building time arrives, the NetHunter Store build server will
-fetch changes from the fdroiddata GitLab repository and merge it to a local
+fetch changes from the nethunter-storedata GitLab repository and merge it to a local
 repository. Then, update checks will be performed for all
 applications. If a new version is found, their metadata files will be
 updated and committed to the repository by the author `NetHunter Store
-Builder <admin@NetHunter Store.org>`.
+Builder <admin@store.nethunter.com>`.
 
 Once metadata files are updated, the NetHunter Store Server will check them against a
 list of released APKs to constuct a list of new applications and/or
@@ -195,23 +190,23 @@ preprocessing process, followed by the build process for each of them.
 What to Expect
 --------------
 
-When your application metadata is approved and accepted into the fdroiddata
+When your application metadata is approved and accepted into the nethunter-storedata
 git repository on GitLab, **it won't immediately appear** in the main
 NetHunter Store repository.
 
 Provided that your application does not have any build problems, it would
-takes somewhere **around 24 to 48 hours** from fdroiddata merge
+takes somewhere **around 24 to 48 hours** from nethunter-storedata merge
 until the application to appears in the main
 repository.
 This timing limitation is due to the APK signing part of the build process,
 which requires human intervention on keystore access
 step.
 
-Nevertheless, your application will not appear in NetHunter Store.org's Lastest
+Nevertheless, your application will not appear in store.nethunter.com's Lastest
 Apps list just yet, even though people can now already search and
 download it: Once the application appeared in the main NetHunter Store
 repository, it would take another day before appearing on [Latest Apps
-list](https://NetHunter Store.org/).
+list](https://store.nethunter.com).
 
 External Links
 --------------
