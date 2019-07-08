@@ -5,16 +5,17 @@ title: Inclusion How-To
 ---
 
 This page documents how a new application gets included in the main
-F-Droid repository. It includes the technical details that a submitter should be aware of.
+NetHunter Store repository. It includes the technical details that a
+submitter should be aware of.
 
 Application Inclusion Proposal
 ------------------------------
 
-To propose inclusion of a new application to the main F-Droid repository,
+To propose inclusion of a new application to the main NetHunter Store repository,
 one could post the applications relevant information to the Submission
 Queue. The more advanced alternative is writing a complete metadata file
 yourself, test, and propose inclusion (merge request) directly into
-the fdroiddata Git repository; speeding up the process. Both ways will be
+the nethunter-storedata Git repository; speeding up the process. Both ways will be
 described below in detail.
 
 Note that you can propose inclusion even you are not a developer or
@@ -29,7 +30,7 @@ This is the simplest way to get the application included. But due to an
 amount of reviewer labor required for each application, this is the
 slowest method.
 
-Do this by creating a new ticket at the [F-Droid Submission Queue on
+Do this by creating a new ticket at the [NetHunter Store Submission Queue on
 GitLab](https://gitlab.com/fdroid/rfp/issues), add all details required
 by the minimal issue template; and wait for people in F-Droid team to review the
 application and do all necessary steps for you.
