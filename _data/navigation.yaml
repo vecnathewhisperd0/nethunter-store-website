@@ -5,3 +5,10 @@
 - key       : forum
   url       : https://forums.kali.org
   external  : true
+- key       : issues
+  url       : /issues/
+- key       : contribute
+  url       : /contribute/
+- key       : about
+  url       : /about/
+

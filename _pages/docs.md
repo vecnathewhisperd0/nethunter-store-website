@@ -5,10 +5,10 @@ permalink: /docs/
 
 ---
 
-F-Droid is both a repository of verified free software Android apps as
+The NetHunter Store is both a repository of verified free software Android apps as
 well as a whole "app store kit", providing all the tools needed to
 setup and run an app store. It is a community-run free software
-project developed by a wide range of contributors. It also includes
+project developed by the F-Droid community with a wide range of contributors. It also includes
 complete build and release tools for managing the process of turning
 app source code into published builds.
 

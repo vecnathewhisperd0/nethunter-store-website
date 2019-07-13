@@ -21,7 +21,11 @@
     "navigation": {
         "home": "Home",
         "browse": "Browse",
-        "forum": "Forum"
+        "forum": "Forum",
+        "issues": "Issues",
+        "contribute": "Contribute",
+        "about": "About"
+        
     },
     "package": {
         "anti_features": "Anti-Features",
