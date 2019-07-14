@@ -10,7 +10,7 @@ The Kali NetHunter store is a sligthly customised version of [F-Droid](https://f
 
 ### Contact
 
-You can discuss the NetHunter Store or get help on the [forum](https://forums.kali.org/).
+You can discuss the NetHunter Store or get help on the [forums](https://forums.kali.org/).
 
 ### Terms, etc.
 

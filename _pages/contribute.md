@@ -7,7 +7,7 @@ The project is developed and maintained by volunteers. You can help:
 
 ### Report Problems
 
-If you experience problems with the site or client software, you can report them in the issue tracker (see below), or discuss them in the [Forum](https://forums.kali.org/).
+If you experience problems with the site or client software, you can report them in the issue tracker (see below), or discuss them in the [forums](https://forums.kali.org/).
 
 For reporting issues, choose an appropriate tracker from the following:
 
@@ -22,4 +22,4 @@ If you have the technical skills required, you can also put together the relevan
 
 The same applies for helping to build newer versions of applications.
 
-Further information can be obtained in the [forum](https://forums.kali.org/).
+Further information can be obtained in the [forums](https://forums.kali.org/).
