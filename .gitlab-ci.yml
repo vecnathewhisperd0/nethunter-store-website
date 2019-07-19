@@ -19,7 +19,7 @@ variables:
   grep '^en_US.UTF-8 UTF-8' /etc/locale.gen || echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
   locale-gen
   export LC_ALL=en_US.UTF-8
-  ./tools/i18n.sh po2md
+  ##./tools/i18n.sh po2md
   bundle install --path vendor
 
 
@@ -76,21 +76,21 @@ pages:
    - ./tools/check-format-strings.py
    - ./tools/check-page-links.py
    - ./tools/check-do-not-translate
-   - ./tools/i18n.sh md2po
-   - git checkout po/*.pot  # ignore the newly generated timestamp
-   - git --no-pager diff --ignore-all-space --name-only po/
+     ##- ./tools/i18n.sh md2po
+     ##- git checkout po/*.pot  # ignore the newly generated timestamp
+     ##- git --no-pager diff --ignore-all-space --name-only po/
    # This is where GitLab pages will deploy to by default (e.g. "https://kalilinux.gitlab.io/nethunter-store-website")
    # so we need to make sure that the Jekyll configuration understands this.
    - 'echo url: https://$CI_PROJECT_NAMESPACE.gitlab.io > userconfig.yml'
    - 'echo baseurl: /$CI_PROJECT_NAME >> userconfig.yml'
    - echo "Additional Jekyll config used for CI:" && cat userconfig.yml
    - bundle exec jekyll build -d public --config _config.yml,userconfig.yml --trace
-   - ./tools/prepare-multi-lang.sh public --no-type-maps
-   - mkdir linkchecker/
-   - ln -s ../public linkchecker/$CI_PROJECT_NAME
-   - ruby -run -e httpd linkchecker/ -p 4000 2>&1 /dev/null &
-   - linkchecker http://localhost:4000/$CI_PROJECT_NAME --config=.linkcheckerrc
-      --ignore-url ".*/packages/[b-z].*" --ignore-url "/F-Droid\.apk(\.asc)?$"
+     ##- ./tools/prepare-multi-lang.sh public --no-type-maps
+     ###- mkdir linkchecker/
+     ###- ln -s ../public linkchecker/$CI_PROJECT_NAME
+     ###- ruby -run -e httpd linkchecker/ -p 4000 2>&1 /dev/null &
+     ###- linkchecker http://localhost:4000/$CI_PROJECT_NAME --config=.linkcheckerrc
+     ### --ignore-url ".*/packages/[b-z].*" --ignore-url "/F-Droid\.apk(\.asc)?$"
 
 
 spellcheck:
@@ -159,23 +159,3 @@ check_fdroid_apk:
     - sha256sum $apk
     - gpg --batch --trust-model always --verify $asc $apk
 
-i18n_sync:
-  stage: deploy
-  image: debian:jessie-slim
-  script:
-    - apt update -y
-    - apt-get install -y --no-install-recommends bash gettext git grep po4a sed
-    - for f in po/_posts.*.po; do msgmerge --no-wrap --sort-by-file  --add-location=file --update $f po/_posts.pot; done
-    - for f in po/_docs.*.po; do msgmerge --no-wrap --sort-by-file  --add-location=file --update $f po/_docs.pot; done
-    - git checkout po/*.pot  # ignore the newly generated timestamp
-    - git add po/*.po
-    - git config user.email "you@example.com"
-    - git config user.name "DO NOT MERGE"
-    - git commit po/*.po po/*.pot -m "DO NOT MERGE sort before test"
-    - ./tools/i18n.sh md2po
-    - for f in po/_posts.*.po; do msgmerge --no-wrap --sort-by-file  --add-location=file --update $f po/_posts.pot; done
-    - for f in po/_docs.*.po; do msgmerge --no-wrap --sort-by-file  --add-location=file --update $f po/_docs.pot; done
-    - git checkout po/*.pot  # ignore the newly generated timestamp
-    - git --no-pager diff --exit-code --ignore-all-space -G'^msg' po/
-        || (echo 'This test failed because the localization files were not synced.  To do that, run `./tools/i18n.sh md2po` then commit the changes in po/ and include them in this merge request.'; exit 1)
-  allow_failure: true
