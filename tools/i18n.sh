@@ -25,7 +25,7 @@ function md2po {
 
     if [ -d ${DIR_BUILD} ]; then rm -r ${DIR_BUILD}; fi
     generate_pot_file _docs
-    generate_pot_file _posts
+##    generate_pot_file _posts
     generate_pot_file _pages
     rm -r ${DIR_BUILD}
 }
@@ -80,7 +80,7 @@ function po2md {
 
     if [ -d ${DIR_BUILD} ]; then rm -r ${DIR_BUILD}; fi
     generate_md_files _docs
-    generate_md_files _posts
+##    generate_md_files _posts
     generate_md_files _pages
     rm -r "${DIR_BUILD}"
 }
