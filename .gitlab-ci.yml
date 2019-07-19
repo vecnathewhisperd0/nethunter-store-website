@@ -8,7 +8,7 @@ variables:
   OUT_DIR: build
 
 
-# Common steps required for each type of "Build" (f-droid.org, GitLab Pages, feature branches)
+# Common steps required for each type of "Build" (staging.nethunter.com, store.nethunter.com, GitLab Pages, feature branches)
 .setup_for_jekyll: &setup_for_jekyll |
   set -x
   set -e
@@ -25,23 +25,24 @@ variables:
 
 #
 # This is a manual task for building in preperation to deploy to
-# https://f-droid.org. The intention is for it to be run locally using
+# https://staging.nethunter.com & https://store.nethunter.com.
+# The intention is for it to be run locally using
 # `gitlab-runner` each time a tag is found that is signed by a key in
 # the whitelist keyring.  Invoke like so:
 #
-#  gitlab-runner exec docker f-droid.org --pre-build-script ./prepare-for-deploy.py \
+#  gitlab-runner exec docker staging.nethunter.com --pre-build-script ./prepare-for-deploy.py \
 #    --docker-volumes "/root/deploy-whitelist-keyring.gpg:/root/.gnupg/pubring.gpg:ro" \
 #    --docker-volumes `pwd`/_site:/builds/output
 #
 # And when it is finished, you should have a directory in _site/build/
 # which includes the entire static site ready to be deployed to
-# https://f-droid.org.
+# https://staging.nethunter.com & https://store.nethunter.com.
 #
-f-droid.org:
+staging.nethunter.com:
   stage: production
   only:
-    - tags@fdroid/fdroidserver
-    - master@fdroid/fdroidserver
+    - tags@kalilinux/nethunter/store/nethunter-store-server
+    - master@kalilinux/nethunter/store/nethunter-store-server
   when: manual
   cache:
     paths: [ vendor/ruby ]
@@ -49,7 +50,7 @@ f-droid.org:
   script:
    - '[ ! -d /builds/output ] && echo "ERROR: /builds/output is not mounted inside docker!" && exit 1'
    - *setup_for_jekyll
-   - 'echo "url: https://f-droid.org" > userconfig.yml'
+   - 'echo "url: https://staging.nethunter.com" > userconfig.yml'
    - 'echo "baseurl: \"\"" >> userconfig.yml'
    - echo "Additional Jekyll config used for CI:" && cat userconfig.yml
    - bundle exec jekyll build -d $OUT_DIR --config _config.yml,userconfig.yml --trace
@@ -78,7 +79,7 @@ pages:
    - ./tools/i18n.sh md2po
    - git checkout po/*.pot  # ignore the newly generated timestamp
    - git --no-pager diff --ignore-all-space --name-only po/
-   # This is where GitLab pages will deploy to by default (e.g. "https://fdroid.gitlab.io/fdroid-website")
+   # This is where GitLab pages will deploy to by default (e.g. "https://kalilinux.gitlab.io/nethunter-store-website")
    # so we need to make sure that the Jekyll configuration understands this.
    - 'echo url: https://$CI_PROJECT_NAMESPACE.gitlab.io > userconfig.yml'
    - 'echo baseurl: /$CI_PROJECT_NAME >> userconfig.yml'
@@ -94,8 +95,8 @@ pages:
 
 spellcheck:
   except:
-    - tags@fdroid/fdroidserver
-    - branches@fdroid/fdroidserver
+    - tags@kalilinux/nethunter/store/nethunter-store-server
+    - master@kalilinux/nethunter/store/nethunter-store-server
   image: node
   stage: deploy
   allow_failure: true
@@ -103,7 +104,7 @@ spellcheck:
     DEBIAN_FRONTEND: noninteractive
     LC_ALL: C.UTF-8
   script:
-    - git fetch https://gitlab.com/fdroid/fdroid-website.git
+    - git fetch https://gitlab.com/kalilinux/nethunter/store/nethunter-store-website.git
     - for f in `git diff --name-only --diff-filter=d FETCH_HEAD...HEAD`; do
           export CHANGED="$CHANGED `echo $f | grep '\.md$' || true`";
       done
@@ -121,10 +122,10 @@ spellcheck:
         $CHANGED
 
 
-# Download and verify that the FDroid.apk is signed by the right PGP
-# key.  The only time that F-Droid's signed metadata does not verify
-# the APK is the initial download and install of F-Droid itself.  An
-# attacker could replace the FDroid.apk and PGP signature on the
+# Download and verify that the NetHunterStore.apk is signed by the right PGP
+# key.  The only time that NetHunterStore.apk's signed metadata does not verify
+# the APK is the initial download and install of the NetHunterStore itself.  An
+# attacker could replace the NetHunterStore.apk and PGP signature on the
 # website. The gpg key model is to trust only the key that is included
 # in this script, so there is a test to check that it is starting with
 # an empty keyring.
@@ -133,13 +134,13 @@ check_fdroid_apk:
   stage: deploy
   only:
     - schedules
-    - master@fdroid/fdroidserver
+    - master@kalilinux/nethunter/store/nethunter-store-server
   image: alpine:3.5
   variables:
-    apk: F-Droid.apk
-    asc: F-Droid.apk.asc
-    curl: "curl --silent --user-agent F-Droid --retry 20"
-    fingerprint: 37D2C98789D8311948394E3E41E7044E1DBA2E89
+    apk: NetHunterStore.apk
+    asc: NetHunterStore.apk.asc
+    curl: "curl --silent --user-agent NetHunter-Store --retry 20"
+    fingerprint: A059280A900687A9B197A562FEF44D71290987F0
   artifacts:
     name: "$apk-failed-${CI_JOB_ID}"
     paths:
@@ -153,8 +154,8 @@ check_fdroid_apk:
     - while ! gpg --keyserver pgp.mit.edu --recv-key $fingerprint; do sleep 10; done
     - gpg --list-key --fingerprint | tr -d '[:space:]' | grep $fingerprint
     - echo "${fingerprint}:6:" | gpg --import-ownertrust
-    - $curl https://f-droid.org/$apk > $apk
-    - $curl https://f-droid.org/$asc > $asc
+    - $curl https://store.nethunter.com/$apk > $apk
+    - $curl https://store.nethunter.com/$asc > $asc
     - sha256sum $apk
     - gpg --batch --trust-model always --verify $asc $apk
 
