@@ -1,8 +1,8 @@
-# The F-Droid Website
+# The NetHunter App Store Website
 
-This is the repository for the website at <https://f-droid.org>.  It
-is based on Jekyll and you can find the development version
-[here](https://fdroid.gitlab.io/fdroid-website/).
+This is the repository for the website at <https://store.nethunter.com>.  It
+is a slightly custimised version of [F-Droid](https://f-droid.org) based on Jekyll
+and you can find the development version [here](https://staging.nethunter.com).
 
 ## Building
 
@@ -29,23 +29,6 @@ use:
 bundle exec jekyll serve
 ```
 
-## Local development
-
-* Clone [F-Droid's Jekyll plugin](https://gitlab.com/fdroid/jekyll-fdroid)
-* Configure bundle to use it: `bundle config --local local.jekyll-fdroid ../jekyll-fdroid`
-* Follow the steps above
-
-If you want to use the official Git repository again,
-run `bundle config --delete local.jekyll-fdroid`.
-
-If you want to have another values for `site.url` and `site.baseurl`
-(default: `localhost:4000` and `fdroid-website`) you can add them in
-`userconfig.yml`, which is ignored by git, then run all Jekyll
-commands with this additional parameter:
-
-```
---config _config.yml,userconfig.yml
-```
 
 ## License
 
@@ -56,26 +39,3 @@ Specifically you can redistribute and/or modify it under the terms of the
 as published by the Free Software Foundation,
 either version 3 of the License,
 or (at your option) any later version.
-
-
-## Translation
-
-Everything on this website can be translated.  See
-[Translation and Localization](https://f-droid.org/docs/Translation_and_Localization)
-for more info.  The [staging site](https://staging.f-droid.org)
-includes all translations, whether they are complete or not.
-
-### chrome strings
-
-[![chrome translation status](https://hosted.weblate.org/widgets/f-droid/-/website/multi-auto.svg)](https://hosted.weblate.org/engage/f-droid/?utm_source=widget)
-
-
-### documentation and pages
-
-[![docs translation status](https://hosted.weblate.org/widgets/f-droid/-/website-docs/multi-auto.svg)](https://hosted.weblate.org/engage/f-droid/?utm_source=widget)
-
-
-### blog posts
-
-[![posts translation status](https://hosted.weblate.org/widgets/f-droid/-/website-posts/multi-auto.svg)](https://hosted.weblate.org/engage/f-droid/?utm_source=widget)
-
