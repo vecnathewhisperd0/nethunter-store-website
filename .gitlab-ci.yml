@@ -5,7 +5,8 @@ stages:
  - production
 
 variables:
-  OUT_DIR: build
+  OUT_DIR_STAGING: staging.nethunter.com
+  OUT_DIR_STORE: store.nethunter.com
 
 
 # Common steps required for each type of "Build" (staging.nethunter.com, store.nethunter.com, GitLab Pages, feature branches)
@@ -52,8 +53,8 @@ staging.nethunter.com:
    - 'echo "url: https://staging.nethunter.com" > userconfig.yml'
    - 'echo "baseurl: \"\"" >> userconfig.yml'
    - echo "Additional Jekyll config used for CI:" && cat userconfig.yml
-   - bundle exec jekyll build -d $OUT_DIR --config _config.yml,userconfig.yml --trace
-   - rsync -ax --delete $OUT_DIR /builds/output/
+   - bundle exec jekyll build -d $OUT_DIR_STAGING --config _config.yml,userconfig.yml --trace
+   - rsync -ax --delete $OUT_DIR_STAGING /builds/output/
 
 store.nethunter.com:
   stage: production
@@ -67,8 +68,8 @@ store.nethunter.com:
   script:
    - '[ ! -d /builds/output ] && echo "ERROR: /builds/output is not mounted inside docker!" && exit 1'
    - *setup_for_jekyll
-   - bundle exec jekyll build -d $OUT_DIR
-   - rsync -ax --delete $OUT_DIR /builds/output/
+   - bundle exec jekyll build -d $OUT_DIR_STORE
+   - rsync -ax --delete $OUT_DIR_STORE /builds/output/
 
 pages:
   stage: deploy
