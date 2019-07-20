@@ -81,8 +81,8 @@ pages:
      ##- git --no-pager diff --ignore-all-space --name-only po/
    # This is where GitLab pages will deploy to by default (e.g. "https://kalilinux.gitlab.io/nethunter-store-website")
    # so we need to make sure that the Jekyll configuration understands this.
-   - 'echo url: https://$CI_PROJECT_NAMESPACE.gitlab.io > userconfig.yml'
-   - 'echo baseurl: /$CI_PROJECT_NAME >> userconfig.yml'
+   - 'echo url: https://kalilinux.gitlab.io > userconfig.yml'
+   - 'echo baseurl: /nethunter/store/$CI_PROJECT_NAME >> userconfig.yml'
    - echo "Additional Jekyll config used for CI:" && cat userconfig.yml
    - bundle exec jekyll build -d public --config _config.yml,userconfig.yml --trace
      ##- ./tools/prepare-multi-lang.sh public --no-type-maps
