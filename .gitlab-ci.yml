@@ -53,7 +53,7 @@ staging.nethunter.com:
    - 'echo "baseurl: \"\"" >> userconfig.yml'
    - echo "Additional Jekyll config used for CI:" && cat userconfig.yml
    - bundle exec jekyll build -d $OUT_DIR --config _config.yml,userconfig.yml --trace
-   - rsync -ax --delete $OUT_DIR /builds/staging/
+   - rsync -ax --delete $OUT_DIR /builds/output/
 
 store.nethunter.com:
   stage: production
@@ -68,7 +68,7 @@ store.nethunter.com:
    - '[ ! -d /builds/output ] && echo "ERROR: /builds/output is not mounted inside docker!" && exit 1'
    - *setup_for_jekyll
    - bundle exec jekyll build -d $OUT_DIR
-   - rsync -ax --delete $OUT_DIR /builds/store/
+   - rsync -ax --delete $OUT_DIR /builds/output/
 
 pages:
   stage: deploy
