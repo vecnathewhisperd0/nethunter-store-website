@@ -14,7 +14,7 @@ import os
 import subprocess
 import sys
 
-remote_url = 'https://gitlab.com/fdroid/fdroid-website.git'
+remote_url = 'https://gitlab.com/kalilinux/nethunter/store/nethunter-store-website'
 
 try:
     import git
