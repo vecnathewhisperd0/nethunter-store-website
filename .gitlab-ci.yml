@@ -40,9 +40,6 @@ variables:
 #
 staging.nethunter.com:
   stage: production
-  only:
-    - tags@kalilinux/nethunter/store/nethunter-store-server
-    - master@kalilinux/nethunter/store/nethunter-store-server
   when: manual
   cache:
     paths: [ vendor/ruby ]
@@ -54,8 +51,6 @@ staging.nethunter.com:
    - 'echo "baseurl: \"\"" >> userconfig.yml'
    - echo "Additional Jekyll config used for CI:" && cat userconfig.yml
    - bundle exec jekyll build -d $OUT_DIR --config _config.yml,userconfig.yml --trace
-   - ./tools/prepare-multi-lang.sh $OUT_DIR
-   - ./tools/deploy-external-assets.sh $OUT_DIR
    - rsync -ax --delete $OUT_DIR /builds/output/
 
 pages:
