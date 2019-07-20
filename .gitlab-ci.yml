@@ -19,7 +19,6 @@ variables:
   grep '^en_US.UTF-8 UTF-8' /etc/locale.gen || echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
   locale-gen
   export LC_ALL=en_US.UTF-8
-  ##./tools/i18n.sh po2md
   bundle install --path vendor
 
 
@@ -40,6 +39,9 @@ variables:
 #
 staging.nethunter.com:
   stage: production
+  only:
+    - tags@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter@kalilinux/nethunter/store/nethunter-store-server
   when: manual
   cache:
     paths: [ vendor/ruby ]
@@ -51,7 +53,22 @@ staging.nethunter.com:
    - 'echo "baseurl: \"\"" >> userconfig.yml'
    - echo "Additional Jekyll config used for CI:" && cat userconfig.yml
    - bundle exec jekyll build -d $OUT_DIR --config _config.yml,userconfig.yml --trace
-   - rsync -ax --delete $OUT_DIR /builds/output/
+   - rsync -ax --delete $OUT_DIR /builds/staging/
+
+store.nethunter.com:
+  stage: production
+  only:
+    - tags@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter@kalilinux/nethunter/store/nethunter-store-server
+  when: manual
+  cache:
+    paths: [ vendor/ruby ]
+
+  script:
+   - '[ ! -d /builds/output ] && echo "ERROR: /builds/output is not mounted inside docker!" && exit 1'
+   - *setup_for_jekyll
+   - bundle exec jekyll build -d $OUT_DIR
+   - rsync -ax --delete $OUT_DIR /builds/store/
 
 pages:
   stage: deploy
@@ -91,7 +108,7 @@ pages:
 spellcheck:
   except:
     - tags@kalilinux/nethunter/store/nethunter-store-server
-    - master@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter@kalilinux/nethunter/store/nethunter-store-server
   image: node
   stage: deploy
   allow_failure: true
@@ -129,7 +146,7 @@ check_fdroid_apk:
   stage: deploy
   only:
     - schedules
-    - master@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter@kalilinux/nethunter/store/nethunter-store-server
   image: alpine:3.5
   variables:
     apk: NetHunterStore.apk
