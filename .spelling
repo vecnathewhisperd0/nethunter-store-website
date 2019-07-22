@@ -47,6 +47,7 @@ JCenter
 Jekyll
 jekyll
 jessie
+Kali
 Liberapay
 Libre
 Librem
@@ -55,8 +56,13 @@ Litecoin
 localhost
 logcat
 MediaWiki
+metadata
 Mozilla
 NDK
+NetHunter
+nethunter
+store.nethunter.com
+nethunter-storedata
 Nextcloud
 Nitrokey
 microG
@@ -72,6 +78,7 @@ pyvenv
 Replicant
 repo
 Repomaker
+storedata
 userconfig.yml
 versionCode
 versionName
@@ -82,6 +89,10 @@ webserver
 Website
 website
 zlib
+
+# standard page names
+Inclusion_Policy
+Repository_Style_Guide
 
 # standard file names
 AndroidManifest.xml

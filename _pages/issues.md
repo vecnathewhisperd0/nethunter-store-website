@@ -7,7 +7,7 @@ permalink: /issues/
 please check if we already know about it, and/or report it in this issue tracker.
 
 * [RFP](https://gitlab.com/kalilinux/nethunter/store/rfp/issues) tracker: To request a new app be added, submit a "Request For Packaging" on the
-rfp tracker.
+RFP tracker.
 
 * [Data](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/issues) issue tracker: For problems relating to the contents of the repository,
 such as missing or outdated applications,
