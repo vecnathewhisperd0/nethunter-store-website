@@ -157,20 +157,20 @@ max-width: 1200px;
   font-weight: 600; 
   line-height:1.4em;
   text-align: center;
+  display: table;
   margin:0 auto;
   }
   @media screen and (max-width: 750px) {
     .site-description {
-      max-width: 450px;
       padding: 0 16px;
-      text-align: center; } }
+      max-width: 450px;
+      text-align: center;} }
 
 .edit-this-page-area {
   float: inline-end; }
   @media screen and (max-width: 750px) {
     .edit-this-page-area {
       float: none;
-      display: block;
       margin-top: .5em; } }
 	  
 
