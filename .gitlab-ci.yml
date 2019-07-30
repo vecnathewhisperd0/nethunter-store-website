@@ -99,11 +99,11 @@ pages:
    - echo "Additional Jekyll config used for CI:" && cat userconfig.yml
    - bundle exec jekyll build -d public --config _config.yml,userconfig.yml --trace
      ##- ./tools/prepare-multi-lang.sh public --no-type-maps
-   - mkdir linkchecker/
-   - ln -s ../public linkchecker/$CI_PROJECT_NAME
-   - ruby -run -e httpd linkchecker/ -p 4000 2>&1 /dev/null &
-   - linkchecker http://localhost:4000/$CI_PROJECT_NAME --config=.linkcheckerrc
-    --ignore-url ".*/packages/[b-z].*" --ignore-url "/F-Droid\.apk(\.asc)?$"
+   ##- mkdir linkchecker/
+   ##- ln -s ../public linkchecker/$CI_PROJECT_NAME
+   ##- ruby -run -e httpd linkchecker/ -p 4000 2>&1 /dev/null &
+   ##- linkchecker http://localhost:4000/$CI_PROJECT_NAME --config=.linkcheckerrc
+    ##--ignore-url ".*/packages/[b-z].*" --ignore-url "/F-Droid\.apk(\.asc)?$"
 
 
 spellcheck:
