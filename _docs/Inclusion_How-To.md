@@ -26,7 +26,7 @@ section.
 ### Proposal by Submission Queue
 
 This is the simplest way to get the application included. But due to an
-amount of reviewer labor required for each application, this is the
+amount of reviewer labour required for each application, this is the
 slowest method.
 
 Do this by creating a new ticket at the [NetHunter Store Submission Queue on
@@ -74,7 +74,7 @@ In case the inclusion is from a GitLab merge request, the review process is
 theoretically the same. They are done mostly to confirm that
 the proposed metadata is consistent with what is really in the
 application source code. Steps about writing and committing metadata
-are omitted, as they will use the original metadata file you proprosed.
+are omitted, as they will use the original metadata file you proposed.
 Feedback will be given on the original merge request thread that the
 application was proposed; and once the process is completed, the request
 will be merged to the `master` branch of the fdroiddata
