@@ -52,6 +52,7 @@ staging.nethunter.com:
    - *setup_for_jekyll
    - 'echo "url: https://staging.nethunter.com" > userconfig.yml'
    - 'echo "baseurl: \"\"" >> userconfig.yml'
+   - 'echo "fdroid-repo: https://staging.nethunter.com/repo" >> userconfig.yml'
    - echo "Additional Jekyll config used for CI:" && cat userconfig.yml
    - bundle exec jekyll build -d $OUT_DIR_STAGING --config _config.yml,userconfig.yml --trace
    - rsync -ax --delete $OUT_DIR_STAGING /builds/output/
