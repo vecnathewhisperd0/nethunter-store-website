@@ -6,7 +6,7 @@ permalink: /about/
 
 The Kali NetHunter store is a repository of free security related software on the Android platform, along with an Android client to perform installations and updates, and news, reviews and other features covering all things Android and security related.
 The _store.nethunter.com_ core infrastructure is operated by Offensive Security, the premium provider of industry-defining penetration testing courses and certifications.
-The Kali NetHunter store is a slightly customized version of [F-Droid](https://f-droif.org), 
+The Kali NetHunter store is a slightly customized version of [F-Droid](https://f-droid.org), 
 
 ### Contact
 
