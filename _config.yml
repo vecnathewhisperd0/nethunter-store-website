@@ -74,27 +74,24 @@ exclude_from_localization:
   - wp-content/
 
 # name in download link must match name listed in exclude_from_localizations:
-fdroid_apk_download_url: https://f-droid.org/F-Droid.apk
+fdroid_apk_download_url: https://store.nethunter.com/NetHunterStore.apk
 
 # App categories
 app_categories:
-  - Connectivity
   - Development
-  - Games
-  - Graphics
-  - Internet
-  - Money
-  - Multimedia
-  - Navigation
-  - Phone & SMS
-  - Reading
-  - Science & Education
-  - Security
-  - Sports & Health
+  - Exploitation
+  - Forensics
+  - Information Gathering
+  - NetHunter
+  - Privacy
+  - RF
+  - Sniffing & Spoofing
   - System
-  - Theming
-  - Time
-  - Writing
+  - USB HID
+  - USB Misc
+  - Utilities
+  - Vulnerability Analysis
+  - WiFi
 
 # Set a custom cutmark to separate the excerpt from the rest of the post
 excerpt_separator: <!--more-->
