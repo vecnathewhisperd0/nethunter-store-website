@@ -10,25 +10,23 @@ permalink: /
 
 {{strings.introduction}}
 
-<!-- The FDroid.apk links need the space at the start of the href=""
-to disable the polyglot link "relativization":
-https://github.com/untra/polyglot/issues/79 -->
-
 <div class="download-and-screenshot">
     <div class="download">
         <div class="button">
-            <a class="material-button" href=" https://f-droid.org/FDroid.apk">{{ strings.download_fdroid }}</a>
+            <a id="fdroid-download" data-donate-link="{{ site.baseurl }}/donate" class="material-button" href="{{ site.fdroid_apk_download_url }}">{{ strings.download_fdroid }}</a>
         </div>
         <div class="gpg">
-            <a href=" https://f-droid.org/FDroid.apk.asc">{{ strings.gpg_signature }}</a>
+            <a href="{{ site.fdroid_apk_download_url }}.asc">{{ strings.gpg_signature }}</a>
         </div>
         <div class="qr">
-            <img src="{{ site.baseurl }}/assets/download-fdroid-qr.png" />
+            <img src="{% asset download-fdroid-qr.png %}" />
         </div>
     </div>
     <div class="screenshot">
         <img
-            src="{{ site.baseurl }}/assets/phone-frame.png"
+            src="{% asset phone-frame.png %}" alt="{{ strings.screenshot }}"
             style="background: url('{{ site.baseurl }}/{% fdroid_screenshot %}') center center no-repeat; background-size: 78% auto" />
     </div>
 </div>
+
+<script src="{% asset donate.js %}"></script>

@@ -23,12 +23,13 @@ the main repository.
 
 * [FAQ - General](FAQ_-_General) Frequently Asked Questions about F-Droid
 * [FAQ - Client](FAQ_-_Client) Frequently Asked Questions about how to use the F-Droid app in Android.
-* [Anti-Features](https://f-droid.org/wiki/page/Antifeatures) What they are, what they mean, and what apps have them.
+* [Anti-Features](Anti-Features) What they are, what they mean, and what apps have them.
 * [Tutorials](../tutorials) Step-by-step tutorials on features in F-Droid
 
 
 ### More Information
 
+* [Code of Conduct](Code_of_Conduct) how to behave when communicating within F-Droid.
 * [How to Help](How_to_Help) Different ways anyone can contribute to the F-Droid project.
 * [Known Repositories](https://forum.f-droid.org/t/721) A list that tries to keep track of known F-Droid compatible repositories.
 * [Release Channels and Signing Keys](Release_Channels_and_Signing_Keys) These are the various channels that F-Droid software are released on, with info to verify them based on signing keys.
@@ -36,6 +37,8 @@ the main repository.
 * [Repomaker](../repomaker) A user-friendly tool for managing custom repos
 * [Translation and Localization](Translation_and_Localization) How all the parts of F-Droid are localized.
 * [Tips & Tricks](https://forum.f-droid.org/c/wiki/tips-and-tricks) A collection of useful tips and tricks that make life around F-Droid easier.
+* [All our APIs](All_our_APIs) Public API endpoints for data about _f-droid.org_, repos, mirrors, Android, Gradle, and more
+* [Wiki](https://gitlab.com/fdroid/wiki/-/wikis/home) For everything else that people want to document.
 
 
 ### Developers
@@ -59,8 +62,6 @@ the main repository.
 * [Whitelabel Builds](Whitelabel_Builds) custom builds of F-Droid
 * [Privileged Extension](https://gitlab.com/fdroid/privileged-extension/#f-droid-privileged-extension) How to use F-Droid Privileged Extension as a user and rom developer
 * [Deploying the Website](Deploying_the_Website) How [fdroid-website.git](https://gitlab.com/fdroid/fdroid-website) becomes [f-droid.org](https://f-droid.org)
-* [Release Process](Release_Process) All the steps needed to make official release of F-Droid projects.
 * [Maintaining the Forum](Maintaining_the_Forum) Useful information for administrators of [F-Droid's forum](https://forum.f-droid.org)
 * [Running a Mirror](Running_a_Mirror) Instructions for setting up a repository mirror
-
-* [Work in Progress](https://f-droid.org/wiki/page/Work_in_Progress) Feel free to add your own topics and link to others.
+* [MIA Process](MIA_Process) MIA (missing in action) maintainer removal process

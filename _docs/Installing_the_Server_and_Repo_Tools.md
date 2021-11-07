@@ -21,16 +21,20 @@ _fdroidserver_.  To run the full F-Droid build server setup, see
 
 ## Debian/Ubuntu/Mint/etc
 
-The F-Droid tools, also known as _fdroidserver_, are
-included in recent releases (Debian/jessie, Ubuntu/utopic, and newer).
-This should be enough to install the basic F-Droid setup:
+The F-Droid tools, also known as _fdroidserver_, may be installed
+from the standard OS package repository.  On Debian-based OS's,
+this should be enough to install the basic F-Droid setup:
 
-    sudo apt-get install fdroidserver
+```bash
+sudo apt-get install fdroidserver
+```
 
+However, it is common to find that the version of _fdroidserver_ available
+in the standard OS package repository is out of date.
 
-### Older releases
+### Getting a newer version
 
-For installing on older releases, there are a couple more simple steps:
+A newer version of _fdroidserver_ may be found in the F-Droid PPA or your OS's _backports_ repository.
 
 -   Ubuntu/Mint: use the
     [F-Droid PPA](https://launchpad.net/~fdroid/+archive/fdroidserver/+packages)
@@ -42,32 +46,48 @@ For installing on older releases, there are a couple more simple steps:
     sudo apt-get install fdroidserver
     ```
 
--   Debian/wheezy: [setup wheezy-backports](http://backports.debian.org/Instructions/#index2h2),
-    then:
+-   Debian: first [setup backports](http://backports.debian.org/Instructions/#index2h2),
+    then, substituting your Debian release for 'buster':
     ```bash
-    apt-get install fdroidserver/wheezy-backports
+    apt-get install fdroidserver/buster-backports
     ```
+
+## Fedora/Archlinux
+
+Since packages in these distros could be newer than the official ones on pypi, installing the dependencies in a separate virtual environment workarounds dependency resolving failures:
+
+```bash
+python3 -m venv env
+source env/bin/activate
+pip install -e .
+```
+
+## Guix
+The tools are also available in the main Guix channel. To install:  
+```
+guix install fdroidserver
+```
 
 
 ## macOS
 
-You can install `fdroidserver` directly using [MacPorts](https://www.macports.org/ports.php?by=name&substr=fdroidserver), [Homebrew](http://brewformulas.org/Fdroidserver), or `easy_install` as a last resort:
+You can install `fdroidserver` directly using Homebrew, or `easy_install` as a last resort:
 
-or MacPorts:
+### Homebrew:
 
-```bash
-port install fdroidserver
-```
-
-or Homebrew:
+1. Preparation: Check [the Homebrew formula](https://formulae.brew.sh/formula/fdroidserver) for instructions. Example:
 
 ```bash
 brew install android-sdk
-android update sdk --no-ui --filter platform-tools,build-tools-22.0.1
+android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.0
+```
+
+2. Install _fdroidserver_:
+```bash
 brew install fdroidserver
 ```
 
-With only `easy_install`:
+### With only `easy_install`:
 
 ```
 sudo easy_install fdroidserver
@@ -113,7 +133,7 @@ fdroid init   # the keystore gen will fail
 ```
 
 After running `fdroid init`, you need to set the Windows path to your
-keystore in _config.py_.  It is also possible to install
+keystore in _config.yml_.  It is also possible to install
 _fdroidserver_ in a virtual environment using _virtualenv_ and _pip_.
 
 
@@ -169,16 +189,15 @@ set. Be sure to verify the file you downloaded, you can double-check
 the SHA-1 Checksum on Google's download page.
 
 ```bash
-$ sudo apt-get install apksigner curl lib32gcc1 lib32ncurses5 lib32stdc++6 lib32z1 default-jdk python3-pil python3-pyasn1 python3-pyasn1-modules python3-ruamel.yaml python3-yaml ...
-$ cd ~
-$ wget https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
-$ echo "aafe7f28ac51549784efc2f3bdfc620be8a08213  tools_r25.2.3-linux.zip" | sha1sum -c
-tools_r25.2.3-linux.zip: OK
-$ unzip tools_r25.2.3-linux.zip
-$ export USE_SDK_WRAPPER=yes
-$ export ANDROID_HOME=~/android-sdk-linux
-$ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-$ android update sdk --no-ui --filter platform-tools,tools,build-tools-25.0.2,android-24
+$ sudo apt-get install fdroidserver
+$ mkdir ~/android-sdk-linux
+$ cd ~/android-sdk-linux
+$ wget https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip
+$ echo "87f6dcf41d4e642e37ba03cb2e387a542aa0bd73cb689a9e7152aad40a6e7a08  commandlinetools-linux-6858069_latest.zip" | sha256sum -c
+commandlinetools-linux-6858069_latest.zip: OK
+$ unzip commandlinetools-linux-6858069_latest.zip
+$ export ANDROID_HOME="$HOME/android-sdk-linux"
+$ ./cmdline-tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" platform-tools "build-tools;30.0.3"
 ```
 
 Note: If you have Android Studio installed, you have the Android SDK installed.
@@ -190,7 +209,6 @@ To add these settings permanently to your shell:
 
 ```bash
 $ echo export ANDROID_HOME=$ANDROID_HOME >> .bashrc
-$ echo 'export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools' >> .bashrc
 ```
 
 ## Building all apps from f-droid.org
@@ -215,7 +233,7 @@ then you'll also need to set up the
 [Signing Process](../Signing_Process).
 
 
-## Proprietary, non-free libraries
+## Proprietary, Non-Free libraries
 
 The Android SDK is made available by Google under a proprietary
 license. Within that, the essential build tools, SDK platforms,
@@ -228,8 +246,3 @@ Play Services, Google Admob, GCM, and many other third party libraries
 are proprietary and cannot be included in the main F-Droid repository.
 The [MicroG project](https://microg.org) is developing free software
 replacements for some of the most used proprietary Google libraries
-
-
-__TODO__
-
--   fix `fdroid init --keystore` with Microsoft Windows paths...

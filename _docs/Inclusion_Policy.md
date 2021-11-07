@@ -11,11 +11,11 @@ For open source software that we are asked to build, please note:
 
 -   We cannot build apps using Google's proprietary "play-services".
     Please talk to upstream about an untainted build flavor (either
-    using microg or removing non-free dependencies completely).
+    using microg or removing Non-Free dependencies completely).
 -   We cannot build apps using proprietary tracking/analytic
     dependencies like Crashlytics and Firebase. Please talk to upstream
     about an untainted build flavor (either using a FLOSS analytics
-    software like ACRA or by removing non-free dependencies completely).
+    software like ACRA or by removing Non-Free dependencies completely).
 -   We cannot build apps using proprietary ad libraries. We have nothing
     against advertisments, but they must be provided by a FLOSS compatible way.
 -   We cannot build apps requiring non-free buildtools, including
@@ -29,7 +29,7 @@ Additionally:
     hg, svn, bzr), and the source code needs to be maintained in an up
     to date state.
 -   The software should not download additional executable binary
-    files (e.g. non-free addons, auto-updates, etc).
+    files (e.g. Non-Free addons, auto-updates, etc).
 -   The software should use its own unique Android package ID. Where the
     application is a fork of another (even one not included in the
     NetHunter repository) it must have a new ID, different from
@@ -51,6 +51,16 @@ Additionally:
 Ideally:
 
 -   Releases should be clearly tagged (or otherwise marked).
+
+Some software, while being Free and Open Source, may engage in practices
+which are undesirable to some or all users. Where possible, we still
+include these applications in the repository, but they are flagged with
+the appropriate [_Anti-Features_](../Anti-Features). Even though
+such software can be included, when appropriately flagged, it is
+frequently the case that other "FLOSS" software with these features is
+actually not entirely free. For example, advertising and spying on user
+is often enabled via proprietary binary libraries which we cannot
+include.
 
 When including donation information, the relevant donation links (e.g. Bitcoin/
 PayPal/Flattr/etc) must also be available either:

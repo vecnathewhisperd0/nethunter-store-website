@@ -19,9 +19,9 @@ what kinds of data will be permanently deleted, and what kinds of data
 might still be left around afterwards.
 
 <p align="center">
-<img width="200" src="{{ site.baseurl }}/assets/posts/2019-06-15-panic-app-uninstall-and-repo-reset/screenshot_ripple.png" />
-<img width="200" src="{{ site.baseurl }}/assets/posts/2019-06-15-panic-app-uninstall-and-repo-reset/screenshot_fdroid_destructive0.png" />
-<img width="200" src="{{ site.baseurl }}/assets/posts/2019-06-15-panic-app-uninstall-and-repo-reset/screenshot_fdroid_destructive1.png" />
+<img width="200" src="{% asset posts/2019-06-15-panic-app-uninstall-and-repo-reset/screenshot_ripple.png %}" />
+<img width="200" src="{% asset posts/2019-06-15-panic-app-uninstall-and-repo-reset/screenshot_fdroid_destructive0.png %}" />
+<img width="200" src="{% asset posts/2019-06-15-panic-app-uninstall-and-repo-reset/screenshot_fdroid_destructive1.png %}" />
 </p>
 
 
@@ -39,7 +39,7 @@ Any app that F-Droid can uninstall can be included, including
 [Ripple]({{  site.baseurl }}/packages/info.guardianproject.ripple)
 and F-Droid itself.  So the whole panic setup could be wiped as part
 of the response.  This requires [F-Droid Privileged
-Extension](https://f-droid.org/packages/org.fdroid.fdroid.privileged.ota)
+Extension](https://f-droid.org/packages/org.fdroid.fdroid.privileged.ota/)
 be installed on the device, in order to uninstall apps without a
 prompt for each app.  Android ROMs like
 [CalyxOS](https://calyxos.org/), CopperheadOS,
@@ -79,6 +79,6 @@ included. CalyxOS is
 this, look for test releases soon!
 
 <p align="center">
-<img width="250" src="{{ site.baseurl }}/assets/posts/2019-06-15-panic-app-uninstall-and-repo-reset/Screenshot_1559551039.png" />
-<img width="250" src="{{ site.baseurl }}/assets/posts/2019-06-15-panic-app-uninstall-and-repo-reset/Screenshot_1559551407.png" />
+<img width="250" src="{% asset posts/2019-06-15-panic-app-uninstall-and-repo-reset/Screenshot_1559551039.png %}" />
+<img width="250" src="{% asset posts/2019-06-15-panic-app-uninstall-and-repo-reset/Screenshot_1559551407.png %}" />
 </p>

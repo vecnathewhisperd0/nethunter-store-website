@@ -131,7 +131,7 @@ encourage the developers to create a dedicate page if possible.
 
 In addition some software, even being Free and Open Source software, may
 do practices which can be considered undesirable and that we consider
-[_AntiFeatures_](https://f-droid.org/wiki/page/Antifeatures)". Where possible the F-Droid
+[_AntiFeatures_](https://monitor.f-droid.org/anti-features)". Where possible the F-Droid
 community still include these applications in the repository but
 flagging and cataloging these antifeatures in order to warn users (on
 the F-Droid client and on the web repository browser) by any
@@ -139,7 +139,7 @@ antifeatures present on the app. Even though software can be included in
 the F-Droid even with antifeatures, it is frequently the case that
 software with these antifeatures is actually not entirely FOSS (for
 example advertising and tracking user activity is often enabled via
-non-free binary libraries) compromising in this way the inclusion of the
+Non-Free binary libraries) compromising in this way the inclusion of the
 app in the F-Droid repository.
 
 

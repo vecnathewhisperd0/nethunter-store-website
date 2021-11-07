@@ -23,10 +23,11 @@ If you want to maintain a simple binary repository of APKs and
 packages obtained elsewhere, the process is quite simple:
 
 1.  [Set up the server tools](../Installing_the_Server_and_Repo_Tools)
-2.  create a directory called _fdroid_, then run `fdroid init` in that directory
-3.  Optionally edit the _config.py_ to your liking, details examples
+2.  Create a directory called _fdroid_, then run `fdroid init` in that directory
+    to generate the signing key that uniquely identifies your repo.
+3.  Optionally edit the _config.yml_ file to your liking, detailed examples
     are in
-    [`./examples/config.py`](https://gitlab.com/fdroid/fdroidserver/blob/master/examples/config.py)
+    [examples/config.yml](https://gitlab.com/fdroid/fdroidserver/-/blob/master/examples/config.yml)
 4.  Within _fdroid_, make a directory called _repo_ and put APK files in it.
 5.  Run `fdroid update`.
 6.  If it reports that any metadata files are missing, you can create
@@ -40,8 +41,8 @@ packages obtained elsewhere, the process is quite simple:
     (_index.xml_, _index.jar_, etc) __NOTE: To make this process
     secure, read [Real World Setup](#real-world-setup) below!__
 0.  Publish the resulting contents of the _repo_ directory
-    to your web server (or set `serverwebroot` in your _config.py_
-    then use `fdroid server update`)
+    to your web server (or set `serverwebroot` in your _config.yml_
+    then use `fdroid deploy`)
 
 Following the above process will result in a _repo_ directory, which you
 simply need to push to any HTTP (or preferably HTTPS) server to make it
@@ -66,12 +67,12 @@ HOWTO will walk through setting up a test repo that is not very
 secure. Then it will walk through setting up a repo for real world
 use, with the signing key on a separate machine from the public
 webserver. Before you start, you need to get
-[the `fdroidserver` tools](https://f-droid.org/wiki/page/Installing_the_Server/Repo_Tools)
+[the `fdroidserver` tools](../Installing_the_Server_and_Repo_Tools)
 and a webserver. For the webserver, this HOWTO will use _nginx_ since
 its lightweight, but any will do if you already have one running.
 
 ```bash
-    sudo apt-get install nginx
+sudo apt-get install nginx
 ```
 
 In the case of this HOWTO, we're going to setup a "simple binary
@@ -79,7 +80,7 @@ repository" to host a collection of APKs. The repo will be set up in
 the recommended _fdroid/_ subdirectory. This gives the `fdroid` tool
 its own directory to work in, and makes the repo URL clearly marked as
 an F-Droid repo. Also, the F-Droid client will automatically search for
-a repository at the _/fdroid/repo_ path if the user only the server
+a repository at the _/fdroid/repo_ path if the user only enters the server
 (e.g. "https://f-droid.org"). Let's give our normal user control
 over this subdirectory in the web root so that we don't need to run
 the F-Droid tools as root (with _nginx_, the webroot is
@@ -114,16 +115,24 @@ will be the hostname or IP address of your machine with
 `http://192.168.2.53/fdroid/repo/`. You can temporarily uncheck the
 official repos to easily see what F-Droid found in your new repo.
 
+While you can serve the repository at an arbitrary URL, it is customary
+to make it available at an URL ending with `/fdroid/repo/`.
+A good reason to actually do this is that the F-Droid client sets up an
+intent filter and registers itself for such URLs. As a result, a user
+that has the F-Droid app installed and opens such a well-formed URL
+will have their device open F-Droid and guide them directly to adding
+the repository to it.
+
 ### Customization
 
 You can also customize your repo by editing the config file. Be sure to
 use a programming text editor, like `editor
-/usr/share/nginx/www/fdroid/config.py`. In the config file,
+/usr/share/nginx/www/fdroid/config.yml`. In the config file,
 you can set the name of the repo, the description, the icon, paths to
 specific versions of the build tools, links to a related wiki, and
 whether to keep stats. Here's the basic repo description block:
 
-```python
+```yaml
 repo_url = "http://guardianproject.info/fdroid/repo"
 repo_name = "My Local Repo"
 repo_icon = "GP_Logo_hires.png"
@@ -136,14 +145,14 @@ To put your icon into your repo, choose a PNG image to put in your
 repo.  The PNG goes in `/usr/share/nginx/www/fdroid/`, the file can be
 named whatever you want (by default its `fdroid-icon.png`). If you
 change the name from the default, be sure to update `repo_icon` and
-`archive_icon` in `/usr/share/nginx/www/fdroid/config.py`.
+`archive_icon` in `/usr/share/nginx/www/fdroid/config.yml`.
 
 A final note about security: this setup is not a good setup for a real
 public repo, instead it is a quick and easy way to test out F-Droid. At
 the very least, when generating the repo in place, make sure that
-_config.py_ is not accessible via the web, since it contains
+_config.yml_ is not accessible via the web, since it contains
 passwords. If the file permissions are correct (e.g.  `chmod 0600
-config.py`), then _config.py_ will not be readable by the webserver.
+config.yml`), then _config.yml_ will not be readable by the webserver.
 
 
 ### App Metadata
@@ -175,9 +184,9 @@ should be if your repo is going to be your main distribution point. For
 example, the repo signing keys should not ever be on a public server.
 
 To improve this situation, generate the repo on a non-public machine
-like your laptop, keeping _config.py_ and the
+like your laptop, keeping _config.yml_ and the
 keystore only on that machine (remember to make backups!). Then use
-`fdroid server update` to publish the changes to
+`fdroid deploy` to publish the changes to
 your repo on a separate server via ssh. So start a new repo from scratch
 on your non-public machine:
 
@@ -187,16 +196,16 @@ cd ~/fdroid
 fdroid init
 cp /path/to/\*.apk ~/fdroid/repo/
 fdroid update --create-metadata
-emacs config.py # add the serverwebroot, etc.
-fdroid server update -v
+emacs config.yml # add the serverwebroot, etc.
+fdroid deploy -v
 ```
 
-Now edit _config.py_ to set `serverwebroot`, it is in the form of a
-standard SCP file destination. Then `fdroid server update` will do the
+Now edit _config.yml_ to set `serverwebroot`, it is in the form of a
+standard SCP file destination. Then `fdroid deploy` will do the
 publishing via rsync over ssh. So both computers will have to have ssh
 and rsync installed and setup. You can also use your own existing
 signing key rather than the one generated by `fdroid init`, just edit
 `repo_keyalias`, `keystore`, `keystorepass`, `keypass`, and
-`keydname` in _~/fdroid/config.py_.
+`keydname` in _~/fdroid/config.yml_.
 
 

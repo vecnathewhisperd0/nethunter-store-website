@@ -7,13 +7,7 @@ The project is entirely developed and maintained by volunteers. You can help:
 
 ### Report Problems
 
-If you experience problems with the site or client software, you can report them in the issue tracker (see below), or discuss them in the [Forum](https://forum.f-droid.org/) or on IRC (#fdroid on freenode).
-
-For reporting issues, choose an appropriate tracker from the following:
-
-* [F-Droid client app](https://gitlab.com/fdroid/fdroidclient/issues)
-* [Server and build tools](https://gitlab.com/fdroid/fdroidserver/issues)
-* [Official F-Droid repository metadata](https://gitlab.com/fdroid/fdroiddata/issues)
+If you experience problems with the site or client software, you can report them in the issue tracker ([find the appropriate tracker on this page]({{ "/issues/" | prepend: site.baseurl }})), or discuss them in the [Forum](https://forum.f-droid.org/), on [Matrix](https://matrix.to/#/#fdroid:f-droid.org) or on IRC (#fdroid on OFTC).
 
 ### Submit Applications
 
@@ -23,7 +17,7 @@ If you have the technical skills required, you can also put together the relevan
 
 The same applies for helping to build newer versions of applications.
 
-Further information can be found in [the documentation](../docs), or by asking [on IRC](https://webchat.freenode.net/?channels=%23fdroid) (#fdroid on freenode).
+Further information can be found in [the documentation](../docs), or by asking on [Matrix](https://matrix.to/#/#fdroid:f-droid.org) or [IRC](https://webchat.oftc.net/?randomnick=1&channels=fdroid&prompt=1) (#fdroid on OFTC).
 
 ### Translate
 
@@ -45,3 +39,8 @@ to ensure they fit with the direction of the project,
 and do not clash with or duplicate work already in development.
 
 For working with the server and data projects, it’s a good idea to read [the manual]({{ "/docs/" | prepend: site.baseurl }}).
+
+### Help with Infrastructure
+
+F-Droid provides multiple servers (builders, web portal, download areas...) which need regular maintenance, Ansible-based deployment, and hardware management.
+Further information can be found by asking on [Matrix](https://matrix.to/#/#fdroid-dev:f-droid.org), [IRC](https://webchat.oftc.net/?randomnick=1&channels=fdroid&prompt=1) (#fdroid-dev on OFTC) or team@f-droid.org.

@@ -4,20 +4,21 @@ title: Running a Mirror
 
 ---
 
-F-Droid receives its database and resources from servers that host specifically-formatted repositories of files. Originally, these repositories were hosted only at [f-droid.org](https://f-droid.org/), but as F-Droid grew [f-droid.org](https://f-droid.org/) alone was unable to handle the entire load. F-droid now supports servers that replicate these repositories. Hosting a mirror involves running an HTTP(S) server hosting a copy of the repository synchronized over `rsync`.
+F-Droid's collection of apps and files are run on servers run by the core F-Droid contributors. Originally, this main repository was hosted only on [f-droid.org](https://f-droid.org/), but as F-Droid grew [f-droid.org](https://f-droid.org/) alone was no longer able to handle the entire load. F-Droid now supports "mirror" servers that replicate a full copy of the repositories. Hosting a mirror involves running an HTTPS webserver that has a full copy of the repository synchronized using `rsync`.
 
 #### Requirements
 
-There are two official F-droid repositories, the primary and the archive. It's most valuable to mirror the primary as it's used much more than the archive.
+There are two official F-Droid repository sections, the "repo" and the "archive". It's most important to mirror the "repo" since it is used much more than the "archive".
 
-The primary resources required by a mirror are disk space and upload bandwidth. Bandwidth requirements are reduced with each new mirror, but disk requirements are relatively static. At time of writing (Mar 2019), the primary repository requires just over 50GB of disk space in 24K files, and the archive requires 220GB of disk space in 52K files. The amount of disk space required grows with every new app release.
+The primary resources required by a mirror are disk space and upload bandwidth. Bandwidth requirements are reduced with each new mirror, but disk requirements grow at a [reasonable rate](https://ftp.fau.de/cgi-bin/show-ftp-stats.cgi?statstype=2&what=mirrorsize&mirrorname=fdroid&timespan=-1&graphsize=large&submit=Go%21). At time of writing (Mar 2019), the primary repository requires just over 60GB of disk space in 24K files, and the archive requires 300GB of disk space in 52K files. The amount of disk space required grows with every new app release.
 
-Please note: You will need to seek the password for the originating mirror from an f-droid contributor via any method listed [here](https://f-droid.org/en/about/#contact).
+There are many mirror servers which offer an _rsync_ connection, make sure to select the mirror closest to your mirror server:
+
+{% include running-a-mirror-rsync.html %}
 
 You can find current information on disk space requirements by running the following in your terminal:
 ```console
-$ RSYNC_PASSWORD=[password] rsync -v --list-only fdroid-mirror@mirror.f-droid.org::repo/
-$ RSYNC_PASSWORD=[password] rsync -v --list-only fdroid-mirror@mirror.f-droid.org::archive/
+$ rsync -v --list-only ftp.fau.de::fdroid
 ```
 
 #### Setup
@@ -34,14 +35,14 @@ $ sudo mkdir -p /var/www/fdroid/fdroid/archive
 $ sudo chown -R www-data.www-data /var/www/fdroid
 ```
 
-1. Synchronize the repositories. These commands are best run in a terminal multiplexer (`screen`, `tmux` etc) as they will take some time to complete.
+2. Synchronize the repositories. These commands are best run in a terminal multiplexer (`screen`, `tmux` etc) as they will take some time to complete. With `--info=progress2` you can see the progress.
 
 ```console
-$ RSYNC_PASSWORD=[password] sudo -u www-data -E /usr/bin/rsync --links --delete --times --recursive --permissions --hard-links --sparse --delay-updates --temp-dir /tmp/ fdroid-mirror@mirror.f-droid.org::repo/ /var/www/fdroid/fdroid/repo/
-$ RSYNC_PASSWORD=[password] sudo -u www-data -E /usr/bin/rsync --links --delete --times --recursive --permissions --hard-links --sparse --delay-updates --temp-dir /tmp/ fdroid-mirror@mirror.f-droid.org::archive/ /var/www/fdroid/fdroid/archive/
+$ sudo -u www-data -E /usr/bin/rsync -aHS  --delete --delete-delay --info=progress2 ftp.fau.de::fdroid/repo/ /var/www/fdroid/fdroid/repo/
+$ sudo -u www-data -E /usr/bin/rsync -aHS  --delete --delete-delay --info=progress2 ftp.fau.de::fdroid/archive/ /var/www/fdroid/fdroid/archive/
 ```
 
-1. Establish a cronjob to keep the repositories up to date
+3. Establish a cronjob to keep the repositories up to date
 
 Create a cronjob file in `/etc/cron.d`
 
@@ -49,14 +50,14 @@ Create a cronjob file in `/etc/cron.d`
 $ vi /etc/cron.d/fdroid
 ```
 
-Fill the file with entries to update the repositories
+Fill the file with entries to update the repositories. These commands will run at minute 35 past every 6th hour, you can change it to fit your needs.
 
 ```
-*/5 * * * * www-data RSYNC_PASSWORD=[password] /usr/bin/rsync --links --delete --times --recursive --permissions --hard-links --sparse --delay-updates --temp-dir /tmp/ fdroid-mirror@mirror.f-droid.org::repo/ /var/www/fdroid/fdroid/repo/
-*/5 * * * * www-data RSYNC_PASSWORD=[password] /usr/bin/rsync --links --delete --times --recursive --permissions --hard-links --sparse --delay-updates --temp-dir /tmp/ fdroid-mirror@mirror.f-droid.org::archive/ /var/www/fdroid/fdroid/archive/
+35 */6 * * * www-data /usr/bin/rsync -aHS  --delete --delete-delay ftp.fau.de::fdroid/repo/ /var/www/fdroid/fdroid/repo/
+35 */6 * * * www-data /usr/bin/rsync -aHS  --delete --delete-delay ftp.fau.de::fdroid/archive/ /var/www/fdroid/fdroid/archive/
 ```
 
-1. Configure your webserver
+4. Configure your webserver
 
 This is an example server block for nginx. If used, it should be copied to _/etc/nginx/sites-available/_ and symlinked to _/etc/nginx/sites-enabled_. Note that it is important that your URI be `/fdroid/repo` so that the app can automatically add your mirror.
 
@@ -88,15 +89,52 @@ server {
 }
 ```
 
-1. Submit your mirror for inclusion
+5. Submit your mirror for inclusion
 
-* Fork the [mirror monitor repo](https://gitlab.com/fdroid/mirror-monitor), add your mirror to the list in the readme, and open a merge request.
+* Fork the [mirror monitor repo](https://gitlab.com/fdroid/mirror-monitor), add your mirror to the list in the README, and open a merge request.
 * Open an issue on the [admin repo](https://gitlab.com/fdroid/admin), including any pertinent information, requesting the inclusion of your mirror.
-* Once your mirror is provden trustworth and reliable to the core contributor team, it will be accepted into the official list.
+* Once the core contributor team deems your mirror trustworthy and reliable, it will be accepted into the official list.
+
+Also, it would be nice to include a privacy policy so users can understand what happens with their metadata when using the mirror. Purdue PLUG https://plug-mirror.rcac.purdue.edu/info.html and FAU https://ftp.fau.de/datenschutz are two examples.
+
 
 #### Other considerations
 
+* Set up a privacy policy that describes what happens to the metadata (for example [FAU](https://ftp.fau.de/datenschutz/), [PLUG](https://plug-mirror.rcac.purdue.edu/info.html), [Lysator](https://ftp.lysator.liu.se/datahanteringspolicy.txt)).
 * Forward emails from cronjob failures so you know if the synchronization fails
-* Set up monitoring on your mirror so you know if it goes down (ideally keyword on _/var/www/fdroid/fdroid/repo/index.html_)
-* Harden your SSH server config (disable password authentication, install fail2ban)
-* Enable unattended upgrades
+* Set up monitoring on your mirror so you know if it goes down (ideally keyword on _/srv/mymirror.org/htdocs/fdroid/repo/index-v1.jar_)
+* Harden your SSH server config (disable password authentication, install _fail2ban_)
+* Enable unattended security upgrades (in Debian, just `apt-get install unattended-upgrades`)
+
+
+## Running a Primary Mirror (receiving syncs via push)
+
+The preferred setup is for the F-Droid updates to be pushed to the primary
+mirror via _rsync_ over _ssh_ with SSH Key authentication.  This is the same as
+[Debian](https://www.debian.org/mirror/push_server#sshtrigger), the key
+difference is that there currently is no script used for the `command=""`, but
+instead, there is a hard-coded _rsync_ command.  This really nicely restricts
+the security interaction to only want needs to happen (Least Authority!).
+
+```
+command="rsync --server -logDtpre.iLsfx --log-format=X --delete --delay-updates . /srv/fdroid-mirror.at.or.at/htdocs/fdroid/"
+```
+
+The only piece of that command that is customizable is the final path.  It can
+be any path but it must point to the `/fdroid/` directory and must have the
+trailing slash.  If any of the _rsync_ options are changed, it will break the
+sync setup.
+
+As an extra precaution, there should be a user account (e.g. `fdroid`)
+dedicated to receiving the _rsync_/_ssh_ connection.  It should have
+as little access as possible.  It should definitely not have write
+access to the _authorized_keys_ file, since that would allow an
+attacker who gains write access to add a separate key configuration
+line which circumvents all the restrictions listed there.  This can be
+done simply by doing:
+
+```console
+$ sudo chown root.root /home/fdroid/.ssh /home/fdroid/.ssh/authorized_keys
+$ sudo chmod 0755 /home/fdroid/.ssh
+$ sudo chmod 0644 /home/fdroid/.ssh/authorized_keys
+```

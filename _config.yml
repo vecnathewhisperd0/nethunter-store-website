@@ -3,15 +3,17 @@
 
 title: F-Droid - Free and Open Source Android App Repository
 header-title: F-Droid
-description: >
-  © 2010-2019 F-Droid Limited and Contributors
+copyright: © 2010-2021 F-Droid Limited and Contributors
 baseurl: "" # the subpath of your site, e.g. /fdroid-website
 url: "http://localhost:4000" # the base hostname & protocol for your site
 
+exclude:
+  - build
 include:
   - "_pages"
   - ".htaccess"
   - ".well-known"
+  - "api"
 collections:
   tutorials:
     output: true
@@ -19,7 +21,7 @@ collections:
   docs:
     output: true
     permalink: /docs/:title/
-gems:
+plugins:
   - jekyll-include-cache
   - jekyll-paginate-v2
   - jekyll-redirect-from
@@ -33,25 +35,64 @@ error_mode: strict
 strict_variables: true
 strict_filters: true
 
+pagination:
+  enabled: true
+
 # Languages are manually chosen by looking at languages that are fully
 # translated across the whole project. Check with this script:
 #   ./tools/check-language-status.sh
-languages: [ bo, en, de, es, fa, fr, he, it, ko, pt_BR, ru, tr, uk, zh_Hans, zh_Hant ]
+languages: [ bo, en, de, es, fa, fr, he, hu, is, it, ja, ko, pl, pt_BR, ro, ru, sq, tr, uk, zh_Hans, zh_Hant ]
 # the languages built and deployed when run with gitlab-ci
-gitlab_ci_languages: [ bo, en, fa, zh_Hans ]
+gitlab_ci_languages: [ en, fa, zh_Hans ]
 # Specifying the default language as "_" forces polyglot to generate a
 # en/ subdirectory too (with correct links). See
 # https://github.com/untra/polyglot/issues/60
 default_lang: "_"
+# get the lang: front matter from the path, e.g. _pages/zh_Hans/about.md
+lang_from_path: true
+# exclude these regexp chunks based on what is in the href=""
 exclude_from_localization:
-  - archive
-  - assets
-  - css
-  - feed.xml
-  - repo
-  - tools
-  - wiki
-  - wp-content
+  - \.htaccess
+  - \.well-known/
+  - CONTRIBUTING\.md
+  - F-Droid\.apk
+  - LICENSE
+  - README\.md
+  - TRANSLATIONS\.md
+  - archive/
+  - assets/
+  - css/
+  - feed\.xml
+  - js/
+  - po/
+  - repo/
+  - robots\.txt
+  - tools/
+  - wiki/
+  - wp-content/
+
+# name in download link must match name listed in exclude_from_localizations:
+fdroid_apk_download_url: https://f-droid.org/F-Droid.apk
+
+# App categories
+app_categories:
+  - Connectivity
+  - Development
+  - Games
+  - Graphics
+  - Internet
+  - Money
+  - Multimedia
+  - Navigation
+  - Phone & SMS
+  - Reading
+  - Science & Education
+  - Security
+  - Sports & Health
+  - System
+  - Theming
+  - Time
+  - Writing
 
 # Set a custom cutmark to separate the excerpt from the rest of the post
 excerpt_separator: <!--more-->

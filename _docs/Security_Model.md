@@ -6,9 +6,10 @@ title: Security Model
 
 The security architecture is based on models proven by
 [Debian](https://wiki.debian.org/SecureApt), [The Update
-Framework](https://github.com/theupdateframework/tuf/blob/develop/docs/tuf-spec.txt)
+Framework](https://github.com/theupdateframework/specification/blob/master/tuf-spec.md)
 , and others:
 
+-   a repo is defined by having unique signing key, first and foremost
 -   [HTTPS connections by default](https://gitlab.com/fdroid/fdroidclient/blob/v0.100.1/app/src/main/res/values/default_repo.xml#L11)
 -   server only works over HTTPS, [HTTP](http://f-droid.org) is a redirect
 -   [Android enforces](https://developer.android.com/studio/publish/app-signing.html#considerations) that all apps have a valid signature over the entire contents of the APK file 
@@ -75,13 +76,13 @@ to make it as hard as possible to exploit this vector.
   _f-droid.org_
 * a [strong](https://observatory.mozilla.org/analyze.html?host=f-droid.org#third) TLS/HTTPS configuration
 * a [strong](https://observatory.mozilla.org/analyze.html?host=f-droid.org) HTTP Content Security Policy
-* [PGP-signature](/F-Droid.apk.asc) on the initial
-  install [download link](/F-Droid.apk)
+* [PGP-signature]({{ site.fdroid_apk_download_url }}.asc) on the initial
+  install [download link]({{ site.fdroid_apk_download_url }})
 * automated
   [regular](https://gitlab.com/fdroid/fdroid-website/-/jobs/47503948)
   and [random](https://verification.f-droid.org/check-fdroid-apk)
   [auditing](https://gitlab.com/fdroid/fdroidserver/blob/dfbe114af3c4cef15ce3aa5e979d9f4684f2acbc/tests/check-fdroid-apk)
-  that [F-Droid.apk](/F-Droid.apk) has not been tampered with
+  that [F-Droid.apk]({{ site.fdroid_apk_download_url }}) has not been tampered with
 * F-Droid Limited controls many potential phishing domains like
   [fdroid.org](https://whois.icann.org/lookup?name=fdroid.org),
   [f-droid.com](https://whois.icann.org/lookup?name=f-droid.com), and
@@ -90,7 +91,7 @@ to make it as hard as possible to exploit this vector.
 * website is
   [statically generated](https://gitlab.com/fdroid/fdroid-website) to
   greatly reduce the attack surface
-* website is fully functional when Javascript is disabled in the
+* website is fully functional when JavaScript is disabled in the
   browser, eliminating all possibility of XSS attacks
 
 
@@ -111,8 +112,8 @@ method does not increase the risk profile of those users.
 On top of this, F-Droid makes it as easy as possible to
 [build it into](https://gitlab.com/fdroid/privileged-extension/#how-do-i-build-it-into-my-rom)
 ROM projects.  It is already included in
+[CalyxOS](https://calyxos.org/),
 [Replicant](https://www.replicant.us/),
-[CopperheadOS](https://copperhead.co/android/),
 [LineageOS for microG](https://lineage.microg.org/) and
 [Fairphone Open](https://code.fairphone.com/projects/fp-osos/).
 
@@ -124,12 +125,12 @@ can also be taken from the app's source repository.  This data is
 ultimately delivered to the Android client or the user's browser via
 _f-droid.org_.
 
-* the Android client never runs CSS, Javascript, or dangerous HTML
+* the Android client never runs CSS, JavaScript, or dangerous HTML
 tags since it displays HTML via
 [`android.text.Html.fromHtml()`](https://gitlab.com/fdroid/fdroidclient/blob/1.3.1/app/src/main/java/org/fdroid/fdroid/views/AppDetailsRecyclerViewAdapter.java#L441)
 with image loading disabled
 * the _f-droid.org_ website protects against malicious and
-CSS/HTML/Javascript injection with a
+CSS/HTML/JavaScript injection with a
 [strict HTTP Content Security Policy](https://observatory.mozilla.org/analyze.html?host=f-droid.org).
 * Repomaker filters the texts through Mozilla's
 [_bleach_](https://github.com/mozilla/bleach) and has a good

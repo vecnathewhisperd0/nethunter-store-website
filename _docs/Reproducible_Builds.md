@@ -28,13 +28,13 @@ recipe. Publishing only takes place if there is a proper match. (Which
 seems very unlikely to be the case unless the exact same tool-chain is
 used, so I would imagine that unless the person building and signing
 the incoming binaries uses fdroidserver to build them, probably the
-exact same buildserver id, they will not match. But at least we have
+exact same buildserver ID, they will not match. But at least we have
 the functionality to support that.)
 
 This procedures are implemented as part of `fdroid publish`. At the
 publish step, the reproducibility check will follow this logic:
 
-![Flow-chart for reproducibility check]({{ site.baseurl }}/assets/docs/reproducible-builds/publish.png)
+![Flow-chart for reproducibility check]({% asset docs/reproducible-builds/publish.png %})
 
 
 #### Publish both (upstream-)developer signed and F-Droid signed APKs
@@ -57,12 +57,23 @@ $ fdroid signatures F-Droid.apk
 You may also supply HTTPS-URLs directly to `fdroid signatures` instead
 of local files. The signature files are extracted to the according
 metadata directory ready to be used with `fdroid publish`. A signature
-consists of 3 files and the result of extracting one will resemble this
-file listing:
+consists of 3-5 files and the result of extracting one will resemble these
+file listings:
 
 ```console
-$ ls metadata/org.fdroid.fdroid/signatures/1000012/
+$ ls metadata/org.fdroid.fdroid/signatures/1000012/  # v1 signature only
 CIARANG.RSA  CIARANG.SF  MANIFEST.MF
+$ ls metadata/your.app/signatures/42/                # v1 + v2/v3 signature
+APKSigningBlock  APKSigningBlockOffset  MANIFEST.MF  YOURKEY.RSA  YOURKEY.SF
+```
+
+If you don't want to install `fdroidserver` or have an older version that doesn't support extracting v2/v3 signatures yet, you can also use [`apksigcopier`](https://github.com/obfusk/apksigcopier) (available in e.g. Debian unstable) instead of `fdroid signatures`:
+
+```console
+$ cd /path/to/fdroiddata
+$ APPID=your.app VERSIONCODE=42
+$ mkdir metadata/$APPID/signatures/$VERSIONCODE
+$ apksigcopier extract --v1-only=auto Your.apk metadata/$APPID/signatures/$VERSIONCODE
 ```
 
 #### Exclusively publishing (upstream-)developer signed APKs
@@ -116,7 +127,17 @@ starting with Gradle Android Plugin v2.2.2, timestamps in the APK
 file's ZIP header are automatically zeroed out.
 
 
-## _platform_ Revisions
+### Reproducible Signatures
+
+F-Droid verifies reproducible builds using the APK signature, which requires [copying](https://github.com/obfusk/apksigcopier) the signature from a signed APK to an unsigned one and then checking if the latter verifies.
+The old v1 (JAR) signatures only cover the *contents* of the APK (ZIP metadata and ordering are irrelevant), but v2/v3 signatures cover *all other bytes in the APK*.
+Thus, the APKs must be completely identical *before* and *after* signing (apart from the signature) in order to verify correctly.
+
+Copying the signature uses the same algorithm that `apksigner` uses when signing an APK.
+It is therefore important that (upstream) developers do the same when signing APKs, ideally by using `apksigner`.
+
+
+### _platform_ Revisions
 
 The Android SDK tools
 [were changed](https://issuetracker.google.com/issues/37132313) in
@@ -170,6 +191,74 @@ android {
 }
 ```
 
+### R8 Optimizer
+
+It appears that some R8 optimizations done in nondeterministic way,
+producing different bytecode on different build runs.
+
+For instance, R8 tries to optimize ServiceLoader usage making a static
+list of all services in the code. The order of this list may be
+different (or even incomplete) on each build run. The only way to avoid
+this behavior is disabling such optimizations declaring optimized
+classes in _proguard-rules.pro_:
+
+```
+-keep class kotlinx.coroutines.CoroutineExceptionHandler
+-keep class kotlinx.coroutines.internal.MainDispatcherFactory
+```
+
+Be careful with R8. Always test your builds multiple times and disable
+optimizations which produce a nondeterministic output.
+
+### Resource Shrinker
+
+It's possible to reduce the APK file size removing unused resources
+from the package. This is useful when a project depends on some bloat
+libraries such as AppCompat, especially when R8/ProGuard code
+shrinking is used.
+
+However, it might be possible that resource shrinker will increase the
+APK size on different platforms, especially if there is not too many
+resources to shrink, in which case the original APK will be used
+instead of the shrinked one (nondeterministic behavior of Gradle
+plugin). Avoid using resource shrinker unless it decreases the APK file
+size significantly.
+
+### coreLibraryDesugaring
+
+In some cases builds are not reproducible due to a [bug in `coreLibraryDesugaring`](https://issuetracker.google.com/issues/195968520) (requires a google account to view); this [currently affects NewPipe](https://github.com/TeamNewPipe/NewPipe/issues/6486).
+
+### zipflinger
+
+Recent versions of the Android gradle plugin will use *zipflinger* -- which arranges the contents of the APK differently -- which could result in e.g. [apksigcopier](https://github.com/obfusk/apksigcopier) failing to work in some cases.  You can tell the plugin not to use *zipflinger* by setting `android.useNewApkCreator=false` in `gradle.properties`.
+
+### Native library stripping
+
+It seems that the stripping of native libraries, e.g. _libfoo.so_, can cause
+intermittent reproducibility issues.  It is important to use the exact NDK
+version when rebuilding, e.g. r21e.  Disabling stripping can sometimes help.
+Gradle seems to strip shared libraries by default, even the app is receiving the
+shared libraries via an AAR library.  Here is how to disable it in Gradle:
+
+```gradle
+android {
+	packagingOptions {
+		doNotStrip '**/*.so'
+	}
+}
+
+```
+
+
+### NDK _build-id_
+
+On different build machines different NDK paths and different paths to the
+project (and thus to its _jni_ directory) are used. This leads to different
+paths to the source files in debug symbols, causing linker to generate
+different _build-id_, which is preserved after stripping.
+
+One possible solution is adding `LOCAL_LDFLAGS += -Wl,--build-id=none` to
+_Android.mk_ files which will disable _build-id_ generation completely.
 
 ### Build Server IDs
 
@@ -210,19 +299,19 @@ process.  But the APK build process can add them.  For example:
 
 #### TODO
 
-- NDK inserts changing _build-id_, probably via `ld`
-- jar sort order for APKs
-- `aapt` versions produce different results (XML and res/ subfolder names)
+* jar sort order for APKs
+* `aapt` versions produce different results (XML and res/ subfolder names)
 
 
 #### Sources
 
-- <https://gitlab.com/fdroid/fdroidserver/commit/8568805866dadbdcc6c07449ca6b84b80d0ab03c>
-- [Verification Server](../Verification_Server)
-- <https://verification.f-droid.org>
-- <https://reproducible-builds.org>
-- <https://wiki.debian.org/ReproducibleBuilds>
-- <https://gitian.org/>
-- [Google Issue #70292819 platform-27\_r01.zip was overwritten with a new update](https://issuetracker.google.com/issues/70292819) (_Google login and Javascript required_)
-- [Google Issue #37132313 platformBuildVersionName makes builds difficult to reproduce, creates unneeded diffs](https://issuetracker.google.com/issues/37132313) (_Google login and Javascript required_)
-- [Google Issue #110237303 resources.arsc built with non-determism, prevents reproducible APK builds](https://issuetracker.google.com/issues/110237303) (_Google login and Javascript required_)
+* <https://gitlab.com/fdroid/fdroidserver/commit/8568805866dadbdcc6c07449ca6b84b80d0ab03c>
+* [Verification Server](../Verification_Server)
+* <https://verification.f-droid.org>
+* <https://reproducible-builds.org>
+* <https://wiki.debian.org/ReproducibleBuilds>
+* <https://gitian.org/>
+* [Google Issue #70292819 platform-27\_r01.zip was overwritten with a new update](https://issuetracker.google.com/issues/70292819) (_Google login and JavaScript required_)
+* [Google Issue #37132313 platformBuildVersionName makes builds difficult to reproduce, creates unneeded diffs](https://issuetracker.google.com/issues/37132313) (_Google login and JavaScript required_)
+* [Google Issue #110237303 resources.arsc built with non-determism, prevents reproducible APK builds](https://issuetracker.google.com/issues/110237303) (_Google login and JavaScript required_)
+* [Unreproducible/non-deterministic code generation by navigation.safeargs.kotlin](https://issuetracker.google.com/issues/189498001) (_Google login and JavaScript required_)

@@ -19,7 +19,7 @@ This is a list of all signing keys used for F-Droid releases.
         />`A9DA 13CD F7A1 4ACD D3DE E530 F4CA FFDB 4348
         041C`
 -   official binary releases:
-    <https://f-droid.org/repository/browse/?fdfilter=f-droid&fdid=org.fdroid.fdroid>
+    <https://f-droid.org/packages/org.fdroid.fdroid>
     -   GPG signing key: "F-Droid \<admin@f-droid.org>"
     -   Primary key fingerprint: `37D2 C987 89D8 3119 4839 4E3E 41E7 044E 1DBA 2E89`
     -   Subkey fingerprint: `802A 9799 0161 1234 6E1F EFF4 7A02 9E54 DD5D CE7A`
@@ -43,6 +43,7 @@ This is a list of all signing keys used for F-Droid releases.
 And here is the whole certificate:
 
 ```
+
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAltB15HwBTngiyJ/Wf3ld
 IyA+KohD9Tuk5rG/Xy/Q4iWTgmfPyuf79P5ZY0avuvQHD9uR9m+83yNIo9kkMFAo
@@ -96,13 +97,14 @@ keytool -import  -noprompt -trustcacerts -alias index -storepass android -file i
 jarsigner -keystore index.jks -storepass android -strict -verify admin@f-droid.org.jar
 
 # verify against the key that is embedded in this page
-wget -O - https://f-droid/docs/Release_Channels_and_Signing_Keys/ | openssl x509 -inform pem -outform der -out docs.der
+wget -O - https://f-droid.org/docs/Release_Channels_and_Signing_Keys/ | openssl x509 -inform pem -outform der -out docs.der
 keytool -import -noprompt -trustcacerts -alias docs -storepass android -file docs.der -keystore docs.jks
 jarsigner -keystore docs.jks -storepass android -strict -verify admin@f-droid.org.jar
 
 # when satisfied with the verification, import it
 unzip admin@f-droid.org.jar admin@f-droid.org.asc
 gpg --import admin@f-droid.org.asc
+gpg --keyserver keyserver.ubuntu.com --recv-key 37D2C98789D8311948394E3E41E7044E1DBA2E89
 ```
 
 
@@ -129,7 +131,7 @@ gpg --import admin@f-droid.org.asc
 
 -   official Debian package: <https://packages.debian.org/fdroidserver>
     -   package source:
-        <https://anonscm.debian.org/git/collab-maint/fdroidserver.git>
+        <https://salsa.debian.org/python-team/packages/fdroidserver.git>
     -   package tags signed by "Hans-Christoph Steiner
         \<hans@guardianproject.info>" aka "Hans-Christoph Steiner
         \<hans@eds.org>" aka "Hans-Christoph Steiner
@@ -150,13 +152,13 @@ gpg --import admin@f-droid.org.asc
 ## Repomaker
 
 -   git repo: <https://gitlab.com/fdroid/repomaker>
-    -   git tags signed by "Nico Alt <nicoalt@posteo.org>" aka
-        "Nico Alt <nicoalt@posteo.de>" with fingerprint: <br />
+    -   git tags signed by
+        "Nico Alt \<nicoalt@posteo.de>" with fingerprint: <br />
         `558B E907 1CA6 CA44 DBF5 576B 95A0 DAF7 DBC7 B548`
 
 -   source package: <https://pypi.python.org/pypi/repomaker>
-    -   package tags signed by "Nico Alt <nicoalt@posteo.org>" aka
-        "Nico Alt <nicoalt@posteo.de>" with fingerprint: <br />
+    -   package tags signed by
+        "Nico Alt \<nicoalt@posteo.de>" with fingerprint: <br />
         `558B E907 1CA6 CA44 DBF5 576B 95A0 DAF7 DBC7 B548`
     -   release command: `python3 setup.py sdist upload --sign`
 
@@ -176,6 +178,5 @@ gpg --import admin@f-droid.org.asc
         \<hans@eds.org>" aka "Hans-Christoph Steiner
         \<hans@at.or.at>" with fingerprint: <br />
         `EE66 20C7 136B 0D2C 456C 0A4D E9E2 8DEA 00AA 5556`
-    -   or previously "Nico Alt <nicoalt@posteo.org>" aka
-        "Nico Alt <nicoalt@posteo.de>" with fingerprint: <br />
+        or "Nico Alt \<nicoalt@posteo.de>" with fingerprint: <br />
         `558B E907 1CA6 CA44 DBF5 576B 95A0 DAF7 DBC7 B548`

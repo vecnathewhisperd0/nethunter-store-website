@@ -43,7 +43,7 @@
 #
 
 # Fail on errors.
-set -eu -o pipefail
+set -eu
 
 function assert_file {
     if [[ ! -f ${1} ]]; then
@@ -109,6 +109,7 @@ Content-type: text/html
 TXT
 }
 
+
 if [ ! -f _config.yml ]; then
     echo "Must be run from the same directory as _config.yml (the Jekyll source dir)."
     exit 1
@@ -128,15 +129,15 @@ if [ ! -d $1/en ]; then
     exit 1
 fi
 
-# This populates the SUPPORTED_LANGS variable.
 SUPPORTED_LANGS=`ruby -ryaml -e 'puts YAML.load_file("_config.yml")["languages"]'`
+test -n "$SUPPORTED_LANGS"
 
 # This populates the WEBLATE_LANGS variable.
 source tools/weblate-supported-langs.sh
 
 cd $1
 
-# For deploying to GitLab or surge.sh, we still want it to work, which
+# For deploying to GitLab Pages, we still want it to work, which
 # requires leaving original English *.html files in the webroot rather
 # than just MultiView compatible *.html.LANG files.
 if [[ $# == 2 && $2 == "--no-type-maps" ]]; then
@@ -145,8 +146,9 @@ else
     MULTI_VIEWS=true
 fi
 
-find en/ -type f -print0 | while IFS= read -r -d '' FILE_PATH
-do
+i=0
+nproc=`nproc`
+find en/ -type f -print0 | while IFS= read -r -d '' FILE_PATH; do
     DIR=${FILE_PATH#*/} # Strip off the leading "en/" from the path
     DIR=`dirname ${DIR}`
     FILE=`basename ${FILE_PATH}`
@@ -163,16 +165,23 @@ do
         continue;
     fi
 
-    echo "Processing ${DIR}/${FILE}"
+    (
+	echo "Processing ${DIR}/${FILE}"
 
-    for LANG in $SUPPORTED_LANGS; do
-        SRC_I18N_FILE=${LANG}/${DIR}/${FILE}
-        DEST_I18N_FILE=${DIR}/${FILE}.${LANG}
-        assert_file ${SRC_I18N_FILE}
-        relative_symlink ${SRC_I18N_FILE} ${DEST_I18N_FILE}
-    done
+	for LANG in $SUPPORTED_LANGS; do
+            SRC_I18N_FILE=${LANG}/${DIR}/${FILE}
+            DEST_I18N_FILE=${DIR}/${FILE}.${LANG}
+            assert_file ${SRC_I18N_FILE}
+            relative_symlink ${SRC_I18N_FILE} ${DEST_I18N_FILE}
+	done
 
-    write_typemap ${DIR}/${FILE} "$SUPPORTED_LANGS"
+	write_typemap ${DIR}/${FILE} "$SUPPORTED_LANGS"
+    ) &
+    i=$((i+1))
+    if [ $i -ge $nproc ]; then
+        wait
+        i=0
+    fi
 done
 
 if [[ ${MULTI_VIEWS} = true ]]; then

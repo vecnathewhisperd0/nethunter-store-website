@@ -8,8 +8,7 @@ This page documents how a new application gets included in the main
 NetHunter Store repository. It includes the technical details that a
 submitter should be aware of.
 
-Application Inclusion Proposal
-------------------------------
+## Application Inclusion Proposal
 
 To propose inclusion of a new application to the main NetHunter Store repository,
 one could post the applications relevant information to the Submission
@@ -67,8 +66,7 @@ When proposing inclusion this way, it is assumed that:
 Recommended steps to propose inclusion this way are written on the [NetHunter Store
 application metadata repository](https://gitlab.com/fdroid/nethunter-storedata/blob/master/CONTRIBUTING.md).
 
-Application Review Process
---------------------------
+## Application Review Process
 
 Once the inclusion proposal is filed, the application will enter a
 reviewing process where NetHunter Store staff look into the applications source
@@ -94,8 +92,8 @@ This is a nonexhaustive list of what a reviewer would do:
 -   They will check if your application uses any pre-compiled libraries or
     binary blobs.
 -   They will skim through the source code to see if your application
-    uses non-Free dependencies, shows advertisements, tracks users,
-    promotes non-Free services/applications, or does anything that is
+    uses Non-Free dependencies, shows advertisements, tracks users,
+    promotes Non-Free services/applications, or does anything that is
     harmful or otherwise undesirable for users.
 -   They will try patching your application to remove usage of
     third-party proprietary software (if there is any).
@@ -144,8 +142,7 @@ reviewing process will be much less intensive in several respects, and
 consumes much less time. Policy-violating applications that somehow
 sneaked in this way will be dealt with after the fact.
 
-Build Process
--------------
+## Build Process
 
 After the application metadata is added to nethunter-storedata GitLab repository,
 the next step is for the main NetHunter Store build server to fetch
@@ -183,12 +180,9 @@ preprocessing process, followed by the build process for each of them.
 
 ### APK Signing Process
 
-### Wiki Page Generation Process
-
 ### Repository Publishing Process
 
-What to Expect
---------------
+## What to Expect
 
 When your application metadata is approved and accepted into the nethunter-storedata
 git repository on GitLab, **it won't immediately appear** in the main
@@ -208,6 +202,5 @@ download it: Once the application appeared in the main NetHunter Store
 repository, it would take another day before appearing on [Latest Apps
 list](https://store.nethunter.com).
 
-External Links
---------------
+## External Links
 

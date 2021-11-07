@@ -7,14 +7,14 @@ layout: default
   <header class="post-header">
     <h2 class="post-title" itemprop="name headline">{{ page.title }}</h2>
     <i class="post-meta">
-		Posted on {{ page.date | date: "%b %-d, %Y" }}
+		Posted on {{ page.date | date: "%F" }}
 		{% if page.author %}
 			by
 			{% if page.authorWebsite %}
 				<a href="{{ page.authorWebsite }}">
 			{% endif %}
 			<img
-				src="{{ site.baseurl }}/assets/{{ page.author }}.jpg"
+				src="{{ page.author | append: '.jpg' | asset }}"
 				alt="{{ page.author }}"
 				width="40"
 			/>

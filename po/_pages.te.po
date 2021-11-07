@@ -6,472 +6,222 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-11 01:14+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2021-10-11 10:50+0200\n"
+"PO-Revision-Date: 2019-08-28 21:02+0200\n"
+"Last-Translator: beeram  sindhuja <beeramsindhuja@protonmail.com>\n"
+"Language-Team: Telugu <https://hosted.weblate.org/projects/f-droid/website-pages/te/>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.8-dev\n"
 
-#. type: Title #
-#: build/_pages/md/403.md
+#. type: YAML Front Matter: title
+#: _pages/403.md
 #, no-wrap
 msgid "403 Forbidden"
-msgstr ""
+msgstr "403 నిషేధించబడింది"
 
 #. type: Plain text
-#: build/_pages/md/403.md build/_pages/md/404.md
+#: _pages/403.md _pages/404.md
 msgid "If you think there should be something here, please [submit an issue](https://gitlab.com/fdroid/fdroid-website/issues)."
-msgstr ""
+msgstr "ఇక్కడ ఏదో ఉండాలి అని మీరు అనుకుంటే, దయచేసి [సమస్యను సమర్పించండి]"
 
-#. type: Title #
-#: build/_pages/md/404.md
+#. type: YAML Front Matter: title
+#: _pages/404.md
 #, no-wrap
 msgid "404 Page Not Found"
-msgstr ""
+msgstr "404 పేజి దొరకలేదు"
 
-#. type: Title #
-#: build/_pages/md/about.md
+#. type: YAML Front Matter: title
+#: _pages/about.md
 #, no-wrap
 msgid "About"
-msgstr ""
+msgstr "గురించి"
 
 #. type: Plain text
-#: build/_pages/md/about.md
-msgid "F-Droid is a robot with a passion for Free and Open Source (FOSS) software on the Android platform. On this site you’ll find a repository of FOSS apps, along with an Android client to perform installations and updates, and news, reviews and other features covering all things Android and software-freedom related."
-msgstr ""
+#: _pages/about.md
+#, fuzzy
+#| msgid "F-Droid is a robot with a passion for Free and Open Source (FOSS) software on the Android platform. On this site you’ll find a repository of FOSS apps, along with an Android client to perform installations and updates, and news, reviews and other features covering all things Android and software-freedom related."
+msgid "F-Droid is a robot with a passion for Free and Open Source Software (FOSS) on the Android platform. On this site you’ll find a repository of FOSS apps, along with an Android client to perform installations and updates, news, reviews, and other features covering all things Android and software-freedom related."
+msgstr "ఆండ్రాయిడ్ ప్లాట్‌ఫామ్‌లో ఫ్రీ అండ్ ఓపెన్ సోర్స్ (ఫాస్) సాఫ్ట్‌వేర్ పట్ల అభిరుచి ఉన్న రోబోట్ ఎఫ్-డ్రాయిడ్. ఈ సైట్‌లో మీరు సంస్థాపనలు మరియు నవీకరణలను నిర్వహించడానికి Android క్లయింట్‌తో పాటు FOSS అనువర్తనాల రిపోజిటరీని మరియు Android మరియు సాఫ్ట్‌వేర్-స్వేచ్ఛకు సంబంధించిన అన్ని విషయాలను కవర్ చేసే వార్తలు, సమీక్షలు మరియు ఇతర లక్షణాలను కనుగొంటారు."
 
 #. type: Plain text
-#: build/_pages/md/about.md
-msgid "The _f-droid.org_ core infrastructure is operated by F-Droid Limited, a UK \"private company\" registered in England (no. [08420676](https://beta.companieshouse.gov.uk/company/08420676))."
+#: _pages/about.md
+msgid "Donations for F-Droid development are handled via our [OpenCollective](https://opencollective.com/F-Droid/)."
 msgstr ""
 
 #. type: Title ###
-#: build/_pages/md/about.md
+#: _pages/about.md
 #, no-wrap
 msgid "Contact"
-msgstr ""
+msgstr "పరిచయం"
 
 #. type: Plain text
-#: build/_pages/md/about.md
+#: _pages/about.md
 msgid "You can discuss F-Droid or get help on the [forum](https://forum.f-droid.org) and F-Droid's user chat."
+msgstr "మీరు ఎఫ్-డ్రాయిడ్ గురించి చర్చించవచ్చు లేదా [ఫోరమ్](https://forum.f-droid.org) మరియు ఎఫ్-డ్రాయిడ్ యొక్క యూజర్ చాట్‌లో సహాయం పొందవచ్చు."
+
+#. type: Plain text
+#: _pages/about.md
+#, fuzzy
+#| msgid "To chat with others about F-Droid, either join via IRC in the [#fdroid channel](https://webchat.oftc.net/?channels=%23fdroid) on freenode or join [#fdroid:f-droid.org](https://matrix.to/#/#fdroid:f-droid.org) on Matrix.  The discussions are logged on [view.matrix.org](https://view.matrix.org/alias/%23fdroid:f-droid.org)."
+msgid "To chat with others about F-Droid, either join via IRC in the [#fdroid channel](https://webchat.oftc.net/?randomnick=1&channels=fdroid&prompt=1) on OFTC or join [#fdroid:f-droid.org](https://matrix.to/#/#fdroid:f-droid.org) on Matrix.  The discussions are logged on [matrix.f-droid.org](https://matrix.f-droid.org/alias/%23fdroid:f-droid.org)."
+msgstr "F-Droid గురించి ఇతరులతో చాట్ చేయడానికి, ఫ్రీనోడ్‌లోని [#fdroid ఛానెల్](https://webchat.oftc.net/?channels=%23fdroid) లో IRC ద్వారా చేరండి లేదా [#fdroid:f-droid.org](https://matrix.to/#/#fdroid:f-droid.org) మ్యాట్రిక్స్లో. చర్చలు [view.matrix.org](https://view.matrix.org/alias/%23fdroid:f-droid.org) లో లాగిన్ అయ్యాయి."
+
+#. type: Plain text
+#: _pages/about.md
+#, fuzzy
+#| msgid "There also exist bridges to Telegram and Jabber/XMPP (experimental).  To join via Telegram, click on [this link](https://matrix.f-droid.org/fdroid/telegram/).  For Jabber/XMPP, join [#fdroid#matrix.org@bridge.xmpp.matrix.org](xmpp:#fdroid#matrix.org@bridge.xmpp.matrix.org?join)."
+msgid "There are also bridges to Telegram and Jabber/XMPP (experimental).  To join via Telegram, click [this link](https://matrix.f-droid.org/fdroid/telegram/).  For Jabber/XMPP, join [#fdroid#matrix.org@bridge.xmpp.matrix.org](xmpp:#fdroid#matrix.org@bridge.xmpp.matrix.org?join)."
+msgstr "టెలిగ్రామ్ మరియు జబ్బర్ / ఎక్స్‌ఎంపిపి (ప్రయోగాత్మక) కు వంతెనలు కూడా ఉన్నాయి. టెలిగ్రామ్ ద్వారా చేరడానికి, [ఈ లింక్](https://matrix.f-droid.org/fdroid/telegram/) పై క్లిక్ చేయండి. జబ్బర్ / XMPP కోసం, [#fdroid#matrix.org@bridge.xmpp.matrix.org] లో చేరండి (xmpp: #fdroid#matrix.org@bridge.xmpp.matrix.org? చేరండి)."
+
+#. type: Plain text
+#: _pages/about.md
+msgid "F-Droid contributors also run a social-media account on the Fediverse. You can interact with us or follow us on [@fdroidorg@mastodon.technology](https://mastodon.technology/@fdroidorg)."
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/about.md
-msgid "To chat with others about F-Droid, either join via IRC in the [#fdroid channel](https://webchat.freenode.net/?channels=%23fdroid) on freenode or join [#fdroid:f-droid.org](https://matrix.to/#/#fdroid:f-droid.org) on Matrix.  The discussions are logged on [view.matrix.org](https://view.matrix.org/alias/%23fdroid:f-droid.org)."
-msgstr ""
-
-#. type: Plain text
-#: build/_pages/md/about.md
-msgid "There also exist bridges to Telegram and Jabber/XMPP (experimental).  To join via Telegram, click on [this link](https://matrix.f-droid.org/fdroid/telegram/).  For Jabber/XMPP, join [#fdroid#matrix.org@bridge.xmpp.matrix.org](xmpp:#fdroid#matrix.org@bridge.xmpp.matrix.org?join)."
-msgstr ""
-
-#. type: Plain text
-#: build/_pages/md/about.md
+#: _pages/about.md
 msgid "You can send email at [team@f-droid.org](mailto:team@f-droid.org), but messages are much more likely to be answered on the forum or #fdroid channel. If you want to help, you can [join us]({{ \"/contribute/\" | prepend: site.baseurl }})."
-msgstr ""
+msgstr "మీరు [team@f-droid.org](mailto:team@f-droid.org) వద్ద ఇమెయిల్ పంపవచ్చు, కాని ఫోరమ్ లేదా #fdroid ఛానెల్‌లో సందేశాలకు సమాధానం లభించే అవకాశం ఉంది. మీరు సహాయం చేయాలనుకుంటే, మీరు [మాతో చేరండి]({{ \"/contribute/\" | prepend: site.baseurl }})."
 
 #. type: Title ###
-#: build/_pages/md/about.md
+#: _pages/about.md
 #, no-wrap
 msgid "Consulting / Commercial Support"
-msgstr ""
+msgstr "కన్సల్టింగ్ / వాణిజ్య మద్దతు"
 
 #. type: Plain text
-#: build/_pages/md/about.md
-msgid "If you're running an organisation that uses F-Droid or would like to use F-Droid, you will sometimes want to have an expert. For this, we have a list of companies and developers who contributed to F-Droid in one way or another and are available for consulting:"
-msgstr ""
+#: _pages/about.md
+#, fuzzy
+#| msgid "If you're running an organisation that uses F-Droid or would like to use F-Droid, you will sometimes want to have an expert. For this, we have a list of companies and developers who contributed to F-Droid in one way or another and are available for consulting:"
+msgid "If you're running an organisation that uses F-Droid or would like to use F-Droid, you will sometimes want to have an expert. For this, we have a list of companies and developers who have contributed to F-Droid in one way or another and are available for consulting:"
+msgstr "మీరు F-Droid ని ఉపయోగించే సంస్థను నడుపుతున్నట్లయితే లేదా F-Droid ని ఉపయోగించాలనుకుంటే, మీరు కొన్నిసార్లు నిపుణుడిని కలిగి ఉండాలని కోరుకుంటారు. దీని కోసం, ఎఫ్-డ్రాయిడ్‌కు ఒక విధంగా లేదా మరొక విధంగా సహకరించిన కంపెనీలు మరియు డెవలపర్‌ల జాబితా మన వద్ద ఉంది మరియు కన్సల్టింగ్ కోసం అందుబాటులో ఉంది:"
 
 #. type: Plain text
-#: build/_pages/md/about.md
-#, no-wrap
-msgid "<a href=\"{{ \"/consulting/\" | prepend: site.baseurl }}\" class=\"material-button\">Find an F-Droid Consultant</a>\n"
+#: _pages/about.md
+msgid "[Find an F-Droid Consultant]({{ \"/consulting/\" | prepend: site.baseurl }})"
 msgstr ""
 
 #. type: Title ###
-#: build/_pages/md/about.md
+#: _pages/about.md
 #, no-wrap
 msgid "License"
-msgstr ""
+msgstr "లైసెన్సు"
 
 #. type: Bullet: '* '
-#: build/_pages/md/about.md
+#: _pages/about.md
 msgid "The source code for this site and the content produced by the F-Droid community are available under the [GNU Affero General Public License version 3 or later (AGPLv3+)](https://www.gnu.org/licenses/agpl-3.0.html)."
-msgstr ""
+msgstr "ఈ సైట్ యొక్క సోర్స్ కోడ్ మరియు ఎఫ్-డ్రాయిడ్ సంఘం ఉత్పత్తి చేసిన కంటెంట్ [గ్నూ అఫెరో జనరల్ పబ్లిక్ లైసెన్స్ వెర్షన్ 3 లేదా తరువాత (AGPLv3)](https://www.gnu.org/licenses/agpl-3.0 .html)."
 
 #. type: Bullet: '* '
-#: build/_pages/md/about.md
+#: _pages/about.md
 msgid "The content of the news section and the F-Droid logo are also available under [Creative Commons Attribution-ShareAlike 3.0 License (CC-BY-SA-3.0)](http://creativecommons.org/licenses/by-sa/3.0/) or [GNU General Public License version 3 or later (GPLv3+)](https://www.gnu.org/licenses/gpl-3.0.html)."
-msgstr ""
+msgstr "వార్తల విభాగం మరియు ఎఫ్-డ్రాయిడ్ లోగో యొక్క కంటెంట్ [క్రియేటివ్ కామన్స్ అట్రిబ్యూషన్-షేర్‌అలైక్ 3.0 లైసెన్స్ (CC-BY-SA-3.0)](http://creativecommons.org/licenses/by-sa/3.0 /) లేదా [గ్నూ జనరల్ పబ్లిక్ లైసెన్స్ వెర్షన్ 3 లేదా తరువాత (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.html)."
 
 #. type: Bullet: '* '
-#: build/_pages/md/about.md
+#: _pages/about.md
 msgid "The descriptive text and graphics for each app have a specific license from that project.  Free software should also have free descriptions and graphics."
-msgstr ""
+msgstr "ప్రతి అనువర్తనం యొక్క వివరణాత్మక టెక్స్ట్ మరియు గ్రాఫిక్స్కు ఆ ప్రాజెక్ట్ నుండి నిర్దిష్ట లైసెన్స్ ఉంటుంది. ఉచిత సాఫ్ట్‌వేర్‌లో ఉచిత వివరణలు మరియు గ్రాఫిక్స్ కూడా ఉండాలి."
 
 #. type: Bullet: '* '
-#: build/_pages/md/about.md
+#: _pages/about.md
 msgid "The F-Droid logo was created by William Theaker. Updates to that, and additional artwork, are by Robert Martinez."
-msgstr ""
+msgstr "ఎఫ్-డ్రాయిడ్ లోగోను విలియం థికర్ రూపొందించారు. దానికి నవీకరణలు మరియు అదనపు కళాకృతులు రాబర్ట్ మార్టినెజ్ చేత."
 
 #. type: Title ###
-#: build/_pages/md/about.md
+#: _pages/about.md
 #, no-wrap
 msgid "Terms, etc."
-msgstr ""
+msgstr "నిబంధనలు, etc."
 
 #. type: Plain text
-#: build/_pages/md/about.md
-msgid "F-Droid is a non-profit [volunteer]({{ \"/contribute/\" | prepend: site.baseurl }}) project. Although every effort is made to ensure that everything in the repository is safe to install, you use it AT YOUR OWN RISK. Wherever possible, applications in the repository are built from source, and that source code is checked for potential security or privacy issues. This checking is far from exhaustive though, and there are no guarantees."
-msgstr ""
+#: _pages/about.md
+#, fuzzy
+#| msgid "F-Droid is a non-profit [volunteer]({{ \"/contribute/\" | prepend: site.baseurl }}) project. Although every effort is made to ensure that everything in the repository is safe to install, you use it AT YOUR OWN RISK. Wherever possible, applications in the repository are built from source, and that source code is checked for potential security or privacy issues. This checking is far from exhaustive though, and there are no guarantees."
+msgid "F-Droid is a non-profit [volunteer]({{ \"/contribute/\" | prepend: site.baseurl }}) project. Although every effort is made to ensure that everything in the repository is safe to install, you use it AT YOUR OWN RISK. Wherever possible, applications in the repository are built from source, and that source code is checked for potential security or privacy issues. This checking is far from exhaustive and there are no guarantees."
+msgstr "ఎఫ్-డ్రాయిడ్ ఒక లాభాపేక్షలేని [వాలంటీర్]({{ \"/contribute/\" | prepend: site.baseurl }}) ప్రాజెక్ట్. రిపోజిటరీలోని ప్రతిదీ వ్యవస్థాపించడానికి సురక్షితంగా ఉందని నిర్ధారించడానికి ప్రతి ప్రయత్నం చేసినప్పటికీ, మీరు దాన్ని మీ స్వంత ప్రమాదంలో ఉపయోగిస్తారు. సాధ్యమైన చోట, రిపోజిటరీలోని అనువర్తనాలు మూలం నుండి నిర్మించబడతాయి మరియు సంభావ్య భద్రత లేదా గోప్యతా సమస్యల కోసం ఆ సోర్స్ కోడ్ తనిఖీ చేయబడుతుంది. ఈ తనిఖీ సమగ్రమైనది అయినప్పటికీ, హామీలు లేవు."
 
 #. type: Plain text
-#: build/_pages/md/about.md
-msgid "F-Droid respects your privacy. We don’t track you, or your device. We don’t track what you install. You don’t need an account to use the client, and it sends no additional identifying data when talking to our web server other than its version number. We don’t even allow you to install other applications from the repository that track you, unless you first enable ‘Tracking’ in the AntiFeatures section of preferences. Any personal data you decide to give us (e.g. your email address when registering for an account to post on the forum) goes no further than us, and will not be used for anything other than allowing you to maintain your account."
-msgstr ""
+#: _pages/about.md
+#, fuzzy
+#| msgid "F-Droid respects your privacy. We don’t track you, or your device. We don’t track what you install. You don’t need an account to use the client, and it sends no additional identifying data when talking to our web server other than its version number. We don’t even allow you to install other applications from the repository that track you, unless you first enable ‘Tracking’ in the AntiFeatures section of preferences. Any personal data you decide to give us (e.g. your email address when registering for an account to post on the forum) goes no further than us, and will not be used for anything other than allowing you to maintain your account."
+msgid "F-Droid respects your privacy. We don’t track you, or your device. We don’t track what you install. You don’t need an account to use the client, and it sends no additional identifying data when communicating with our web servers, other than its version number. We don’t even allow you to install other applications from the repository that track you, unless you first enable ‘Tracking’ in the `AntiFeatures` section of preferences. Any personal data you decide to give us (e.g. your email address when registering for an account to post on the forum) goes no further than us, and will not be used for anything other than allowing you to maintain your account."
+msgstr "F-Droid మీ గోప్యతను గౌరవిస్తుంది. మేము మిమ్మల్ని లేదా మీ పరికరాన్ని ట్రాక్ చేయలేము. మీరు ఇన్‌స్టాల్ చేసిన వాటిని మేము ట్రాక్ చేయము. క్లయింట్‌ను ఉపయోగించడానికి మీకు ఖాతా అవసరం లేదు, మరియు మా వెబ్ సర్వర్‌తో దాని వెర్షన్ నంబర్ కాకుండా మాట్లాడేటప్పుడు ఇది అదనపు గుర్తించే డేటాను పంపదు. మీరు ప్రాధాన్యతలను యాంటీ-ఫీచర్స్ విభాగంలో% u2018 ట్రాకింగ్% u2019 ను ప్రారంభించకపోతే, మిమ్మల్ని ట్రాక్ చేసే రిపోజిటరీ నుండి ఇతర అనువర్తనాలను వ్యవస్థాపించడానికి కూడా మేము మిమ్మల్ని అనుమతించము. మీరు మాకు ఇవ్వాలని నిర్ణయించుకున్న ఏదైనా వ్యక్తిగత డేటా (ఉదా. ఫోరమ్‌లో పోస్ట్ చేయడానికి ఖాతా కోసం నమోదు చేసేటప్పుడు మీ ఇమెయిల్ చిరునామా) మా కంటే ఎక్కువ కాదు మరియు మీ ఖాతాను నిర్వహించడానికి మిమ్మల్ని అనుమతించడం తప్ప మరేదైనా ఉపయోగించబడదు."
 
 #. type: Title ###
-#: build/_pages/md/about.md
+#: _pages/about.md
 #, no-wrap
 msgid "Contributors"
-msgstr ""
+msgstr "రచనలు పంపేవారు"
 
 #. type: Plain text
-#: build/_pages/md/about.md
+#: _pages/about.md
 msgid "The F-Droid project was founded in 2010 by Ciaran Gultnieks, and is brought to you by at least the following people:"
-msgstr ""
+msgstr "ఎఫ్-డ్రాయిడ్ ప్రాజెక్ట్ 2010 లో సియరాన్ గుల్ట్‌నిక్స్ చేత స్థాపించబడింది మరియు కనీసం ఈ క్రింది వ్యక్తుల ద్వారా మీ ముందుకు తీసుకురాబడింది:"
 
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Nico Alt"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Laura Arjona"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Ben Arnold"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Michele Azzolari"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Danial Behzadi"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Jan Berkel"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "David Black"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Ruslan Boitsov"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Jan C Borchardt"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Valerio Bozzolan"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Dan Bravender"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Cédric Cabessa"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Kevin Cernekee"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Felix Edelmann"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Kevin Everets"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Alberto A. Fuentes"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Torsten Grote"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Ciaran Gultnieks"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Tias Guns"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Michael Haas"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Stefan Handschuh"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Marcus Hoffmann"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Kees Hulberts"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Ayron Jungren"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "João Fernando C. Júnior"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Neo Kolokotronis"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Nikita Kozlov"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Matt Kraai"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Daniel Kraft"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Boris Kraut"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Tobias Kuban"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Mariotaku Lee"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Leonardo De Luca"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Greg Lyle"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Daniel Marti"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Robert Martinez"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Nat Meysenburg"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Steven McDonald"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Andrew McMillan"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Andrew Nayenko"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Alex Oberhauser"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Michael Pöhn"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Nicolas Raoul"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Fabian Rodriguez"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Pierre Rudloff"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Florian Schmaus"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Dominik Schürmann"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Hans-Emil Skogh"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Paul Sokolovsky"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Graziano Sorbaioli"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Hans-Christoph Steiner"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "David Sterry"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Peter Serwylo"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "John Sullivan"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Antonio Tapiador"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "William Theaker"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Henrik Tunedal"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Ivo Ugrina"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Matthias Weiler"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Nutchanon Wetchasit"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/about.md
-msgid "Philipp Wollschlegel"
+#. type: Plain text
+#: _pages/about.md
+#, no-wrap
+msgid ""
+"<ul>\n"
+"{%- for contributor in site.data.contributors -%}\n"
+"<li>\n"
+"{%- if contributor.gitlab -%}\n"
+"<a href=\"https://gitlab.com/{{ contributor.gitlab }}\" target=\"_blank\">\n"
+"{%- elsif contributor.weblate -%}\n"
+"<a href=\"https://hosted.weblate.org/user/{{ contributor.weblate }}\" target=\"_blank\">\n"
+"{%- endif -%}\n"
+"{%- if contributor.Arab and site.data.scripts[site.active_lang] == \"Arab\" -%}\n"
+"{{ contributor.Arab }}\n"
+"{%- elsif contributor.Cyrl and site.data.scripts[site.active_lang] == \"Cyrl\" -%}\n"
+"{{ contributor.Cyrl }}\n"
+"{%- elsif contributor.Jpan and site.data.scripts[site.active_lang] == \"Jpan\" -%}\n"
+"{{ contributor.Jpan }}\n"
+"{%- elsif contributor.Kore and site.data.scripts[site.active_lang] == \"Kore\" -%}\n"
+"{{ contributor.Kore }}\n"
+"{%- elsif contributor.Hans and site.data.scripts[site.active_lang] == \"Hans\" -%}\n"
+"{{ contributor.Hans }}\n"
+"{%- elsif contributor.Hant and site.data.scripts[site.active_lang] == \"Hant\" -%}\n"
+"{{ contributor.Hant }}\n"
+"{%- else -%}\n"
+"{{ contributor.name }}\n"
+"{%- endif -%}\n"
+"{%- if contributor.gitlab or contributor.weblate -%}\n"
+"</a>\n"
+"{%- endif -%}\n"
+"</li>\n"
+"{%- endfor -%}\n"
+"</ul>\n"
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/about.md
-msgid "If your name is missing, it’s a mistake and you should [add yourself to the list](https://gitlab.com/fdroid/fdroid-website/blob/master/_pages/about.md)! Keep it sorted by surname, please."
-msgstr ""
+#: _pages/about.md
+#, fuzzy
+#| msgid "If your name is missing, it’s a mistake and you should [add yourself to the list](https://gitlab.com/fdroid/fdroid-website/blob/master/_pages/about.md)! Keep it sorted by surname, please."
+msgid "If you have contributed to F-Droid and your name is missing, it’s a mistake and you should [add yourself to the list](https://gitlab.com/fdroid/fdroid-website/blob/master/_data/contributors.yaml)! Please include your Weblate username if you are a translator.  Keep it sorted by first name, please."
+msgstr "మీ పేరు తప్పిపోతే, అది పొరపాటు మరియు మీరు [మిమ్మల్ని జాబితాలో చేర్చండి](https://gitlab.com/fdroid/fdroid-website/blob/master/_pages/about.md)! దయచేసి ఇంటిపేరుతో క్రమబద్ధీకరించండి."
 
 #. type: Plain text
-#: build/_pages/md/about.md
+#: _pages/about.md
 msgid "The original F-Droid client app was based on the Aptoide app developed by Roberto Jacinto."
-msgstr ""
+msgstr "అసలు ఎఫ్-డ్రాయిడ్ క్లయింట్ అనువర్తనం రాబర్టో జాసింటో అభివృద్ధి చేసిన ఆప్టోయిడ్ అనువర్తనం ఆధారంగా రూపొందించబడింది."
 
-#. type: Title #
-#: build/_pages/md/consulting.md
+#. type: YAML Front Matter: title
+#: _pages/consulting.md
 #, no-wrap
 msgid "Consulting"
-msgstr ""
+msgstr "కన్సల్టింగ్"
 
 #. type: Plain text
-#: build/_pages/md/consulting.md
+#: _pages/consulting.md
 msgid "If you're running an organisation that uses F-Droid or would like to use F-Droid, you will sometimes want to have an expert. This page is a list of companies and developers who contributed to F-Droid in one way or another and are available for consulting. By contracting one of these companies or developers, your organisation can also (indirectly) support the development of F-Droid."
-msgstr ""
+msgstr "మీరు F-Droid ని ఉపయోగించే సంస్థను నడుపుతున్నట్లయితే లేదా F-Droid ని ఉపయోగించాలనుకుంటే, మీరు కొన్నిసార్లు నిపుణుడిని కలిగి ఉండాలని కోరుకుంటారు. ఈ పేజీ ఎఫ్-డ్రాయిడ్‌కు ఒక విధంగా లేదా మరొక విధంగా సహకరించిన మరియు కన్సల్టింగ్ కోసం అందుబాటులో ఉన్న కంపెనీలు మరియు డెవలపర్‌ల జాబితా. ఈ కంపెనీలలో లేదా డెవలపర్‌లలో ఒకదానితో ఒప్పందం కుదుర్చుకోవడం ద్వారా, మీ సంస్థ ఎఫ్-డ్రాయిడ్ అభివృద్ధికి (పరోక్షంగా) మద్దతు ఇవ్వగలదు."
 
 #. type: Plain text
-#: build/_pages/md/consulting.md
+#: _pages/consulting.md
 #, no-wrap
 msgid ""
 "Keep in mind that the F-Droid ecosystem consists of several components. Thus, consulting services may offer a lot of different services, such as\n"
@@ -482,365 +232,706 @@ msgid ""
 "  * Bug fixes or feature additions to the F-Droid client and server components\n"
 "  * Whitelabel solutions\n"
 msgstr ""
+"ఎఫ్-డ్రాయిడ్ పర్యావరణ వ్యవస్థ అనేక భాగాలను కలిగి ఉంటుందని గుర్తుంచుకోండి. అందువల్ల, కన్సల్టింగ్ సేవలు చాలా విభిన్నమైన సేవలను అందించవచ్చు\n"
+"  * ఒక సంస్థలో ఎఫ్-డ్రాయిడ్ యొక్క విస్తరణ\n"
+"  * ఎఫ్-డ్రాయిడ్ రిపోజిటరీల ఏర్పాటు మరియు నిర్వహణ\n"
+"  * వినియోగదారులు మరియు నిర్వాహకుల కోసం వర్క్‌షాప్‌లు\n"
+"  * ప్రధాన f-droid.org రిపోజిటరీలో చేర్చడానికి అనువర్తనం కంప్లైంట్ పొందడంలో సహాయం\n"
+"  * F-Droid క్లయింట్ మరియు సర్వర్ భాగాలకు బగ్ పరిష్కారాలు లేదా ఫీచర్ చేర్పులు\n"
+"  * వైట్‌లేబుల్ పరిష్కారాలు\n"
 
 #. type: Plain text
-#: build/_pages/md/consulting.md
+#: _pages/consulting.md
 msgid "Check out the descriptions to find an appropriate consultant for your needs."
+msgstr "మీ అవసరాలకు తగిన కన్సల్టెంట్‌ను కనుగొనడానికి వివరణలను చూడండి."
+
+#. type: Title ###
+#: _pages/consulting.md
+#, fuzzy, no-wrap
+msgid "COTECH - Confidential Technologies GmbH"
+msgstr "కాన్ఫిడెన్షియల్ టెక్నాలజీస్ GmbH"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Website:__ [https://www.cotech.de/f-droid](https://www.cotech.de/f-droid)"
+msgstr "__ వెబ్‌సైట్: __ [https://www.cotech.de/f-droid ](https://www.cotech.de/f-droid)"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Email:__ [contact@cotech.de](mailto:contact@cotech.de)"
+msgstr "__ ఇమెయిల్: __ [contact@cotech.de](mailto:contact@cotech.de)"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+#, fuzzy
+msgid "__Phone:__ +49 531 22435119"
+msgstr "__ ఫోన్: __ +49 531 3913154"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+#, fuzzy
+msgid "__Address:__ Confidential Technologies GmbH, Wilhelmsgarten 3, 38100 Braunschweig"
+msgstr "__ చిరునామా: __ కాన్ఫిడెన్షియల్ టెక్నాలజీస్ GmbH, c / o ఇన్స్టిట్యూట్ ఫర్ బెట్రిబ్‌సిస్టమ్, ముహ్లెన్‌ఫోర్డ్ ఫోర్డ్. 23, 38106 బ్రాన్స్చ్వీగ్"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Languages:__ English, German"
+msgstr "__ భాషలు: __ ఇంగ్లీష్, జర్మన్"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Specializations:__ Custom F-Droid deployments, feature extensions, whitelabel solutions"
+msgstr "__ ప్రత్యేకతలు: __ కస్టమ్ ఎఫ్-డ్రాయిడ్ విస్తరణలు, ఫీచర్ పొడిగింపులు, వైట్‌లేబుల్ పరిష్కారాలు"
+
+#. type: Title ###
+#: _pages/consulting.md
+#, no-wrap
+msgid "Felix C. Stegerman"
+msgstr "Felix C. Stegerman"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Website:__ [obfusk.ch](https://obfusk.ch)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+#, fuzzy
+msgid "__Email:__ [flx@obfusk.net](mailto:flx@obfusk.net)"
+msgstr "__ ఇమెయిల్: __ [info@izzysoft.de](mailto:info@izzysoft.de)"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Address:__ Nijmegen, Netherlands"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Languages:__ English, Dutch (Nederlands), German (Deutsch), Japanese (日本語)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Specialization:__ Diagnosing & fixing bugs/problems, [Reproducible Builds](https://f-droid.org/docs/Reproducible_Builds/), getting builds working, removing/replacing non-free components of apps to make them compliant."
 msgstr ""
 
 #. type: Title ###
-#: build/_pages/md/consulting.md
+#: _pages/consulting.md
 #, no-wrap
-msgid "Confidential Technologies GmbH"
+msgid "Hans-Christoph Steiner"
+msgstr "Hans-Christoph Steiner"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Website:__ [at.or.at](https://at.or.at)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/consulting.md
-msgid "__Website:__ [https://www.cotech.de/f-droid](https://www.cotech.de/f-droid)"
+#: _pages/consulting.md
+#, fuzzy
+msgid "__Email:__ [hans@eds.org](mailto:hans@eds.org)"
+msgstr "__ ఇమెయిల్: __ [info@izzysoft.de](mailto:info@izzysoft.de)"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Address:__ Vienna, Austria"
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/consulting.md
-msgid "__Email:__ [contact@cotech.de](mailto:contact@cotech.de)"
+#: _pages/consulting.md
+#, fuzzy
+#| msgid "__Specializations:__ Custom F-Droid deployments, feature extensions, whitelabel solutions"
+msgid "__Specialization:__ Custom F-Droid deployments, reproducible builds, new features, whitelabel app stores, getting things merged."
+msgstr "__ ప్రత్యేకతలు: __ కస్టమ్ ఎఫ్-డ్రాయిడ్ విస్తరణలు, ఫీచర్ పొడిగింపులు, వైట్‌లేబుల్ పరిష్కారాలు"
+
+#. type: Title ###
+#: _pages/consulting.md
+#, no-wrap
+msgid "IzzySoft"
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/consulting.md
-msgid "__Phone:__ +49 531 3913154"
+#: _pages/consulting.md
+msgid "__Website:__ [android.izzysoft.de](https://android.izzysoft.de/), [www.izzysoft.de](https://www.izzysoft.de/)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/consulting.md
-msgid "__Address:__ Confidential Technologies GmbH, c/o Institut für Betriebssysteme, Mühlenpfordtstr. 23, 38106 Braunschweig"
+#: _pages/consulting.md
+#, fuzzy
+msgid "__Email:__ [info@izzysoft.de](mailto:info@izzysoft.de)"
+msgstr "__ ఇమెయిల్: __ [info@izzysoft.de](mailto:info@izzysoft.de)"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+#, fuzzy
+msgid "__Phone:__ +49 89 27373746"
+msgstr "__ ఫోన్: __ +49 531 3913154"
+
+#. type: Bullet: '* '
+#: _pages/consulting.md
+msgid "__Address:__ IzzySoft, 80796 München, Germany"
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/consulting.md
-msgid "__Languages:__ English, German"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/consulting.md
-msgid "__Specializations:__ Custom F-Droid deployments, feature extensions, whitelabel solutions"
+#: _pages/consulting.md
+msgid "__Specialization:__ [Binary Repositories](https://f-droid.org/docs/Setup_an_F-Droid_App_Repo/) & Metadata (creator & operator of the [IzzyOnDroid Repo](https://apt.izzysoft.de/fdroid/))"
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/consulting.md
+#: _pages/consulting.md
 msgid "If you're missing, you can [add yourself to the list](https://gitlab.com/fdroid/fdroid-website/blob/master/_pages/consulting.md)! Keep it sorted alphabetically, please."
-msgstr ""
+msgstr "మీరు తప్పిపోయినట్లయితే, మీరు [మిమ్మల్ని జాబితాలో చేర్చవచ్చు](https://gitlab.com/fdroid/fdroid-website/blob/master/_pages/consulting.md)! దయచేసి అక్షరక్రమంగా క్రమబద్ధీకరించండి."
 
-#. type: Title #
-#: build/_pages/md/contribute.md
+#. type: YAML Front Matter: title
+#: _pages/contribute.md
 #, no-wrap
 msgid "Contribute"
-msgstr ""
+msgstr "సహకరించండి"
 
 #. type: Plain text
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
 msgid "The project is entirely developed and maintained by volunteers. You can help:"
-msgstr ""
+msgstr "ఈ ప్రాజెక్ట్ పూర్తిగా స్వచ్ఛంద సేవకులచే అభివృద్ధి చేయబడింది మరియు నిర్వహించబడుతుంది. మీరు సహాయం చేయవచ్చు:"
 
 #. type: Title ###
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
 #, no-wrap
 msgid "Report Problems"
-msgstr ""
+msgstr "సమస్యలను నివేదించండి"
 
 #. type: Plain text
-#: build/_pages/md/contribute.md
-msgid "If you experience problems with the site or client software, you can report them in the issue tracker (see below), or discuss them in the [Forum](https://forum.f-droid.org/) or on IRC (#fdroid on freenode)."
-msgstr ""
-
-#. type: Plain text
-#: build/_pages/md/contribute.md
-msgid "For reporting issues, choose an appropriate tracker from the following:"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/contribute.md
-msgid "[F-Droid client app](https://gitlab.com/fdroid/fdroidclient/issues)"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/contribute.md
-msgid "[Server and build tools](https://gitlab.com/fdroid/fdroidserver/issues)"
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/contribute.md
-msgid "[Official F-Droid repository metadata](https://gitlab.com/fdroid/fdroiddata/issues)"
-msgstr ""
+#: _pages/contribute.md
+#, fuzzy
+#| msgid "If you experience problems with the site or client software, you can report them in the issue tracker (see below), or discuss them in the [Forum](https://forum.f-droid.org/) or on IRC (#fdroid on freenode)."
+msgid "If you experience problems with the site or client software, you can report them in the issue tracker ([find the appropriate tracker on this page]({{ \"/issues/\" | prepend: site.baseurl }})), or discuss them in the [Forum](https://forum.f-droid.org/), on [Matrix](https://matrix.to/#/#fdroid:f-droid.org) or on IRC (#fdroid on OFTC)."
+msgstr "మీరు సైట్ లేదా క్లయింట్ సాఫ్ట్‌వేర్‌తో సమస్యలను ఎదుర్కొంటే, మీరు వాటిని ఇష్యూ ట్రాకర్‌లో నివేదించవచ్చు (క్రింద చూడండి), లేదా వాటిని [ఫోరం](https://forum.f-droid.org/) లేదా IRC ( ఫ్రీనోడ్‌లో #fdroid)."
 
 #. type: Title ###
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
 #, no-wrap
 msgid "Submit Applications"
-msgstr ""
+msgstr "దరఖాస్తులను సమర్పించండి"
 
 #. type: Plain text
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
 msgid "If you see an application missing from the repository (after reading the [inclusion policy](../docs/Inclusion_Policy)), please feel free to submit it via the dedicated [Requests For Packaging](https://gitlab.com/fdroid/rfp/issues) issue tracker."
-msgstr ""
+msgstr "రిపోజిటరీ నుండి ఒక అప్లికేషన్ తప్పిపోయినట్లు మీరు చూస్తే ([చేరిక విధానం](../docs/Inclusion_Policy) చదివిన తరువాత, దయచేసి దీన్ని అంకితమైన [ప్యాకేజింగ్ కోసం అభ్యర్థనలు](https://gitlab.com/) ద్వారా సమర్పించడానికి సంకోచించకండి. fdroid / rfp / issues) ఇష్యూ ట్రాకర్."
 
 #. type: Plain text
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
+#, fuzzy
 msgid "If you have the technical skills required, you can also put together the relevant metadata and [submit that via the F-Droid Data repository](https://gitlab.com/fdroid/fdroiddata/blob/master/CONTRIBUTING.md), which will drastically speed up the inclusion of the application."
-msgstr ""
+msgstr "మీకు అవసరమైన సాంకేతిక నైపుణ్యాలు ఉంటే, మీరు సంబంధిత మెటాడేటాను కూడా కలపవచ్చు మరియు [F- డ్రాయిడ్ డేటా రిపోజిటరీ ద్వారా సమర్పించండి](https://gitlab.com/fdroid/fdroiddata/blob/master/CONTRIBUTING.md), ఇది అప్లికేషన్ యొక్క చేరికను తీవ్రంగా వేగవంతం చేస్తుంది."
 
 #. type: Plain text
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
 msgid "The same applies for helping to build newer versions of applications."
-msgstr ""
+msgstr "అనువర్తనాల యొక్క క్రొత్త సంస్కరణలను రూపొందించడంలో సహాయపడటానికి ఇది వర్తిస్తుంది."
 
 #. type: Plain text
-#: build/_pages/md/contribute.md
-msgid "Further information can be found in [the documentation](../docs), or by asking [on IRC](https://webchat.freenode.net/?channels=%23fdroid) (#fdroid on freenode)."
-msgstr ""
+#: _pages/contribute.md
+#, fuzzy
+msgid "Further information can be found in [the documentation](../docs), or by asking on [Matrix](https://matrix.to/#/#fdroid:f-droid.org) or [IRC](https://webchat.oftc.net/?randomnick=1&channels=fdroid&prompt=1) (#fdroid on OFTC)."
+msgstr "మరింత సమాచారం [డాక్యుమెంటేషన్](../docs) లో లేదా [IRC లో](https://webchat.oftc.net/?channels=%23fdroid) (ఫ్రీనోడ్‌లో #fdroid) అడగడం ద్వారా చూడవచ్చు."
 
 #. type: Title ###
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
 #, no-wrap
 msgid "Translate"
-msgstr ""
+msgstr "అనువదించు"
 
 #. type: Plain text
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
+#, fuzzy
 msgid "The client application is available in many languages. Should yours not be among those, or be in need of updates or improvement, please create an account and use the [translation system](https://hosted.weblate.org/projects/f-droid/) to make your changes."
-msgstr ""
+msgstr "క్లయింట్ అప్లికేషన్ అనేక భాషలలో అందుబాటులో ఉంది. మీది వాటిలో ఉండకూడదు, లేదా నవీకరణలు లేదా మెరుగుదల అవసరం లేకపోతే, దయచేసి ఒక ఖాతాను సృష్టించి, మీ మార్పులు చేయడానికి [అనువాద వ్యవస్థ](https://hosted.weblate.org/projects/f-droid/) ఉపయోగించండి."
 
 #. type: Plain text
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
 msgid "Start with the overview of [Translation and Localization](../docs/Translation_and_Localization).  There’s also a [dedicated forum section](https://forum.f-droid.org/c/translation) for translation related discussions."
 msgstr ""
 
 #. type: Title ###
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
 #, no-wrap
 msgid "Help with Development"
-msgstr ""
+msgstr "అభివృద్ధికి సహాయం చేయండి"
 
 #. type: Plain text
-#: build/_pages/md/contribute.md
+#: _pages/contribute.md
+#, fuzzy
 msgid "There are four git repositories hosted at GitLab – one for the [Android client application](https://gitlab.com/fdroid/fdroidclient), one for the [server tools](https://gitlab.com/fdroid/fdroidserver) for running a repository and building/installing applications locally, and one for the associated [metadata files for applications in the main F-Droid repository](https://gitlab.com/fdroid/fdroiddata).  The last repo is handling [website and documentation](https://gitlab.com/fdroid/fdroid-website).  The easiest way to contribute to development is to make clones of these projects and submit merge requests.  If you are making large changes, it would be good to discuss them on IRC or in the forum first, to ensure they fit with the direction of the project, and do not clash with or duplicate work already in development."
+msgstr "గిట్‌ల్యాబ్‌లో నాలుగు జిట్ రిపోజిటరీలు హోస్ట్ చేయబడ్డాయి - ఒకటి [ఆండ్రాయిడ్ క్లయింట్ అప్లికేషన్](https://gitlab.com/fdroid/fdroidclient), ఒకటి [సర్వర్ టూల్స్](https://gitlab.com/fdroid/fdroidserver ) రిపోజిటరీని అమలు చేయడానికి మరియు స్థానికంగా అనువర్తనాలను నిర్మించడానికి / వ్యవస్థాపించడానికి మరియు అనుబంధిత [ప్రధాన F- డ్రాయిడ్ రిపోజిటరీలోని అనువర్తనాల కోసం మెటాడేటా ఫైల్‌లు](https://gitlab.com/fdroid/fdroiddata). చివరి రెపో [వెబ్‌సైట్ మరియు డాక్యుమెంటేషన్](https://gitlab.com/fdroid/fdroid-website) ను నిర్వహిస్తోంది. అభివృద్ధికి తోడ్పడటానికి సులభమైన మార్గం ఈ ప్రాజెక్టుల క్లోన్లను తయారు చేయడం మరియు విలీన అభ్యర్థనలను సమర్పించడం. మీరు పెద్ద మార్పులు చేస్తుంటే, మొదట వాటిని ఐఆర్‌సిలో లేదా ఫోరమ్‌లో చర్చించడం మంచిది, అవి ప్రాజెక్టు దిశకు సరిపోయేలా చూసుకోవాలి మరియు ఇప్పటికే అభివృద్ధిలో ఉన్న పనులతో విభేదించవద్దు లేదా నకిలీ చేయవద్దు."
+
+#. type: Plain text
+#: _pages/contribute.md
+#, fuzzy
+msgid "For working with the server and data projects, it’s a good idea to read [the manual]({{ \"/docs/\" | prepend: site.baseurl }})."
+msgstr "సర్వర్ మరియు డేటా ప్రాజెక్ట్‌లతో పనిచేయడానికి, [మాన్యువల్]({{ \"/docs/\" | prepend: site.baseurl }}) చదవడం మంచిది."
+
+#. type: Title ###
+#: _pages/contribute.md
+#, no-wrap
+msgid "Help with Infrastructure"
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/contribute.md
-msgid "For working with the server and data projects, it’s a good idea to read [the manual]({{ \"/docs/\" | prepend: site.baseurl }})."
+#: _pages/contribute.md
+msgid "F-Droid provides multiple servers (builders, web portal, download areas...) which need regular maintenance, Ansible-based deployment, and hardware management.  Further information can be found by asking on [Matrix](https://matrix.to/#/#fdroid-dev:f-droid.org), [IRC](https://webchat.oftc.net/?randomnick=1&channels=fdroid&prompt=1) (#fdroid-dev on OFTC) or team@f-droid.org."
 msgstr ""
 
-#. type: Title #
-#: build/_pages/md/docs.md
+#. type: YAML Front Matter: title
+#: _pages/docs.md
 #, no-wrap
 msgid "Docs"
-msgstr ""
+msgstr "డాక్స్"
 
 #. type: Plain text
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "F-Droid is both a repository of verified free software Android apps as well as a whole \"app store kit\", providing all the tools needed to setup and run an app store. It is a community-run free software project developed by a wide range of contributors. It also includes complete build and release tools for managing the process of turning app source code into published builds."
-msgstr ""
+msgstr "ఎఫ్-డ్రాయిడ్ అనేది ధృవీకరించబడిన ఉచిత సాఫ్ట్‌వేర్ ఆండ్రాయిడ్ అనువర్తనాల రిపోజిటరీ మరియు మొత్తం \"యాప్ స్టోర్ కిట్\", ఇది అనువర్తన దుకాణాన్ని సెటప్ చేయడానికి మరియు అమలు చేయడానికి అవసరమైన అన్ని సాధనాలను అందిస్తుంది. ఇది విస్తృత శ్రేణి సహాయకులు అభివృద్ధి చేసిన కమ్యూనిటీ-నడిచే ఉచిత సాఫ్ట్‌వేర్ ప్రాజెక్ట్. అనువర్తన సోర్స్ కోడ్‌ను ప్రచురించిన బిల్డ్‌లుగా మార్చే విధానాన్ని నిర్వహించడానికి ఇది పూర్తి బిల్డ్ మరియు విడుదల సాధనాలను కలిగి ఉంటుంది."
 
 #. type: Plain text
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "The F-Droid server tools provide various scripts and tools that are used to maintain the main F-Droid application repository. You can use these same tools to create your own additional or alternative repository for publishing, or to assist in creating, testing and submitting metadata to the main repository."
-msgstr ""
+msgstr "ఎఫ్-డ్రాయిడ్ సర్వర్ సాధనాలు ప్రధాన ఎఫ్-డ్రాయిడ్ అప్లికేషన్ రిపోజిటరీని నిర్వహించడానికి ఉపయోగించే వివిధ స్క్రిప్ట్‌లు మరియు సాధనాలను అందిస్తాయి. ప్రచురణ కోసం మీ స్వంత అదనపు లేదా ప్రత్యామ్నాయ రిపోజిటరీని సృష్టించడానికి లేదా మెటాడేటాను ప్రధాన రిపోజిటరీకి సృష్టించడం, పరీక్షించడం మరియు సమర్పించడంలో సహాయపడటానికి మీరు ఇదే సాధనాలను ఉపయోగించవచ్చు."
 
 #. type: Title ###
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 #, no-wrap
 msgid "Getting Started"
-msgstr ""
+msgstr "మొదలు అవుతున్న"
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[FAQ - General](FAQ_-_General) Frequently Asked Questions about F-Droid"
-msgstr ""
+msgstr "[తరచుగా అడిగే ప్రశ్నలు - సాధారణం](FAQ_-_General) ఎఫ్-డ్రాయిడ్ గురించి తరచుగా అడిగే ప్రశ్నలు"
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[FAQ - Client](FAQ_-_Client) Frequently Asked Questions about how to use the F-Droid app in Android."
-msgstr ""
+msgstr "[తరచుగా అడిగే ప్రశ్నలు - క్లయింట్](FAQ_-_Client) ఆండ్రాయిడ్‌లో ఎఫ్-డ్రాయిడ్ అనువర్తనాన్ని ఎలా ఉపయోగించాలో తరచుగా అడిగే ప్రశ్నలు."
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
-msgid "[Anti-Features](https://f-droid.org/wiki/page/Antifeatures) What they are, what they mean, and what apps have them."
-msgstr ""
+#: _pages/docs.md
+#, fuzzy
+msgid "[Anti-Features](Anti-Features) What they are, what they mean, and what apps have them."
+msgstr "[యాంటీ-ఫీచర్స్](https://monitor.f-droid.org/anti-features) అవి ఏమిటి, వాటి అర్థం ఏమిటి మరియు వాటిలో ఏ అనువర్తనాలు ఉన్నాయి."
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Tutorials](../tutorials) Step-by-step tutorials on features in F-Droid"
-msgstr ""
+msgstr "[ట్యుటోరియల్స్](../tutorials) ఎఫ్-డ్రాయిడ్‌లోని లక్షణాలపై దశల వారీ ట్యుటోరియల్స్"
 
 #. type: Title ###
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 #, no-wrap
 msgid "More Information"
+msgstr "మరింత సమాచారం"
+
+#. type: Bullet: '* '
+#: _pages/docs.md
+msgid "[Code of Conduct](Code_of_Conduct) how to behave when communicating within F-Droid."
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[How to Help](How_to_Help) Different ways anyone can contribute to the F-Droid project."
-msgstr ""
+msgstr "[ఎలా సహాయం చేయాలి](How_to_Help) ఎఫ్-డ్రాయిడ్ ప్రాజెక్టుకు ఎవరైనా వివిధ మార్గాలు అందించవచ్చు."
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Known Repositories](https://forum.f-droid.org/t/721) A list that tries to keep track of known F-Droid compatible repositories."
-msgstr ""
+msgstr "[తెలిసిన రిపోజిటరీలు](https://forum.f-droid.org/t/721) తెలిసిన ఎఫ్-డ్రాయిడ్ అనుకూల రిపోజిటరీలను ట్రాక్ చేయడానికి ప్రయత్నించే జాబితా."
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Release Channels and Signing Keys](Release_Channels_and_Signing_Keys) These are the various channels that F-Droid software are released on, with info to verify them based on signing keys."
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Security Model](Security_Model) A brief explanation of how F-Droid delivers software to users securely."
-msgstr ""
+msgstr "[సెక్యూరిటీ మోడల్](Security_Model) ఎఫ్-డ్రాయిడ్ సాఫ్ట్‌వేర్‌ను వినియోగదారులకు ఎలా సురక్షితంగా అందిస్తుంది అనేదానికి సంక్షిప్త వివరణ."
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Repomaker](../repomaker) A user-friendly tool for managing custom repos"
-msgstr ""
+msgstr "[రెపోమేకర్](../repomaker) కస్టమ్ రెపోలను నిర్వహించడానికి వినియోగదారు-స్నేహపూర్వక సాధనం"
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Translation and Localization](Translation_and_Localization) How all the parts of F-Droid are localized."
+msgstr "[అనువాదం మరియు స్థానికీకరణ](Translation_and_Localization) ఎఫ్-డ్రాయిడ్ యొక్క అన్ని భాగాలు ఎలా స్థానికీకరించబడ్డాయి."
+
+#. type: Bullet: '* '
+#: _pages/docs.md
+#, fuzzy
+msgid "[Tips & Tricks](https://forum.f-droid.org/c/wiki/tips-and-tricks) A collection of useful tips and tricks that make life around F-Droid easier."
+msgstr "[చిట్కాలు & ఉపాయాలు](https://forum.f-droid.org/c/wiki/tips-and-tricks) ఎఫ్-డ్రాయిడ్ చుట్టూ జీవితాన్ని సులభతరం చేసే ఉపయోగకరమైన చిట్కాలు మరియు ఉపాయాల సమాహారం."
+
+#. type: Bullet: '* '
+#: _pages/docs.md
+msgid "[All our APIs](All_our_APIs) Public API endpoints for data about _f-droid.org_, repos, mirrors, Android, Gradle, and more"
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
-msgid "[Tips & Tricks](https://forum.f-droid.org/c/wiki/tips-and-tricks) A collection of useful tips and tricks that make life around F-Droid easier."
+#: _pages/docs.md
+msgid "[Wiki](https://gitlab.com/fdroid/wiki/-/wikis/home) For everything else that people want to document."
 msgstr ""
 
 #. type: Title ###
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 #, no-wrap
 msgid "Developers"
-msgstr ""
+msgstr "డెవలపర్లు"
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[FAQ - App Developers](FAQ_-_App_Developers) Frequently Asked Questions about F-Droid"
-msgstr ""
+msgstr "[తరచుగా అడిగే ప్రశ్నలు - అనువర్తన డెవలపర్లు](FAQ_-_App_Developers) F-Droid గురించి తరచుగా అడిగే ప్రశ్నలు"
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Build Metadata Reference](Build_Metadata_Reference) All about the build \"recipes\""
-msgstr ""
+msgstr "[బిల్డ్ మెటాడేటా రిఫరెన్స్](Build_Metadata_Reference) బిల్డ్ \"వంటకాలు\" గురించి"
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Submitting to F-Droid: Quick Start Guide](Submitting_to_F-Droid_Quick_Start_Guide) Add an app to f-droid.org"
-msgstr ""
+msgstr "[F-Droid కి సమర్పించడం: త్వరిత ప్రారంభ మార్గదర్శిని](Submitting_to_F-Droid_Quick_Start_Guide) f-droid.org కు ఒక అనువర్తనాన్ని జోడించండి"
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Update Processing](Update_Processing) How updates get detected and added."
-msgstr ""
+msgstr "[అప్‌డేట్ ప్రాసెసింగ్](Update_Processing) నవీకరణలు ఎలా గుర్తించబడతాయి మరియు జోడించబడతాయి."
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Inclusion Policy](Inclusion_Policy) & [Inclusion How-To](Inclusion_How-To)  Guidelines for how to request the inclusion of a new app."
-msgstr ""
+msgstr "[చేరిక విధానం](Inclusion_Policy) & [చేరిక ఎలా-ఎలా](Inclusion_How-To) క్రొత్త అనువర్తనాన్ని చేర్చమని ఎలా అభ్యర్థించాలో మార్గదర్శకాలు."
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Importing Applications](Importing_Applications) Using `fdroid import` to build a new project."
-msgstr ""
+msgstr "[అనువర్తనాలను దిగుమతి చేస్తోంది](Importing_Applications) క్రొత్త ప్రాజెక్ట్‌ను రూపొందించడానికి `fdroid import` ని ఉపయోగించడం."
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Building Applications](Building_Applications) Using `fdroid build` to build an app."
-msgstr ""
+msgstr "[బిల్డింగ్ అప్లికేషన్స్](Building_Applications) అనువర్తనాన్ని రూపొందించడానికి `fdroid build` ని ఉపయోగించడం."
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[All About Descriptions, Graphics, and Screenshots](All_About_Descriptions_Graphics_and_Screenshots) Showing off your app in F-Droid."
-msgstr ""
+msgstr "[వివరణలు, గ్రాఫిక్స్ మరియు స్క్రీన్‌షాట్‌ల గురించి అన్నీ](All_About_Descriptions_Graphics_and_Screenshots) F-Droid లో మీ అనువర్తనాన్ని చూపుతున్నాయి."
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Publishing Nightly Builds](Publishing_Nightly_Builds) Make an automated repo of nightly builds of your app."
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Installing the Server and Repo Tools](Installing_the_Server_and_Repo_Tools) How to install fdroidserver, the tools for running repos and build servers."
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Setup an F-Droid App Repo](Setup_an_F-Droid_App_Repo) How to setup your own repository of apps that users can easily add to their F-Droid client to get your apps directly from the source."
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Build Server Setup](Build_Server_Setup) How to setup the complete f-droid.org build setup on your own machine."
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Signing Process](Signing_Process) How to setup cryptographic signatures with F-Droid tools"
-msgstr ""
+msgstr "[సంతకం ప్రక్రియ](Signing_Process) ఎఫ్-డ్రాయిడ్ సాధనాలతో క్రిప్టోగ్రాఫిక్ సంతకాలను ఎలా సెటప్ చేయాలి"
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Reproducible Builds](Reproducible_Builds) How to use the F-Droid tools to make reproducible builds easy."
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Building a Signing Server](Building_a_Signing_Server) For higher security, isolate the signing keys from the rest."
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Verification Server](Verification_Server) Setting up a server to verify app builds are correct."
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
+#, fuzzy
 msgid "[Whitelabel Builds](Whitelabel_Builds) custom builds of F-Droid"
-msgstr ""
+msgstr "[వైట్‌లేబుల్ బిల్డ్స్](Whitelabel_Builds) ఎఫ్-డ్రాయిడ్ యొక్క అనుకూల నిర్మాణాలు"
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Privileged Extension](https://gitlab.com/fdroid/privileged-extension/#f-droid-privileged-extension) How to use F-Droid Privileged Extension as a user and rom developer"
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Deploying the Website](Deploying_the_Website) How [fdroid-website.git](https://gitlab.com/fdroid/fdroid-website) becomes [f-droid.org](https://f-droid.org)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
-msgid "[Release Process](Release_Process) All the steps needed to make official release of F-Droid projects."
-msgstr ""
-
-#. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Maintaining the Forum](Maintaining_the_Forum) Useful information for administrators of [F-Droid's forum](https://forum.f-droid.org)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
+#: _pages/docs.md
 msgid "[Running a Mirror](Running_a_Mirror) Instructions for setting up a repository mirror"
 msgstr ""
 
 #. type: Bullet: '* '
-#: build/_pages/md/docs.md
-msgid "[Work in Progress](https://f-droid.org/wiki/page/Work_in_Progress) Feel free to add your own topics and link to others."
+#: _pages/docs.md
+msgid "[MIA Process](MIA_Process) MIA (missing in action) maintainer removal process"
 msgstr ""
 
-#. type: Title #
-#: build/_pages/md/issues.md
+#. type: YAML Front Matter: title
+#: _pages/donate.md
 #, no-wrap
-msgid "Issues"
+msgid "Donations"
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/issues.md
+#: _pages/donate.md
+msgid "{% assign strings = site.data.strings.sidebars.donate %}"
+msgstr "{% assign strings = site.data.strings.sidebars.donate %}"
+
+#. type: Plain text
+#: _pages/donate.md
+msgid "F-Droid is powered by your donations!"
+msgstr ""
+
+#. type: Plain text
+#: _pages/donate.md
+msgid "If you want to contribute financially, we recommend using a **free (as in free software) donation platform** like **[Liberapay](https://liberapay.com/F-Droid-Data/)** or **[Open Collective](https://opencollective.com/f-droid/)**. **Liberapay** has lower fees but **Open Collective** allows more flexibility and transparency on how the funds are used.  Both platforms allow for recurrent donations which are highly desirable for making F-Droid sustainable."
+msgstr ""
+
+#. type: Plain text
+#: _pages/donate.md
+msgid "Your donations will be used for:"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/donate.md
+msgid "Paying for server resources"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/donate.md
+msgid "Pay for merchandise (stickers)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/donate.md
+msgid "Pay contributors for administration and development work"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/donate.md
+msgid "Travel sponsorship for contributors for conferences or meetups"
+msgstr ""
+
+#. type: Title ###
+#: _pages/donate.md
+#, no-wrap
+msgid "What payment methods can I use?"
+msgstr ""
+
+#. type: Plain text
+#: _pages/donate.md
+msgid "Right now, we only support the payment methods that our fiscal hosts offer.  The fiscal host determines which payment methods are available."
+msgstr ""
+
+#. type: Plain text
+#: _pages/donate.md
+#, no-wrap
+msgid "<div class=\"payment-methods\"></div>\n"
+msgstr "<div class=\"payment-methods\"></div>\n"
+
+#. type: Plain text
+#: _pages/donate.md
+#, no-wrap
+msgid ""
+"|      | {{ strings.currency }} | {{ strings.credit_card }}  | {{ strings.via_bank_transfer }} | {{ strings.paypal }} | {{ strings.crypto }} |\n"
+"|------|----------|--------------|---------------|--------|--------|\n"
+"| [<img src=\"{% asset liberapay_donate_button.svg %}\" alt=\"{{ strings.liberapay_alt }}\" height=\"24\" />](https://liberapay.com/F-Droid-Data/)           | | ✓ | | ✓ | |\n"
+"| [<img src=\"{% asset opencollectivelogo.svg %}\" height=\"20\" alt=\"{{ strings.opencollective_alt }}\" /> <small>F-Droid-Euro</small>](https://opencollective.com/f-droid-euro) | EUR (€) | ✓ | ✓ |  | |\n"
+"| [<img src=\"{% asset opencollectivelogo.svg %}\" height=\"20\" alt=\"{{ strings.opencollective_alt }}\" /> <small>F-Droid</small>](https://opencollective.com/f-droid)   | USD ($) | ✓ | ✓ | ✓ | ✓ |\n"
+"| [<img src=\"{% asset github-sponsors.svg %}\" height=\"20\" alt=\"GitHub Sponsors\" />](https://github.com/sponsors/f-droid) |  | ✓ | | ✓ | |\n"
+msgstr ""
+"|      | {{ strings.currency }} | {{ strings.credit_card }}  | {{ strings.via_bank_transfer }} | {{ strings.paypal }} | {{ strings.crypto }} |\n"
+"|------|----------|--------------|---------------|--------|--------|\n"
+"| [<img src=\"{% asset liberapay_donate_button.svg %}\" alt=\"{{ strings.liberapay_alt }}\" height=\"24\" />](https://liberapay.com/F-Droid-Data/)           | | ✓ | | ✓ | |\n"
+"| [<img src=\"{% asset opencollectivelogo.svg %}\" height=\"20\" alt=\"{{ strings.opencollective_alt }}\" /> <small>F-Droid-Euro</small>](https://opencollective.com/f-droid-euro) | EUR (€) | ✓ | ✓ |  | |\n"
+"| [<img src=\"{% asset opencollectivelogo.svg %}\" height=\"20\" alt=\"{{ strings.opencollective_alt }}\" /> <small>F-Droid</small>](https://opencollective.com/f-droid)   | USD ($) | ✓ | ✓ | ✓ | ✓ |\n"
+"| [<img src=\"{% asset github-sponsors.svg %}\" height=\"20\" alt=\"GitHub Sponsors\" />](https://github.com/sponsors/f-droid) |  | ✓ | | ✓ | |\n"
+
+#. type: Plain text
+#: _pages/donate.md
+msgid "Visit the info pages of our fiscal hosts to get more details on their fees:"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/donate.md
+msgid "[Liberapay](https://liberapay.com/about/faq#fees)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/donate.md
+msgid "[Open Collective Europe ASBL](https://opencollective.com/europe)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/donate.md
+msgid "[Open Source Collective 501(c)(6)](https://opencollective.com/opensource)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: _pages/donate.md
+msgid "[GitHub Sponsors](https://docs.github.com/en/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors)"
+msgstr ""
+
+#. type: Title ####
+#: _pages/donate.md
+#, no-wrap
+msgid "IBAN Direct Bank Transfer"
+msgstr ""
+
+#. type: Plain text
+#: _pages/donate.md
+msgid "If you would like to donate via a direct IBAN bank transfer, then donate via [F-Droid (€)](https://opencollective.com/f-droid-euro) on OpenCollective:"
+msgstr ""
+
+#. type: Plain text
+#: _pages/donate.md
+#, no-wrap
+msgid ""
+"<p align=\"center\">\n"
+"<a href=\"https://opencollective.com/f-droid-euro\"><img src=\"{% asset opencollective_button.png %}\" height=\"40\" alt=\"{{ strings.opencollective_alt }}\"></a>\n"
+"&nbsp; &nbsp; &nbsp;\n"
+"</p>\n"
+msgstr ""
+"<p align=\"center\">\n"
+"<a href=\"https://opencollective.com/f-droid-euro\"><img src=\"{% asset opencollective_button.png %}\" height=\"40\" alt=\"{{ strings.opencollective_alt }}\"></a>\n"
+"&nbsp; &nbsp; &nbsp;\n"
+"</p>\n"
+
+#. type: Title ####
+#: _pages/donate.md
+#, no-wrap
+msgid "Cryptocurrency"
+msgstr ""
+
+#. type: Plain text
+#: _pages/donate.md
+msgid "All cryptocurrency donations to F-Droid, including Bitcoin and many others, are processed through OpenCollective:"
+msgstr ""
+
+#. type: Plain text
+#: _pages/donate.md
+#, no-wrap
+msgid ""
+"<p align=\"center\">\n"
+"<a href=\"https://opencollective.com/f-droid/donate/crypto\" target=\"_blank\">\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/BTC.svg %}\" alt=\"BTC (Bitcoin)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/ETH.svg %}\" alt=\"ETH (Ethereum)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/BCH.svg %}\" alt=\"BCH (Bitcoin Cash)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/LTC.svg %}\" alt=\"LTC (Litecoin)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/ZEC.svg %}\" alt=\"ZEC (Zcash)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/LINK.svg %}\" alt=\"LINK (Chainlink)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/BAT.svg %}\" alt=\"BAT (Basic Attention Token)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/DAI.svg %}\" alt=\"DAI (Dai)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/OXT.svg %}\" alt=\"OXT (Orchid)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/STORJ.svg %}\" alt=\"STORJ (Storj)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/AMP.svg %}\" alt=\"AMP (Amp)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/ZRX.svg %}\" alt=\"ZRX (Ox)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/DOGE.svg %}\" alt=\"DOGE (Dogecoin)\" />\n"
+"</a>\n"
+"</p>\n"
+msgstr ""
+"<p align=\"center\">\n"
+"<a href=\"https://opencollective.com/f-droid/donate/crypto\" target=\"_blank\">\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/BTC.svg %}\" alt=\"BTC (Bitcoin)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/ETH.svg %}\" alt=\"ETH (Ethereum)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/BCH.svg %}\" alt=\"BCH (Bitcoin Cash)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/LTC.svg %}\" alt=\"LTC (Litecoin)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/ZEC.svg %}\" alt=\"ZEC (Zcash)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/LINK.svg %}\" alt=\"LINK (Chainlink)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/BAT.svg %}\" alt=\"BAT (Basic Attention Token)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/DAI.svg %}\" alt=\"DAI (Dai)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/OXT.svg %}\" alt=\"OXT (Orchid)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/STORJ.svg %}\" alt=\"STORJ (Storj)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/AMP.svg %}\" alt=\"AMP (Amp)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/ZRX.svg %}\" alt=\"ZRX (Ox)\" />\n"
+"<img class=\"crypto-logos\" src=\"{% asset crypto-logos/DOGE.svg %}\" alt=\"DOGE (Dogecoin)\" />\n"
+"</a>\n"
+"</p>\n"
+
+#. type: Title ##
+#: _pages/donate.md
+#, no-wrap
+msgid "Swag"
+msgstr ""
+
+#. type: Plain text
+#: _pages/donate.md
+#, no-wrap
+msgid ""
+"Or buy a 👕 T-shirt 👕 from <br>\n"
+"[![HELLOTUX]({% asset hellotux_banner.jpg %})](https://www.hellotux.com/f-droid)<br>\n"
+"(F-Droid will receive 3€ per shirt sold.)\n"
+msgstr ""
+
+#. type: Title ##
+#: _pages/donate.md
+#, no-wrap
+msgid "Previous Setup"
+msgstr ""
+
+#. type: Plain text
+#: _pages/donate.md
+#, fuzzy
+#| msgid "The _f-droid.org_ core infrastructure is operated by F-Droid Limited, a UK \"private company\" registered in England (no. [08420676](https://beta.companieshouse.gov.uk/company/08420676))."
+msgid "Donations for F-Droid were previously handled by F-Droid Limited, a UK \"private company\" registered in England (no. [08420676](https://beta.companieshouse.gov.uk/company/08420676)).  It has been out of use since 2021."
+msgstr "_F-droid.org_ కోర్ మౌలిక సదుపాయాలు ఇంగ్లాండ్‌లో నమోదు చేయబడిన UK \"ప్రైవేట్ సంస్థ\" అయిన F- డ్రాయిడ్ లిమిటెడ్ (నం. [08420676](https://beta.companieshouse.gov.uk/company/08420676) చేత నిర్వహించబడుతుంది."
+
+#. type: YAML Front Matter: title
+#: _pages/issues.md
+#, no-wrap
+msgid "Issues"
+msgstr "సమస్యలు"
+
+#. type: Plain text
+#: _pages/issues.md
 #, no-wrap
 msgid ""
 "* [Client](https://gitlab.com/fdroid/fdroidclient/issues) issue tracker: If you’re having a problem with the F-Droid client application,\n"
@@ -848,24 +939,23 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/issues.md
+#: _pages/issues.md
 #, no-wrap
 msgid ""
-"* [RFP](https://gitlab.com/fdroid/rfp/issues/new) tracker: To request a new app be added, submit a \"Request For Packaging\" on the\n"
+"* [RFP](https://gitlab.com/fdroid/rfp/issues/) tracker: To request a new app be added, submit a \"Request For Packaging\" on the\n"
 "rfp tracker.\n"
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/issues.md
+#: _pages/issues.md
 #, no-wrap
 msgid ""
 "* [Data](https://gitlab.com/fdroid/fdroiddata/issues) issue tracker: For problems relating to the contents of the repository,\n"
-"such as missing or outdated applications,\n"
-"please use this issue tracker.\n"
+"such as missing or outdated applications, please use this issue tracker.\n"
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/issues.md
+#: _pages/issues.md
 #, no-wrap
 msgid ""
 "* [Server](https://gitlab.com/fdroid/fdroidserver/issues) issue tracker: For the server tools (used for building apps yourself,\n"
@@ -873,67 +963,76 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/issues.md
+#: _pages/issues.md
 #, no-wrap
 msgid ""
 "* [Website](https://gitlab.com/fdroid/fdroid-website/issues) issue tracker: For issues relating to this web site, you can use\n"
 "this issue tracker.\n"
 msgstr ""
 
-#. type: Title #
-#: build/_pages/md/repomaker.md
+#. type: Plain text
+#: _pages/issues.md
 #, no-wrap
-msgid "Repomaker"
+msgid ""
+"* [Website-Search](https://gitlab.com/fdroid/fdroid-website-search/issues) issue tracker: For issues relating to\n"
+"https://search.f-droid.org, you can use this issue tracker.\n"
 msgstr ""
 
+#. type: YAML Front Matter: title
+#: _pages/repomaker.md
+#, no-wrap
+msgid "Repomaker"
+msgstr "Repomaker"
+
 #. type: Plain text
-#: build/_pages/md/repomaker.md
+#: _pages/repomaker.md
 msgid "F-Droid.org is just a repo out of hundreds of repos created by individuals all around the globe. With the tools of F-Droid, everyone can create their own repo. So whether you are a musician who wants to publish their music or a developer who wants to serve nightly builds of their app, you are free to create your own repo and share it with other people independently of F-Droid.org."
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/repomaker.md
+#: _pages/repomaker.md
 msgid "In the past, creating a repo has been difficult because you had to have knowledge on the command line, needed to edit text files to edit your packages' store details and had to paste screenshots in a special system of directories to have them served well inside the F-Droid app."
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/repomaker.md
+#: _pages/repomaker.md
 msgid "This all got easier now: with Repomaker, you are able to create your own repo and do not need to have any special knowledge to do so.  Check out the [installation guide](https://gitlab.com/fdroid/repomaker/blob/master/README.md#installation)  for information on how you can install Repomaker on your device."
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/repomaker.md
+#: _pages/repomaker.md
 #, no-wrap
 msgid ""
-"[![]({{ site.baseurl }}/assets/repomaker-screenshots/repo-details.png)]({{ site.baseurl }}/assets/repomaker-screenshots/repo-details.png)<br/>\n"
+"[![]({% asset repomaker-screenshots/repo-details.png %})]({% asset repomaker-screenshots/repo-details.png %})<br/>\n"
 "*Your repo can serve all types of media*\n"
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/repomaker.md
+#: _pages/repomaker.md
 #, no-wrap
 msgid ""
-"[![]({{ site.baseurl }}/assets/repomaker-screenshots/package-details.png)]({{ site.baseurl }}/assets/repomaker-screenshots/package-details.png)<br/>\n"
+"[![]({% asset repomaker-screenshots/package-details.png %})]({% asset repomaker-screenshots/package-details.png %})<br/>\n"
 "*Editing your package store details never was easier*\n"
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/repomaker.md
+#: _pages/repomaker.md
 #, no-wrap
 msgid ""
-"[![]({{ site.baseurl }}/assets/repomaker-screenshots/create-repo.png)]({{ site.baseurl }}/assets/repomaker-screenshots/create-repo.png)<br/>\n"
+"[![]({% asset repomaker-screenshots/create-repo.png %})]({% asset repomaker-screenshots/create-repo.png %})<br/>\n"
 "*Creating a repo just takes you two clicks*\n"
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/repomaker.md
+#: _pages/repomaker.md
 #, no-wrap
 msgid ""
-"[![]({{ site.baseurl }}/assets/repomaker-screenshots/add-storage.png)]({{ site.baseurl }}/assets/repomaker-screenshots/add-storage.png)<br/>\n"
+"[![]({% asset repomaker-screenshots/add-storage.png %})]({% asset repomaker-screenshots/add-storage.png %})<br/>\n"
 "*You have many possibilities where to upload your repo*\n"
 msgstr ""
 
 #. type: Plain text
-#: build/_pages/md/repomaker.md
-msgid "Like any other project of F-Droid, Repomaker is free and open source software. You can find the source code and its license on [GitLab.com](https://gitlab.com/fdroid/repomaker)."
-msgstr ""
+#: _pages/repomaker.md
+#, fuzzy
+msgid "Like any other project of F-Droid, Repomaker is free and open source software. You can find the source code and its license on [gitlab.com](https://gitlab.com/fdroid/repomaker)."
+msgstr "ఎఫ్-డ్రాయిడ్ యొక్క ఇతర ప్రాజెక్టుల మాదిరిగానే, రెపోమేకర్ ఉచిత మరియు ఓపెన్ సోర్స్ సాఫ్ట్‌వేర్. మీరు సోర్స్ కోడ్ మరియు దాని లైసెన్స్‌ను [GitLab.com](https://gitlab.com/fdroid/repomaker) లో కనుగొనవచ్చు."

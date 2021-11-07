@@ -27,7 +27,7 @@ selection of things that an attacker could do in such a situation:
     includes the ability to execute anything) for other applications in
     the repository.
 
-Through complete isolation, the repurcussions are at least limited to
+Through complete isolation, the repercussions are at least limited to
 the application in question. Not only is the build environment fresh
 for each build, and thrown away afterwards, but it is also totally
 isolated from the signing environment.
@@ -75,7 +75,7 @@ in this process should be run using root or _sudo_.
 root:~# apt-get install vagrant virtualbox git python3-certifi \
         python3-libvirt python3-requestbuilder python3-yaml \
         python3-clint python3-vagrant python3-paramiko python3-pyasn1 \
-        python3-pyasn1-modules
+        python3-pyasn1-modules python3-requests python3-git
 root:~# adduser --disabled-password fdroid
 root:~# su fdroid
 ```
@@ -110,8 +110,8 @@ Get all of the app build metadata from the fdroiddata repo...
 ```bash
 fdroid:~/fdroidserver$ cd ~
 fdroid:~$ git clone https://gitlab.com/fdroid/fdroiddata.git
-fdroid:~$ cp fdroidserver/examples/config.py fdroiddata/
-fdroid:~$ sed -i "s@^[# ]*build_server_always.*@build_server_always = True@" fdroiddata/config.py
+fdroid:~$ cp fdroidserver/examples/config.yml fdroiddata/
+fdroid:~$ sed -i "s@^[# ]*build_server_always.*@build_server_always: true@" fdroiddata/config.yml
 ```
 
 ## Setting up a build server
@@ -222,7 +222,9 @@ configured to always set the ownership to `libvirt.libvirt`.
 
 ```console
 root:~# apt-get install vagrant vagrant-mutate vagrant-libvirt ebtables dnsmasq-base \
-        python3-libvirt libvirt-clients libvirt-daemon-system qemu-kvm qemu-utils git
+        python3-libvirt libvirt-clients libvirt-daemon-system qemu-kvm qemu-utils git \
+        python3-yaml python3-clint python3-vagrant python3-pyasn1 python3-pyasn1-modules \
+        python3-requests python3-git
 root:~# cat << EOF >> /etc/libvirt/qemu.conf
 user = "libvirt"
 group = "libvirt"

@@ -8,7 +8,7 @@ The F-Droid website is built using [Jekyll](https://jekyllrb.com/) and
 [gitlab-ci](https://about.gitlab.com/features/gitlab-ci-cd/).  The
 whole website now works using a standard git
 ["fork" workflow](https://docs.gitlab.com/ce/workflow/forking_workflow.html)
-that is well supported by gitlab, and well known from services like
+that is well supported by GitLab, and well known from services like
 GitHub.  For all of the pages and information about apps and packages
 distributed by _f-droid.org_, those pages are generated using our
 [jekyll-fdroid](https://gitlab.com/fdroid/jekyll-fdroid) plugin, which
@@ -27,34 +27,6 @@ the fork's _master_ branch to
 git fork is at <https://gitlab.com/nicoalt/fdroid-website>, and the
 _master_ branch from that is automatically deployed to
 <https://nicoalt.gitlab.io/fdroid-website>.
-
-
-##### Deploying merge request branches
-
-The current _gitlab-ci_ setup is optionally capable of pushing the
-resulting HTML to a live webserver and linking to it automatically
-from the GitLab merge request, deploying to
-[surge.sh](https://surge.sh).
-
-Doing so will allow for easier review of your merge requests, but is
-not required.  If you don't follow the steps below, your merge
-requests will still run through the _gitlab-ci_ continuous integration
-checks, but the resulting HTML will not be accessible online.
-
-To configure this:
-
- * Install the [surge.sh](https://surge.sh) CLI: `npm install surge`
- * Signup for [surge.sh](https://surge.sh): `surge login`
- * Get a "token" to allow CI to deploy on your behalf: `surge token`
- * [Add two "Secret Variables"](https://docs.gitlab.com/ce/ci/variables/README.html#secret-variables) to your fork of this project:
-   * Navigate to your projects Settings -> Pipelines -> Secret Variables.
-   * Add the following two variables:
-     * `SURGE_LOGIN`: The email you used to signup with `surge login`.
-     * `SURGE_TOKEN`: The value given when you ran `surge token`.
-
-Now your CI jobs should be authorized to deploy to surge.sh, and the
-GitLab merge requests screen will automatically link to this
-deployment.
 
 
 ### Staging of the official website
@@ -98,11 +70,11 @@ commands that run outside of docker cannot be modified via git.
 
 1. [setup docker](https://docs.docker.com/engine/installation/linux/debian/)
 2. [setup gitlab-ci-multi-runner](https://docs.gitlab.com/runner/install/linux-repository.html)
-3. prepare _deploy-whitelist-keyring.gpg_ using GnuPG:
+3. prepare _deploy-allowlist-keyring.gpg_ using GnuPG:
 ```console
 $ gpg --recv-keys 00aa5556
 $ gpg --fingerprint 00aa5556  # verify it!
-$ gpg --export 00aa5556 > /path/to/deploy-whitelist-keyring.gpg
+$ gpg --export 00aa5556 > /path/to/deploy-allowlist-keyring.gpg
 ```
 4. get the website source code:
 ```console
@@ -114,7 +86,7 @@ $ cd fdroid-website
 $ git fetch --tags
 $ sudo gitlab-runner exec docker f-droid.org \
               --pre-build-script ./tools/prepare-for-deploy.py \
-              --docker-volumes "/path/to/deploy-whitelist-keyring.gpg:/root/.gnupg/pubring.gpg:ro" \
+              --docker-volumes "/path/to/deploy-allowlist-keyring.gpg:/root/.gnupg/pubring.gpg:ro" \
               --docker-volumes `pwd`/_site:/builds/output
 ```
 6. deploy the site's files to the webserver, while preventing the
