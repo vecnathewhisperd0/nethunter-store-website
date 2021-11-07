@@ -31,7 +31,7 @@ fi
 # convert newlines to spaces
 languages=`echo $languages`
 
-for section in _docs _pages _posts; do
+for section in _docs _pages; do
     po4a_conf=$(mktemp)
     echo "[po4a_langs] $languages" > $po4a_conf
     echo "[po4a_paths] po/${section}.pot \$lang:po/${section}.\$lang.po" >> $po4a_conf
@@ -50,7 +50,6 @@ EOF
 done
 wait $pid_docs
 wait $pid_pages
-wait $pid_posts
 
 # no need to keep these around
 rm -f po/*.en.po

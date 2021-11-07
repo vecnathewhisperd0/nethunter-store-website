@@ -22,7 +22,7 @@ git fetch --tags
 for tag in `git tag --sort=-taggerdate`; do
     if git tag -v $tag; then
 	git clean -fdx
-	git checkout -B master $tag
+	git checkout -B nethunter $tag
         echo "Set up $tag to deploy!"
 	exit
     fi
