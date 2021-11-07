@@ -1,10 +1,86 @@
-#!/bin/sh
+#!/usr/bin/env python3
 
-basedir=`cd $(dirname $0)/..; pwd`
+import glob
+import os
+import re
+import yaml
 
-##sed -i 's/^msgstr "[` ]*-----BEGIN.*"/msgstr ""/' $basedir/po/_*.po*
 
-data=$basedir/_data
-# trim trailing whitespace
-sed -i 's, *$,,' $data/strings.json $data/*/strings.json \
-    $data/tutorials.json $data/*/tutorials.json
+force_dnt = [
+    r'''"!\[\]\(\{% asset posts/2017-07-03-cuba/be_update1.jpg %\}\)"''',
+    r'''"!\[\]\(\{% asset posts/2017-07-03-cuba/fdroid-logo\.png %\}\)"''',
+    r'''""\n"<p align=\\"center\\">\\n"\n"<a href=\\"https://opencollective.com/f-droid-euro.*?opencollective_button\.png.*?</p>\\n"''',
+    r'''""\n"<p align=\\"center\\">\\n"\n"<a href=\\"https://opencollective.com/f-droid/.*?BTC.*?"</a>\\n"\n"</p>\\n"''',
+    r'''""\n"Builds:\\n"\n"  - versionName:.*?v1\.3-fdroid\\n"''',
+    r'''""\n"\$ sudo apt-get install fdroidserver\\n.*?\\n"''',
+    r'''""\n"\* Do not remove this line \(it will not be displayed\)\\n"\n"\{:toc\}\\n"''',
+    r'''""\n"\|      \| {{ strings.currency }} \| {{ strings.credit_card }}.*?\|\\n"''',
+    r'''""\n"brew install android-sdk.*?platform-tools.*?\\n"''',
+    r'''""\n"keytool -genkey.*?-storepass.*?\\n"''',
+    r'''""\n"pyvenv fdroidserver-env.*?fdroidserver\\n"''',
+    r'''""\n"sudo add-apt-repository.*?fdroidserver\\n"''',
+    r'''""\n"sudo: required\\n.*?  - fdroid nightly -v\\n"''',
+    r'''"<!--more-->\\n"''',
+    r'''"<div class=\\"payment-methods\\"></div>\\n"''',
+    r'''"<hr \/>\\n"''',
+    r'''"<https://[A-Z0-9a-z/.?=_-]+>"''',
+    r'''"<tt>issuebot</tt>"''',
+    r'''"[GitHub Sponsors](https://docs.github.com/en/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors)"''',
+    r'''"[Liberapay](https://liberapay.com/about/faq#fees)"''',
+    r'''"[Open Collective Europe ASBL](https://opencollective.com/europe)"''',
+    r'''"[Open Source Collective 501(c)(6)](https://opencollective.com/opensource)"''',
+    r'''"\$ fdroid rewritemeta --to yml\\n"''',
+    r'''"\{% include running-a-mirror-rsync.html %\}"''',
+    r'''"`fastlane/metadata/android/`"''',
+    r'''"`metadata/`"''',
+    r'''"`system-images;android-29;microg;x86_64`"''',
+    r'''"brew install fdroidserver\\n"''',
+    r'''"docker system prune -a\\n"''',
+    r'''"fdroid build --server -v -l net.artificialworlds.rabbitescape\\n"''',
+    r'''"fdroid build org.fdroid.fdroid:16\\n"''',
+    r'''"fdroid build\\n"''',
+    r'''"fdroid nightly --keystore im.zom.messenger-debug.keystore --show-secret-var\\n"''',
+    r'''"fdroid nightly --keystore im.zom.messenger-debug.keystore\\n"''',
+    r'''"fdroid publish\\n"''',
+    r'''"fdroid rewritemeta org.adaway\\n"''',
+    r'''"fdroid rewritemeta\\n"''',
+    r'''"fdroid update --help\\n"''',
+    r'''"sudo apt-get install fdroidserver\n"''',
+    r'''"sudo apt-get install nginx\\n"''',
+    r'''"sudo easy_install fdroidserver\\n"''',
+    r'''"{% assign strings = site.data.strings.sidebars.donate %}"''',
+    r''''"apksigner verify --print-certs example.apk | grep SHA-256"''',
+    r'''\$ echo export ANDROID_HOME=\$ANDROID_HOME >> \.bashrc\\n''',
+]
+
+# these are allowed to be translated, but default to being copied
+default_dnt = [
+    r'''"Cygwin"''',
+    r'''"Guix"''',
+    r'''"macOS"''',
+    r'''"Homebrew:"''',
+    r'''"Windows"''',
+]
+
+patterns = []
+for dnt in force_dnt:
+    patterns.append(re.compile(r'\nmsgid (' + dnt + ')\nmsgstr ".*?"\n\n', flags=re.DOTALL))
+
+# contributor names default to DNT, but won't override translations
+with open('_data/contributors.yaml') as fp:
+    for c in yaml.safe_load(fp):
+        default_dnt.append(c['name'])
+
+for d in default_dnt:
+    patterns.append(re.compile(r'\nmsgid ("' + d + '")\nmsgstr ""\n\n'))
+
+os.chdir(os.path.join(os.path.dirname(__file__), '..'))
+
+for f in sorted(glob.glob('po/*.po')):
+    with open(f) as fp:
+        source = fp.read()
+    for p in patterns:
+        source = p.sub(r'\nmsgid \1\nmsgstr \1\n\n', source)
+    with open(f, 'w') as fp:
+        fp.write(source)
+    print(f)

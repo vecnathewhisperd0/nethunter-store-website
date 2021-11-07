@@ -17,4 +17,3 @@ You can discuss the NetHunter Store or get help on the [forums](https://forums.k
 The Kali NetHunter Store is a non-profit [volunteer]({{ "/contribute/" | prepend: site.baseurl }}) project. Although every effort is made to ensure that everything in the repository is safe to install, you use it AT YOUR OWN RISK. Wherever possible, applications in the repository are built from source, and that source code is checked for potential security or privacy issues. This checking is far from exhaustive though, and there are no guarantees.
 
 [Privacy Policy](https://www.offensive-security.com/privacy-policy/)
-

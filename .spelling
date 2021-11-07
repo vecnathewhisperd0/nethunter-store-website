@@ -13,6 +13,7 @@ backdoor
 backdoors
 basebox
 buildserver
+buster
 CalyxOS
 CamelCase
 camelCase
@@ -40,16 +41,20 @@ freenode
 Gettext
 gettext
 GitLab
+GPLv2
+GPLv3
 hook-json_restore_hierarchy
 HSMs
 html
-JCenter
+jCenter
 Jekyll
 jekyll
 jessie
 Kali
+json
+keystore
 Liberapay
-Libre
+libre
 Librem
 LineageOS
 Litecoin
@@ -71,23 +76,35 @@ OpenSC
 PanicKit
 plugin
 plugins
+prebuilt
 Purism
 puri.sm
 python3
 pyvenv
+reproducibly
+regex
 Replicant
 repo
 Repomaker
+<<<<<<< HEAD
 storedata
 userconfig.yml
+=======
+stretch
+toolchain
+unsigned
+>>>>>>> master
 versionCode
 versionName
+VirtualBox
 virtualenv
 Weblate
 weblate
 webserver
 Website
 website
+workflow
+yml
 zlib
 
 # standard page names
@@ -114,7 +131,7 @@ project.properties
 .gitmodules
 
 # index.xml (should always be italics)
-# sed -En "s,.*addElement\w*\([\'\"](\w+)[\'\"].*,<\1>,gp" fdroidserver/index.py | sort -u >> .spelling
+# sed -En "s,.*addElement\w*\([\'\"](\w+)[\'\"].*,<\1>,gp" fdroidserver/index.py | sort -u
 <added>
 <antifeatures>
 <apkname>
@@ -200,8 +217,9 @@ Litecoin
 MaintainerNotes
 Name
 NoSourceSince
-Provides
+OpenCollective
 Repo
+RepoManifest
 RepoType
 RequiresRoot
 SourceCode
@@ -248,3 +266,14 @@ submodules
 sudo
 target
 timeout
+
+# Android ABI names https://developer.android.com/ndk/guides/abis
+armeabi
+armeabi-v7a
+arm64-v8a
+AArch64
+x86
+i386
+i686
+x86_64
+x86-64

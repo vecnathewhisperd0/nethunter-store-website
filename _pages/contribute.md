@@ -14,6 +14,7 @@ For reporting issues, choose an appropriate tracker from the following:
 * [NetHunter Store client app](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-client/issues)
 * [NetHunter Store repository metadata](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/issues)
 
+
 ### Submit Applications
 
 If you see an application missing from the repository (after reading the [inclusion policy](../docs/Inclusion_Policy)), please feel free to submit it via the dedicated [Requests For Packaging](https://gitlab.com/kalilinux/nethunter/store/rfp/issues) issue tracker.

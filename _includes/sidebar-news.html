@@ -1,11 +1,11 @@
 <h3>{{ site.data.strings.sidebars.news.heading }}</h3>
 
-<ul class="post-list">
+<ul class="post-list" dir="auto">
   {% for post in site.posts limit: 5 %}
     <li>
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <span class="post-meta">{{ post.date | date: "%F" }}</span>
     </li>
   {% endfor %}
 </ul>

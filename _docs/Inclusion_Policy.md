@@ -4,31 +4,23 @@ title: Inclusion Policy
 
 ---
 
-All applications in the repository must be Free, Libre and Open Source
-software – for example, released under a GPL or Apache license. Every
-effort is made to verify that this is actually the case, both by visual
-inspection of the source, and by building the application from the
-published source. If in doubt about a license, please refer to the [GNU
-license list](https://www.gnu.org/licenses/license-list.html).
+All applications in the repository must be free software.  
+We do accept binary apk into the repo as long as they are free.  
 
-For software to be FLOSS, the software in its entirety must be so -
-including all libraries and dependencies used. Additionally, it must be
-buildable with only FLOSS tools.
-
-Notably:
+For open source software that we are asked to build, please note:
 
 -   We cannot build apps using Google's proprietary "play-services".
     Please talk to upstream about an untainted build flavor (either
-    using microg or removing non-free dependencies completely).
+    using microg or removing Non-Free dependencies completely).
 -   We cannot build apps using proprietary tracking/analytic
     dependencies like Crashlytics and Firebase. Please talk to upstream
     about an untainted build flavor (either using a FLOSS analytics
-    software like ACRA or by removing non-free dependencies completely).
+    software like ACRA or by removing Non-Free dependencies completely).
 -   We cannot build apps using proprietary ad libraries. We have nothing
-    against advertisments (see [_AntiFeatures_](https://f-droid.org/wiki/page/Antifeatures)),
-    but they must be provided by a FLOSS compatible way.
+    against advertisments, but they must be provided by a FLOSS compatible way.
 -   We cannot build apps requiring non-free buildtools, including
     Oracle's JDK or some pre-release toolchains.
+
 
 Additionally:
 
@@ -37,10 +29,10 @@ Additionally:
     hg, svn, bzr), and the source code needs to be maintained in an up
     to date state.
 -   The software should not download additional executable binary
-    files (e.g. non-free addons, auto-updates, etc).
+    files (e.g. Non-Free addons, auto-updates, etc).
 -   The software should use its own unique Android package ID. Where the
     application is a fork of another (even one not included in the
-    F-Droid repository) it must have a new ID, different from
+    NetHunter repository) it must have a new ID, different from
     the original.
 -   Although not ideal, "non-functional" assets (e.g. artwork) *may* be
     acceptable under less permissive licenses than functional code - an
@@ -49,7 +41,7 @@ Additionally:
     under some kind of license, and not be copyright violations.
 -   Trademarks must not be infringed, and any other legal requirements
     must be adhered to.
--   F-Droid does not sign up for any API keys. Even if provided by a
+-   Kali NetHunter does not sign up for any API keys. Even if provided by a
     third party, we include them in both, binary and
     sourcecode releases.
 -   Binary dependencies such as JAR files have to be replaced by
@@ -63,7 +55,7 @@ Ideally:
 Some software, while being Free and Open Source, may engage in practices
 which are undesirable to some or all users. Where possible, we still
 include these applications in the repository, but they are flagged with
-the appropriate [_AntiFeatures_](https://f-droid.org/wiki/page/Antifeatures). Even though
+the appropriate [_Anti-Features_](../Anti-Features). Even though
 such software can be included, when appropriately flagged, it is
 frequently the case that other "FLOSS" software with these features is
 actually not entirely free. For example, advertising and spying on user
@@ -76,11 +68,11 @@ PayPal/Flattr/etc) must also be available either:
 -   In a README or similar file in the projects source code.
 -   On the applications main website.
 -   If the software is hosted on GitLab, then it is sufficient that the
-    person requesting donation info to be added to the fdroiddata repository
+    person requesting donation info to be added to the nethunter-storedata repository
     is the same user account which manages the application source code.
 
 This is to prevent arbitrary people from maliciously changing the donation links of
-applications in the main F-Droid repository without the consent of upstream developers.
+applications in the main NetHunter repository without the consent of upstream developers.
 
-For more information on adding applications to the F-Droid Repository,
+For more information on adding applications to the NetHunter Repository,
 see the [Inclusion How-To](../Inclusion_How-To).

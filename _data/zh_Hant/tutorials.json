@@ -6,8 +6,8 @@
             "description": "如果軟體庫連結是透過電子郵件、社群網站或者簡訊收到的，開啟連結即可在 F-Droid 中透過該軟體庫安裝應用程式。",
             "short_summary": "開啟軟體庫連結",
             "steps": {
-                "step_1": "下載並在您的 Android 裝置上安裝 F-Droid 應用程式。",
-                "step_2": "點選連結以在瀏覽器中開啟。",
+                "step_1": "在您的Android設備上下載並安裝F-Droid應用。",
+                "step_2": "單擊鏈接，然後在設備上的網絡瀏覽器中將其打開。",
                 "step_3": "開啟網頁後，輕觸「新增至 F-Droid」按鈕。",
                 "step_4": "輕觸「我已安裝 F-Droid」按鈕，F-Droid 應用程式就會開啟。",
                 "step_5": "「新增軟體庫」將會與預先填入的軟體庫位址一起顯示，輕觸「新增」以新增。",
@@ -26,7 +26,7 @@
             "related_tutorial": "您可能也有興趣：<a href=\"../swap/\">如何離線傳送並接收應用程式</a>",
             "short_summary": "掃描 QR Code",
             "steps": {
-                "step_1": "在軟體庫的 QR code 顯示後，使用 QR Code 掃描器進行掃描。",
+                "step_1": "顯示回購的QR碼後，使用QR掃描儀應用程序對其進行掃描。",
                 "step_2": "輕觸掃描後出現的連結。如果能透過 F-Droid 開啟連結，那麼按照指示即可完成。如果無法透過 F-Droid 開啟，繼續下一步。",
                 "step_3": "如果沒有透過 F-Droid 開啟連結的選項，關閉掃描器並開啟 F-Droid 應用程式。",
                 "step_4": "在 F-Droid 中輕觸「設定」。在「我的應用程式」分類下選擇「軟體庫」。",
@@ -50,7 +50,7 @@
         },
         "download_and_install": {
             "steps": {
-                "step_1": "下載並安裝 Repomaker 至您的電腦。",
+                "step_1": "將Repomaker Web應用下載並安裝到台式計算機。 有關更多信息，請參見<a href=\"https://gitlab.com/fdroid/repomaker/blob/master/README.md#installation\">安裝指南</a>。",
                 "step_2": "啟動 Repomaker。註冊或登入以開始。",
                 "step_3": "建立新軟體庫並命名。",
                 "step_4": "可選擇從 Gallery 和可用的軟體庫新增應用程式，或上傳檔案。點選「從 Gallery 中新增」以從可用的內容中選擇。",
@@ -64,13 +64,13 @@
             "summary": "建立您自訂的應用程式軟體庫。透過 F-Droid 散佈內容。訓練師在沒有可靠的網路連線時，透過軟體庫來輕易地與訓練的參與者分享資源和應用程式。開發者也藉由軟體庫向大眾散佈他們的應用程式。",
             "title": "加入您自己的應用程式與檔案。"
         },
-        "related_tutorial": "您可能也有興趣：<a href='../add-repo/'>如何新增軟體庫至 F-Droid</a>",
+        "related_tutorial": "您可能也有興趣：<a href=\"../add-repo/\">如何新增軟體庫至 F-Droid</a>",
         "share_repo": {
             "steps": {
                 "step_1": "開啟您想分享的軟體庫，點選選單中的「分享」。注意：在分享前需先設定軟體庫的儲存位置。",
                 "step_2": "您將會被要求設定儲存位置以在分享前發佈軟體庫。如果您未看到這個頁面，請跳至步驟 4。",
                 "step_3": "選擇最符合您需求的儲存位置選項。設定完儲存位置後即可分享儲存庫。回到「分享」。",
-                "step_4": "選擇複製連結並透過電子郵件或簡訊直接傳送給其他人，或在 Facebook 和 Twitter 上分享您的軟體庫。其他人開啟您軟體庫的連結後，新增您軟體庫至 F-Droid 即可存取其中的應用程式。參考<a href='../add-repo/'>如何新增軟體庫至 F-Droid</a> 以取得更多資訊。",
+                "step_4": "選擇複製連結並透過電子郵件或簡訊直接傳送給其他人，或在 Facebook 和 Twitter 上分享您的軟體庫。其他人開啟您軟體庫的連結後，新增您軟體庫至 F-Droid 即可存取其中的應用程式。參考<a href=\"../add-repo/\">如何新增軟體庫至 F-Droid</a> 以取得更多資訊。",
                 "step_5": "透過「檢視軟體庫」選項可檢視您已發佈或已分享的項目。"
             },
             "title": "自訂軟體庫"
@@ -87,14 +87,14 @@
         }
     },
     "misc": {
-        "option_x_description": "選項 [number]：[description]",
+        "option_x_description": "選項 {{ number }}：{{ description }}",
         "overview": {
             "summary": "F-Droid 是一個獨立並由社群支援的 Android 應用程式商店，完全自由免費且開放原始碼。有了 F-Droid，您可以瀏覽超過 1200 個開源的應用程式，從其他軟體庫搜尋並安裝應用程式，還能建立自己的軟體庫。現在就在您的 Android 裝置上前往 f-droid.org，下載客戶端並開始使用吧！",
             "title": "有了 F-Droid 您能做的事",
-            "tutorial_x_title": "教學 [number]：[title]"
+            "tutorial_x_title": "教學 {{ number }}：{{ title }}"
         },
-        "step_x": "步驟 [number]",
-        "step_x_description": "步驟 [number]：[description]"
+        "step_x": "步驟 {{ number }}",
+        "step_x_description": "步驟 {{ number }}：{{ description }}"
     },
     "swap": {
         "all_devices_need_fdroid": "所有裝置都需先行安裝 F-Droid。所有裝置都得依照下列步驟操作。",
@@ -105,7 +105,7 @@
         },
         "related_tutorial": "您可能也有興趣：<a href=\"../create-repo/\">如何建立軟體庫</a>",
         "step_1": "開啟 F-Droid。輕觸畫面下方選單中的「Nearby」。",
-        "step_10": "要存取您已安裝的應用程式，請開啟 F-Droid 設定並選擇「我的應用程式」分類下的「管理已安裝的應用程式」。",
+        "step_10": "要存取您已安裝的應用程式，請開啟 F-Droid 設定並選擇「管理已安裝的應用程式」在「我的應用程式」分類下。",
         "step_2": "輕觸「找我附近的人」以搜尋相容的裝置。",
         "step_3": "找到附近的人後，雙方都得選擇對方的裝置。",
         "step_4": "連線完成後，選擇您想與對方分享的應用程式。",

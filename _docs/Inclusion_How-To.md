@@ -7,8 +7,7 @@ title: Inclusion How-To
 This page documents how a new application gets included in the main
 NetHunter Store repository. It includes the technical details that a submitter should be aware of.
 
-Application Inclusion Proposal
-------------------------------
+## Application Inclusion Proposal
 
 To propose inclusion of a new application to the main NetHunter Store repository,
 one could post the applications relevant information to the Submission
@@ -55,12 +54,10 @@ When proposing inclusion this way, it is assumed that:
 -   You already read and understand
     [the relevant parts of the F-Droid documentation](../Build_Metadata_Reference).
 -   You have an account on [GitLab](https://gitlab.com/).
--   You have a local instance of the F-Droid server software, and you know
+-   You have a local instance of the NetHunter Store server software, and you know
     what you are doing.
 
-
-Application Review Process
---------------------------
+## Application Review Process
 
 Once the inclusion proposal is filed, the application will enter a
 reviewing process where NetHunter staff look into the applications source
@@ -77,7 +74,7 @@ application source code. Steps about writing and committing metadata
 are omitted, as they will use the original metadata file you proposed.
 Feedback will be given on the original merge request thread that the
 application was proposed; and once the process is completed, the request
-will be merged to the `master` branch of the fdroiddata
+will be merged to the `master` branch of the nethunter-storedata
 GitLab repository.
 
 In an attempt to optimize the process, when you proposed inclusion via
@@ -88,12 +85,10 @@ consumes much less time. Policy-violating applications that somehow
 sneaked in this way will be dealt with after the fact.
 
 
-
 External Links
 --------------
 
 -   [NetHunter Store application submission queue on
     GitLab](https://gitlab.com/kalilinux/nethunter/store/rfp/issues) (for new submissions)
 -   [NetHunter storedata GitLab repository](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata)
--   [nethunter-storedata revision
-    history](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/commits/master)
+-   [nethunter-storedata revision history](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/commits/master)

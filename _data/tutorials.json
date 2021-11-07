@@ -26,7 +26,7 @@
             "related_tutorial": "You may also be interested in: <a href=\"../swap/\">How to Send and Receive Apps Offline</a>",
             "short_summary": "Scan QR Code",
             "steps": {
-                "step_1": "Once the QR code for the repo is displayed, scan the QR code using a QR scanner app.",
+                "step_1": "Once the QR code for the repo is displayed, scan it using a QR scanner app.",
                 "step_2": "Tap the link. If given the option, open the link using F-Droid. Then follow prompts. If this works, you are done! If not, proceed to the next step.",
                 "step_3": "If you do not get the option to open the link with F-Droid, close the QR scanner app and open the F-Droid app.",
                 "step_4": "Within F-Droid, tap 'Settings'. Under 'My Apps' select 'Repositories'.",
@@ -50,7 +50,7 @@
         },
         "download_and_install": {
             "steps": {
-                "step_1": "Download and install the Repomaker web app to your desktop computer. See <a href=\"https://gitlab.com/fdroid/repomaker/blob/master/README.md#installation\">the installation guide</a> for more information on how to do this.",
+                "step_1": "Download and install the Repomaker web app to your desktop computer. More info in the <a href=\"https://gitlab.com/fdroid/repomaker/blob/master/README.md#installation\">installation guide</a>.",
                 "step_2": "Launch the Repomaker web app. Sign up or log in to begin.",
                 "step_3": "Create a new repo and name it accordingly.",
                 "step_4": "Choose to add apps from the gallery and available repositories, or upload your own files. Click the 'Add from Gallery' button to choose from readily available content.",
@@ -64,13 +64,13 @@
             "summary": "Create your own customized repository of apps. Use F-Droid to distribute content. Trainers use repos to easily share a collection of resources and apps with participants at a training when there’s no reliable internet connection. Developers use repos to distribute their apps to niche audiences.",
             "title": "Add your own apps and files."
         },
-        "related_tutorial": "You may also be interested in: <a href='../add-repo/'>How to Add a Repo to F-Droid</a>",
+        "related_tutorial": "You may also be interested in: <a href=\"../add-repo/\">How to Add a Repo to F-Droid</a>",
         "share_repo": {
             "steps": {
                 "step_1": "With the repo you wish to share open, click 'Share' in the menu. Note: You need to set up a place to store your repo before sharing. Instructions for how to do this are in Step 2.",
                 "step_2": "You will be prompted to set up storage in order to publish your repo and before sharing. If you do not see this page, continue to Step 4.",
                 "step_3": "Choose the storage option that best fits your needs. Once you have storage, you're ready to share! Return to 'Share'.",
-                "step_4": "Choose to copy the link and send it directly to people through email or text, or share your repo on Facebook or Twitter. When people open the link to your repo, they will need to add it to an Android device to access the apps in the repo. See <a href='../add-repo/'>How to Add a Repo to F-Droid</a> for more information.",
+                "step_4": "Choose to copy the link and send it directly to people through email or text, or share your repo on Facebook or Twitter. When people open the link to your repo, they will need to add it to an Android device to access the apps in the repo. See <a href=\"../add-repo/\">How to Add a Repo to F-Droid</a> for more information.",
                 "step_5": "The 'View Repo' option allows you to see what you've just published or shared."
             },
             "title": "Customize Your Repo"
@@ -87,14 +87,14 @@
         }
     },
     "misc": {
-        "option_x_description": "Option [number]: [description]",
+        "option_x_description": "Option {{ number }}: {{ description }}",
         "overview": {
             "summary": "F-Droid is an independent, community-sourced app store for Android that is completely free and open source software. Within F-Droid you can browse over 1,200 open source apps, search and install apps from created repositories, or create your own repository. Open f-droid.org on your Android device to download the app and get started!",
             "title": "What You Can Do with F-Droid",
-            "tutorial_x_title": "Tutorial [number]: [title]"
+            "tutorial_x_title": "Tutorial {{ number }}: {{ title }}"
         },
-        "step_x": "Step [number]",
-        "step_x_description": "Step [number]: [description]"
+        "step_x": "Step {{ number }}",
+        "step_x_description": "Step {{ number }}: {{ description }}"
     },
     "swap": {
         "all_devices_need_fdroid": "All devices need F-Droid downloaded and installed before beginning. All devices should follow the steps below.",

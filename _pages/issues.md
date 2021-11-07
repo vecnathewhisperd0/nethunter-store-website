@@ -15,3 +15,6 @@ please use this issue tracker.
 
 * [Website](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-website/issues) issue tracker: For issues relating to this web site, you can use
 this issue tracker.
+
+* [Website-Search](https://gitlab.com/fdroid/fdroid-website-search/issues) issue tracker: For issues relating to
+https://search.f-droid.org, you can use this issue tracker.

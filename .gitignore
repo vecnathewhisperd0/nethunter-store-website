@@ -1,7 +1,29 @@
 .idea
 *.iml
 .sass-cache
-_site
+
+# dest dir for generated files
+/build/
+/public/
+/_site/
+
+# Auto-generated markdown files for different languages
+_docs/[a-z][a-z]/*.md
+_docs/[a-z][a-z][a-z]/*.md
+_docs/[a-z][a-z][a-z]/[A-Z]*/*.md
+_docs/[a-z][a-z]_[A-Z]*/*.md
+_pages/[a-z][a-z]/*.md
+_pages/[a-z][a-z][a-z]/*.md
+_pages/[a-z][a-z][a-z]_[A-Z]*/*.md
+_pages/[a-z][a-z]_[A-Z]*/*.md
+_posts/[a-z][a-z]/*.md
+_posts/[a-z][a-z][a-z]/*.md
+_posts/[a-z][a-z][a-z]_[A-Z]*/*.md
+_posts/[a-z][a-z]_[A-Z]*/*.md
+
+# po4a generates these as part of its process
+po/*.en.po
+
 _apps/*
 node_modules/*
 bower_components/*
@@ -9,18 +31,17 @@ bower_components/*
 *.sublime-workspace
 *.log
 .idea
-
-# During development, it can be helpful to have various different config options
-# to choose from, such as a local apache config (e.g. `url: http://localhost:80`),
-# or one to render a different repo (e.g. `fdroid-repo: http://guardianproject.info/fdroid/repo`).
-# Historically these have been put in `userconfig.yml` for fdroid-website, but if
-# managing multiple different configs then it is helpful to have them in different
-# files. This avoids having to comment and uncomment lines in `userconfig.yml` to
-# achieve different configs.
-_dev*config.yml
-userconfig.yml
-
+*.swp
 .bundle
 .idea
 .vscode
+
+Gemfile.lock
 vendor
+userconfig.yml
+_userconfig.yml
+
+# vagrant can be used to setup an env just like the production Docker
+# install as run in .gitlab-ci.yml:
+#  vagrant up
+/.vagrant/

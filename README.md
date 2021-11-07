@@ -1,16 +1,41 @@
-# The F-Droid Website
+# The NetHunter App Store Website
 
-This is the repository for the website at <https://f-droid.org>.  It
-is based on Jekyll and you can find the development version
-[here](https://fdroid.gitlab.io/fdroid-website/).
+This is the repository for the website at <https://store.nethunter.com>.  It
+is a slightly custimised version of [F-Droid](https://f-droid.org) based on Jekyll
+and you can find the development version [here](https://staging.nethunter.com).
 
 ## Building
+
+### Using Debian/buster
+
+First, make sure [_buster-backports_ is enabled](https://backports.debian.org/Instructions/).  
+
+```
+sudo apt-get install -t buster-backports \
+  gettext linkchecker po4a python3 python3-babel rsync rubocop ruby-bundler \
+  ruby-git ruby-jekyll-include-cache ruby-jekyll-paginate-v2 \
+  ruby-jekyll-redirect-from ruby-json ruby-loofah ruby-rchardet ruby-rouge \
+  ruby-rspec ruby-zip unzip
+bundle install --local
+jekyll build
+```
+
+If you experience an error during the build process, try also:
+```
+bundle update
+```
+
+Look at the [_.gitlab-ci.yml_](https://gitlab.com/fdroid/fdroid-website/blob/master/.gitlab-ci.yml)
+for more examples of custom setups, like building only a subset of the languages.
+
+
+### Using Ruby Gems
 
 You need to have Jekyll 3.2+ installed what is easily done with Gem which depends on Ruby 2.0+.
 Because of the F-Droid plugin you need to have zlib installed.
 
-```
-sudo apt-get install ruby-full build-essential zlib1g-dev
+```bash
+sudo apt-get install build-essential git ruby-full zlib1g-dev
 sudo gem install bundler
 bundle install
 ```
@@ -29,6 +54,26 @@ use:
 bundle exec jekyll serve
 ```
 
+
+### Using a Vagrant VM
+
+[Vagrant](https://www.vagrantup.com/) makes it easy to setup and
+destroy VMs.  That is handy for making a clean and predictable build
+environment, regardless of the base system.  If used with VirtualBox,
+then the current directory will be shared into the VM, so you can edit
+locally, and have `jekyll serve` running in the VM.
+
+```console
+$ vagrant up
+$ vagrant ssh
+vagrant@buster:~$ cd /vagrant
+vagrant@buster:/vagrant$ bundle install --local
+vagrant@buster:/vagrant$ jekyll serve --host 0.0.0.0
+```
+
+Then connect to http://localhost:4000 to see the generated site.
+
+
 ## Local development
 
 * Clone [F-Droid's Jekyll plugin](https://gitlab.com/fdroid/jekyll-fdroid)
@@ -38,14 +83,6 @@ bundle exec jekyll serve
 If you want to use the official Git repository again,
 run `bundle config --delete local.jekyll-fdroid`.
 
-If you want to have another values for `site.url` and `site.baseurl`
-(default: `localhost:4000` and `fdroid-website`) you can add them in
-`userconfig.yml`, which is ignored by git, then run all Jekyll
-commands with this additional parameter:
-
-```
---config _config.yml,userconfig.yml
-```
 
 ## License
 
@@ -65,15 +102,22 @@ Everything on this website can be translated.  See
 for more info.  The [staging site](https://staging.f-droid.org)
 includes all translations, whether they are complete or not.
 
+
 ### chrome strings
 
 [![chrome translation status](https://hosted.weblate.org/widgets/f-droid/-/website/multi-auto.svg)](https://hosted.weblate.org/engage/f-droid/?utm_source=widget)
 
+### pages
 
-### documentation and pages
+[![pages translation status](https://hosted.weblate.org/widgets/f-droid/-/website-pages/multi-auto.svg)](https://hosted.weblate.org/engage/f-droid/?utm_source=widget)
+
+### tutorials
+
+[![tutorials translation status](https://hosted.weblate.org/widgets/f-droid/-/website-tutorials/multi-auto.svg)](https://hosted.weblate.org/engage/f-droid/?utm_source=widget)
+
+### documentation
 
 [![docs translation status](https://hosted.weblate.org/widgets/f-droid/-/website-docs/multi-auto.svg)](https://hosted.weblate.org/engage/f-droid/?utm_source=widget)
-
 
 ### blog posts
 

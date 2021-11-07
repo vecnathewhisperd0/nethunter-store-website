@@ -6,8 +6,8 @@
             "description": "Jeśli wysłano link repo poprzez e-mail, media społecznościowe lub SMS, dodaj możliwość zainstalowania w nim aplikacji do F-Droida, otwierając go.",
             "short_summary": "Otwórz link do repozytorium",
             "steps": {
-                "step_1": "Pobierz i zainstaluj aplikację F-Droid na swoim urządzeniu z Androidem.",
-                "step_2": "Kliknij link i otwórz go w przeglądarce na swoim urządzeniu.",
+                "step_1": "Pobierz i zainstaluj aplikację F-Droid na swoim urządzeniu z systemem Android.",
+                "step_2": "Kliknij link i otwórz go w przeglądarce internetowej na swoim urządzeniu.",
                 "step_3": "Jeżeli masz otwarty link, stuknij przycisk 'Dodaj do F-Droid'.",
                 "step_4": "Stuknij przycisk 'Mam F-Droid'. Uruchomi się aplikacja F-Droid.",
                 "step_5": "'Dodaj nowe repozytorium' jest wyświetlane z adresem repozytorium dla niego wstępnie wypełnionym. Dotknij 'OK', aby dodać.",
@@ -26,7 +26,7 @@
             "related_tutorial": "Możesz być zainteresowany także tym: <a href=\"../swap/\">Jak wysyłać i odbierać aplikacje offline</a>",
             "short_summary": "Zeskanuj kod QR",
             "steps": {
-                "step_1": "Po wyświetleniu kodu QR dla repozytorium, zeskanuj kod QR za pomocą aplikacji skanera QR.",
+                "step_1": "Po wyświetleniu kodu QR dla repozytorium, Zeskanuj go za pomocą aplikacji skanera QR.",
                 "step_2": "Stuknij łącze. Jeśli podano opcję, otwórz łącze przy użyciu F-Droid. Następnie postępuj zgodnie z instrukcjami. Jeśli to zadziała, gotowe! Jeśli nie, przejdź do następnego kroku.",
                 "step_3": "Jeśli nie masz możliwości otwarcia łącza z F-Droid, zamknij aplikację skanera kodów QR i otwórz aplikację F-Droid.",
                 "step_4": "W F-Droid stuknij 'Ustawienia'. W 'Moje aplikacje' wybierz 'Repozytoria'.",
@@ -50,7 +50,7 @@
         },
         "download_and_install": {
             "steps": {
-                "step_1": "Pobierz i zainstaluj aplikację internetową Repomaker na swoim komputerze stacjonarnym. Zobacz <a href=\"https://gitlab.com/fdroid/repomaker/blob/master/README.md#installation\">przewodnik instalacji</a> ,aby uzyskać więcej informacji o tym, jak to zrobić.",
+                "step_1": "Pobierz i zainstaluj aplikację internetową Repomaker na komputerze stacjonarnym. Więcej informacji w <a href=\"https://gitlab.com/fdroid/repomaker/blob/master/README.md#installation\">przewodnik instalacji</a>.",
                 "step_2": "Uruchom aplikację internetową Repomaker. Zarejestruj się lub zaloguj, aby rozpocząć.",
                 "step_3": "Utwórz nowe repozytorium i nadaj mu odpowiednią nazwę.",
                 "step_4": "Wybierz, aby dodać aplikacje z galerii i dostępnych repozytoriów lub przesłać własne pliki. Kliknij przycisk 'Dodaj z galerii', aby wybrać łatwo dostępne treści.",
@@ -64,13 +64,13 @@
             "summary": "Stwórz własne spersonalizowane repozytorium aplikacji. Użyj F-Droid do dystrybucji treści. Trenerzy używają repozytoriów, aby łatwo udostępniać zasoby i aplikacje uczestnikom szkolenia, gdy nie ma niezawodnego połączenia z Internetem. Programiści używają repozytoriów do dystrybucji swoich aplikacji do odbiorców niszowych.",
             "title": "Dodaj własne aplikacje i pliki."
         },
-        "related_tutorial": "Możesz być zainteresowany także tym: <a href='../add-repo/'>Jak dodać repozytorium do F-Droid</a>",
+        "related_tutorial": "Możesz być zainteresowany także tym: <a href=\"../add-repo/\">Jak dodać repozytorium do F-Droid</a>",
         "share_repo": {
             "steps": {
                 "step_1": "Przy ponownym udostępnianiu repozytorium, które chcesz udostępnić, kliknij 'Udostępnij' w menu. Uwaga: przed udostępnieniem musisz ustawić miejsce do przechowywania repozytorium. Instrukcje, jak to zrobić są w kroku 2.",
                 "step_2": "Zostaniesz poproszony o skonfigurowanie pamięci w celu opublikowania repo i przed udostępnieniem. Jeśli nie widzisz tej strony, przejdź do kroku 4.",
                 "step_3": "Wybierz opcję przechowywania, która najlepiej pasuje do Twoich potrzeb. Gdy masz już miejsce, możesz je udostępnić! Wróć do 'Udostępnij'.",
-                "step_4": "Wybierz, aby skopiować link i wysłać go bezpośrednio do osób za pośrednictwem wiadomości e-mail lub tekstu, lub podzielić się repo na Facebooku lub Twitterze. Gdy użytkownicy otworzą link do repo, będą musieli dodać go do urządzenia z systemem Android, aby uzyskać dostęp do aplikacji w repozytorium. Zobacz <a href='../add-repo/'>Jak dodać Repo do F-Droid</a> dla więcej informacji.",
+                "step_4": "Wybierz, aby skopiować link i wysłać go bezpośrednio do osób za pośrednictwem wiadomości e-mail lub tekstu, lub podzielić się repo na Facebooku lub Twitterze. Gdy użytkownicy otworzą link do repo, będą musieli dodać go do urządzenia z systemem Android, aby uzyskać dostęp do aplikacji w repozytorium. Zobacz <a href=\"../add-repo/\">Jak dodać Repo do F-Droid</a> dla więcej informacji.",
                 "step_5": "Opcja 'Zobacz Repo' pozwala zobaczyć, co właśnie opublikowałeś lub udostępniłeś."
             },
             "title": "Dostosuj twoje repozytorium"
@@ -87,14 +87,14 @@
         }
     },
     "misc": {
-        "option_x_description": "Opcja [number]: [description]",
+        "option_x_description": "Opcja {{ number }}: {{ description }}",
         "overview": {
             "summary": "F-Droid to niezależny sklep z aplikacjami społecznościowymi dla Androida, który jest całkowicie darmowym oprogramowaniem o otwartym kodzie źródłowym. W F-Droid możesz przeglądać ponad 1200 aplikacji open source, wyszukiwać i instalować aplikacje z utworzonych repozytoriów lub tworzyć własne repozytorium. Otwórz f-droid.org na urządzeniu z systemem Android, aby pobrać aplikację i zacząć!",
             "title": "Co możesz zrobić z F-Droid",
-            "tutorial_x_title": "Poradnik [number]: [title]"
+            "tutorial_x_title": "Poradnik {{ number }}: {{ title }}"
         },
-        "step_x": "Krok [number]",
-        "step_x_description": "Krok [number]: [description]"
+        "step_x": "Krok {{ number }}",
+        "step_x_description": "Krok {{ number }}: {{ description }}"
     },
     "swap": {
         "all_devices_need_fdroid": "Wszystkie urządzenia wymagają pobrania i zainstalowania F-Droida przed rozpoczęciem. Wszystkie urządzenia powinny wykonać poniższe kroki.",
@@ -106,7 +106,7 @@
         "related_tutorial": "Możesz być zainteresowany także tym: <a href=\"../create-repo/\">Jak utworzyć repozytorium</a>",
         "step_1": "Otwórz F-Droid. Wybierz 'W pobliżu' z menu u dołu ekranu.",
         "step_10": "Aby uzyskać dostęp do zainstalowanych aplikacji, otwórz ustawienia F-Droid i wybierz opcję „Zarządzaj zainstalowanymi aplikacjami” w obszarze „Moje aplikacje”.",
-        "step_2": "Stuknij w 'Znajdź osoby w pobliżu mnie', by wyszukać kompatybilne urządzenia.",
+        "step_2": "Naciśnij „Znajdź osoby w pobliżu”, aby wyszukać zgodne urządzenia.",
         "step_3": "Po znalezieniu osób znajdujących się w pobliżu, zarówno Ty, jak i osoba kontaktowa muszą wybrać siebie nawzajem.",
         "step_4": "Po połączeniu wybierz aplikacje, które chcesz udostępnić swojemu kontaktowi.",
         "step_5": "Naciśnij przycisk '—>'.",
