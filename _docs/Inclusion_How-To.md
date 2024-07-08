@@ -18,8 +18,8 @@ described below in detail.
 
 Note that you can propose inclusion even you are not a developer or
 maintainer of the proposed application itself. See [Inclusion
-Policy](../Inclusion_Policy) and [Repository Style
-Guide](../Repository_Style_Guide) for the policy aspect of this
+Policy](../Inclusion_Policy)
+for the policy aspect of this
 section.
 
 ### Proposal by Submission Queue
@@ -51,10 +51,6 @@ When proposing inclusion this way, it is assumed that:
     what the NetHunter Store is for.
 -   You already read and understand the [Inclusion
     Policy](../Inclusion_Policy).
--   You already read and understand the [Repository Style
-    Guide](../Repository_Style_Guide).
--   You already read and understand
-    [the relevant parts of the F-Droid documentation](../Build_Metadata_Reference).
 -   You know how to use [Git VCS](https://git-scm.com/), and know how
     a merge request (a.k.a. "pull request" in
     GitHub terminology) works in general.
@@ -177,7 +173,6 @@ decision.
 For more information, see:
 
 * [Towards a reproducible F-Droid](https://f-droid.org/2023/01/15/towards-a-reproducible-fdroid.html)
-* [F-Droid's Reproducible Builds documentation](../Reproducible_Builds)
 * [Reproducible Builds project](https://reproducible-builds.org/)
 * [HOWTO: diff & fix APKs for Reproducible Builds](https://gitlab.com/fdroid/wiki/-/wikis/HOWTO:-diff-&-fix-APKs-for-Reproducible-Builds)
 
