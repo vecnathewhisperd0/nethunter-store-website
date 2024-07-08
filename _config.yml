@@ -23,7 +23,7 @@ include:
   - "api"
 collections:
   tutorials:
-    output: true
+    output: false
     permalink: /tutorials/:title/
   docs:
     output: true
