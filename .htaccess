@@ -1,18 +1,13 @@
 # using BREACH, CRIME, and other attacks, network observers can tell
 # what pages people are looking at, and even the contents.  Since this
 # site mostly includes public content and no CSRF strings, our
-# concerns are much more limited:
-#
-#  * wiki username/password and related cookies
-#  * which app someone is looking at
+# concerns are basically limited to which app someone is looking at.
 #
 # https://blog.qualys.com/ssllabs/2013/08/07/defending-against-the-breach-attack
 # https://security.stackexchange.com/questions/102013/is-gzipping-content-via-tls-allowed
 
 AddOutputFilterByType DEFLATE text/css
-
-# DO NOT enable this until all logins are removed, e.g. https://f-droid.org/wiki
-# AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/html
 
 AddOutputFilterByType DEFLATE text/xml
 AddOutputFilterByType DEFLATE application/xml
@@ -38,12 +33,6 @@ AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
 AddOutputFilterByType DEFLATE application/font-sfnt
 
 <IfModule mod_mime.c>
-# remove Perl and set it to Polish
-RemoveType .pl
-RemoveLanguage .po
-AddType text/html .pl
-AddLanguage pl .pl
-
 # the buildserver log files are gzip-compressed, plain text, this
 # allows browsers to decide to show them inline as plain text
 RemoveType .gz
@@ -60,12 +49,12 @@ AddEncoding x-gzip .gz
 </FilesMatch>
 
 # 12 hours
-<FilesMatch "\.(css|gif|ico|jpg|jpeg|js|json|png|svg|txt|xml)$">
+<FilesMatch "\.(css|gif|ico|jpg|jpeg|js|png|svg|txt|xml)$">
   Header set Cache-Control "max-age=43200, public, immutable, stale-while-revalidate=300"
 </FilesMatch>
 
 # 10 minutes
-<FilesMatch "\.html$">
+<FilesMatch "\.(html|json)$">
   Header set Cache-Control "max-age=600, public, immutable, stale-while-revalidate=300"
 </FilesMatch>
 <FilesMatch "\.html\.[a-z][a-z](|_[A-Z][A-Z]|_Han[st])$">
@@ -99,24 +88,15 @@ ErrorDocument 403 /403.html
 ErrorDocument 404 /404.html
 
 ##
-## REDIRECT TO GITLAB FOR BADGES
-##
-## Temporary work around while we figure out why the /badges directory
-## isn't getting deployed correctly.  Forwards all requests for files
-## in the /badge directory to GitLab Pages.
-##
-
-RewriteCond %{REQUEST_URI} ^/badge/(.*)$  [NC]
-RewriteRule ^.*$ https://fdroid.gitlab.io/artwork/badge/%1 [L,R=302]
-
-##
 ## CURRENT FDROID APK
 ##
 ## Point the big download button to the latest stable F-droid APK.
 ##
 
-RewriteCond %{REQUEST_URI} ^/F-?Droid.apk(\.asc)?$  [nocase]
-RewriteRule ^.*$ /repo/org.fdroid.fdroid_1013051.apk%1 [last]
+RewriteCond %{REQUEST_URI} ^/F-?Droid\.apk\.asc$  [nocase]
+RewriteRule ^.*$ /archive/org.fdroid.fdroid_1017050.apk.asc%1 [last,type=application/pgp-signature]
+RewriteCond %{REQUEST_URI} ^/F-?Droid\.apk$  [nocase]
+RewriteRule ^.*$ /archive/org.fdroid.fdroid_1017050.apk%1 [last,type=application/vnd.android.package-archive]
 
 
 ##
@@ -298,34 +278,62 @@ RewriteRule ^(.*)$ /%1/$1? [L,R=302]
 
 # This site needs hardly any JS features, so disable them. There is no
 # way to set the default to none yet, once that is available, this
-# should switch to a simple "default 'none';"
+# should switch to a simple "default=();"
 # https://github.com/w3c/webappsec-feature-policy/issues/189
+# 
+# Growing list of features:
+# https://github.com/w3c/webappsec-permissions-policy/blob/main/features.md
 #
 <FilesMatch "\.(css|js|pdf|svg|html(\.[a-z][a-z](|_[A-Z][A-Z]|_Han[st])))?$">
-Header always set Feature-Policy: "\
-accelerometer 'none'; \
-ambient-light-sensor 'none'; \
-autoplay 'none'; \
-camera 'none'; \
-display-capture 'none'; \
-document-domain 'none'; \
-document-write 'none'; \
-encrypted-media 'none'; \
-fullscreen 'none'; \
-geolocation 'none'; \
-gyroscope 'none'; \
-magnetometer 'none'; \
-microphone 'none'; \
-midi 'none'; \
-payment 'none'; \
-picture-in-picture 'none'; \
-speaker 'none'; \
-sync-xhr 'none'; \
-usb 'none'; \
-wake-lock 'none'; \
-webauthn 'none'; \
-vr 'none'; \
-xr 'none'; \
+Header always set Permissions-Policy: "\
+accelerometer=(), \
+ambient-light-sensor=(), \
+autoplay=(), \
+battery=(), \
+bluetooth=(), \
+browsing-topics=(), \
+camera=(), \
+ch-ua=(), \
+clipboard-read=(), \
+clipboard-write=(), \
+conversion-measurement=(), \
+display-capture=(), \
+document-domain=(), \
+document-write=(), \
+encrypted-media=(), \
+execution-while-not-rendered=(), \
+execution-while-out-of-viewport=(), \
+focus-without-user-activation=(), \
+fullscreen=(), \
+gamepad=(), \
+geolocation=(), \
+gyroscope=(), \
+hid=(), \
+idle-detection=(), \
+interest-cohort=(), \
+keyboard-map=(), \
+local-fonts=(), \
+magnetometer=(), \
+microphone=(), \
+midi=(), \
+navigation-override=(), \
+payment=(), \
+picture-in-picture=(), \
+publickey-credentials-get=(), \
+screen-wake-lock=(), \
+serial=(), \
+speaker=(), \
+speaker-selection=(), \
+sync-xhr=(), \
+trust-token-redemption=(), \
+usb=(), \
+wake-lock=(), \
+webauthn=(), \
+web-share=(), \
+window-placement=(), \
+vr=(), \
+xr=(), \
+xr-spatial-tracking=(), \
 "
 
 
@@ -333,7 +341,6 @@ xr 'none'; \
 # defines approved sources of content that the browser may load.
 #
 # * https://f-droid.org so staging copies can fetch icons
-# * https://fdroid.gitlab.io for "Get on F-Droid" badges
 Header always set Content-Security-Policy: "\
 default-src 'none';\
 \
@@ -343,7 +350,8 @@ connect-src 'self';\
 font-src 'self';\
 form-action 'self' https://search.f-droid.org;\
 frame-ancestors 'self';\
-img-src 'self' https://f-droid.org https://fdroid.gitlab.io;\
+img-src 'self' https://f-droid.org;\
+manifest-src 'self';\
 media-src 'self';\
 script-src 'self';\
 style-src 'self' 'unsafe-inline';\
@@ -356,11 +364,6 @@ style-src 'self' 'unsafe-inline';\
 # information.
 #
 Header always set Referrer-Policy: "strict-origin"
-
-#
-# Instruct FLoC capable browsers to not profile users on our website
-#
-Header always set Permissions-Policy: "interest-cohort=()"
 
 #
 # Setting this header will prevent MSIE from interpreting files as
@@ -385,6 +388,15 @@ Header always set X-Frame-Options: "sameorigin"
 # rather than sanitising the script.
 #
 Header always set X-Xss-Protection: "1; mode=block"
+
+#
+# Publish official F-Droid onion adress. This header will make the
+# ".onion-available" button in Tor Browser show up. It's also good practice to
+# help users discover/verify our official onion adress this way.
+# also see:
+# https://community.torproject.org/onion-services/advanced/onion-location/
+#
+Header always set Onion-Location: "http://fdroidorg6cooksyluodepej4erfctzk7rrjpjbbr6wx24jh3lqyfwyd.onion%{REQUEST_URI}s"
 
 </FilesMatch>
 
@@ -423,11 +435,6 @@ RedirectPermanent /manual/html_node /docs
 RedirectPermanent /manual/fdroid.html /docs/
 RedirectPermanent /manual /docs
 
-# old Wordpress/Mediawiki integration
-RedirectPermanent /register /wiki/page/Special:UserLogin
-RedirectPermanent /login /wiki/page/Special:UserLogin
-RedirectPermanent /lostpassword /wiki/page/Special:PasswordReset
-
 RedirectPermanent /repo/status/server.json /repo/status/deploy.json
 
 RedirectPermanent /wiki/page/Build_Server_Setup /docs/Build_Server_Setup
@@ -451,6 +458,15 @@ RedirectPermanent /wiki/page/Setup_an_FDroid_App_Repo /docs/Setup_an_F-Droid_App
 RedirectPermanent /wiki/page/Verification_Server /docs/Verification_Server
 RedirectPermanent /wiki/page/Whitelabel_Builds /docs/Whitelabel_Builds
 
+RedirectPermanent /wiki/page/Category:Apps_to_Update https://monitor.f-droid.org/builds/needsupdate
+RedirectPermanent /wiki/page/Category:Apps_with_failing_builds https://monitor.f-droid.org/missingbuilds
+RedirectPermanent /wiki/page/build https://monitor.f-droid.org/builds/build
+RedirectPermanent /wiki/page/checkupdates https://monitor.f-droid.org/builds/checkupdates
+RedirectPermanent /wiki/page/deploy https://monitor.f-droid.org/builds/deploy
+RedirectPermanent /wiki/page/running https://monitor.f-droid.org/builds/running
+RedirectPermanent /wiki/page/update https://monitor.f-droid.org/builds/update
+RedirectPermanent /wiki/page/Repository_Maintenance https://monitor.f-droid.org/
+
 # TODO point these to /docs/Anti-Features once that has the dynamic info
 RedirectPermanent /wiki/page/Antifeature:Ads	https://monitor.f-droid.org/anti-feature/Ads
 RedirectPermanent /wiki/page/Antifeature:DisabledAlgorithm	https://monitor.f-droid.org/anti-feature/DisabledAlgorithm
@@ -462,6 +478,7 @@ RedirectPermanent /wiki/page/Antifeature:NonFreeNet	https://monitor.f-droid.org/
 RedirectPermanent /wiki/page/Antifeature:NoSourceSince	https://monitor.f-droid.org/anti-feature/NoSourceSince
 RedirectPermanent /wiki/page/Antifeature:Tracking	https://monitor.f-droid.org/anti-feature/Tracking
 RedirectPermanent /wiki/page/Antifeature:UpstreamNonFree	https://monitor.f-droid.org/anti-feature/UpstreamNonFree
+RedirectPermanent /wiki/page/Antifeature:NSFW	https://monitor.f-droid.org/anti-feature/NSFW
 RedirectPermanent /wiki/page/Category:Apps_with_Ads_antifeature	https://monitor.f-droid.org/anti-feature/Ads
 RedirectPermanent /wiki/page/Category:Apps_with_DisabledAlgorithm_antifeature	https://monitor.f-droid.org/anti-feature/DisabledAlgorithm
 RedirectPermanent /wiki/page/Category:Apps_with_KnownVuln_antifeature	https://monitor.f-droid.org/anti-feature/KnownVuln
@@ -472,6 +489,13 @@ RedirectPermanent /wiki/page/Category:Apps_with_NonFreeNet_antifeature	https://m
 RedirectPermanent /wiki/page/Category:Apps_with_NoSourceSince_antifeature	https://monitor.f-droid.org/anti-feature/NoSourceSince
 RedirectPermanent /wiki/page/Category:Apps_with_Tracking_antifeature	https://monitor.f-droid.org/anti-feature/Tracking
 RedirectPermanent /wiki/page/Category:Apps_with_UpstreamNonFree_antifeature	https://monitor.f-droid.org/anti-feature/UpstreamNonFree
+RedirectPermanent /wiki/page/Category:Apps_with_NSFW_antifeature	https://monitor.f-droid.org/anti-feature/NSFW
+
+# catch all for all the rest, these need to be the last of all the wiki redirects
+RedirectPermanent /wiki/page/ /packages/
+RedirectPermanent /wiki/index.php https://monitor.f-droid.org/
+RedirectPermanent /wiki/ https://gitlab.com/fdroid/wiki/-/wikis/home
+RedirectPermanent /wiki https://gitlab.com/fdroid/wiki/-/wikis/home
 
 RedirectPermanent /posts/andors-trail		/2011/11/30/andors-trail.html
 RedirectPermanent /posts/a-new-ux-6-years-in-the-making /2017/04/04/new-ux.html

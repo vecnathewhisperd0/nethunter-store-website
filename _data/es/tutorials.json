@@ -1,1 +1,119 @@
-{}
+{
+    "add_repo": {
+        "intro": "Escanee los códigos QR de los repositorios que quiera añadir desde los dispositivos o páginas web en los que se encuentren.",
+        "no_internet": "¿Sin red? No hay problema. Aprenda a <a href=\"../swap/\">enviar y recibir aplicaciones sin conexión.</a>",
+        "open_repo_link": {
+            "description": "Si ha recibido un enlace a un repositorio por correo electrónico, una red social o SMS, añada a F-Droid la posibilidad de instalar las aplicaciones de dicho repositorio abriendo el enlace.",
+            "short_summary": "Abrir el enlace del repositorio",
+            "steps": {
+                "step_1": "Descargue e instale la aplicación F-Droid en su dispositivo Android.",
+                "step_2": "Pulse en el enlace para que se abra en un navegador en su dispositivo.",
+                "step_3": "Cuando tenga el enlace abierto, pulse en el botón «Añadir a F-Droid».",
+                "step_4": "Toque el botón «Tengo F-Droid». Se abrirá la aplicación F-Droid.",
+                "step_5": "Se muestra «Añadir repositorio nuevo» con la dirección del repositorio prellenada. Toque «Aceptar» para añadirlo.",
+                "step_6": "Se añadirá el repositorio nuevo. Para ver una lista de sus repositorios, abra «Configuración». Seleccione «Repositorios».",
+                "step_7": "Toque un repositorio para ver su contenido.",
+                "step_8": "Seleccione aquellas aplicaciones que le gustaría tener e instálelas en su dispositivo."
+            },
+            "title": "Abrir el enlace del repositorio en su dispositivo"
+        },
+        "overview": {
+            "summary": "Para conseguir más contenido, añada repositorios a F-Droid. Un repositorio es una colección de contenido selecto. Puede obtener información sobre los repositorios de otras personas directamente de ellas. Los desarrolladores a menudo publican un enlace a sus repositorios de F-Droid en sus sitios web. Los capacitadores a menudo comparten enlaces a repositorios a través del correo electrónico, Facebook o Twitter.",
+            "title": "Obtener más contenido."
+        },
+        "scan_qr_code": {
+            "description": "Escanee los códigos QR de los repositorios que quiera añadir desde los dispositivos o páginas web en los que se encuentren.",
+            "related_tutorial": "También puede interesarle: <a href=\"../swap/\">Cómo enviar y recibir aplicaciones sin conexión</a>",
+            "short_summary": "Escanear un código QR",
+            "steps": {
+                "step_1": "Una vez que se muestre el código QR del repositorio, escanéelo mediante una aplicación lectora.",
+                "step_2": "Toque el enlace. Si tiene la opción, abra el enlace mediante F-Droid. Siga las indicaciones en pantalla. Si el proceso funciona, ha terminado. Si no, prosiga al siguiente paso.",
+                "step_3": "Si no recibe la opción de abrir el enlace con F-Droid, cierre el escáner de códigos QR y abra la aplicación F-Droid.",
+                "step_4": "En F-Droid, toque «Configuración». En «Mis aplicaciones», seleccione «Repositorios».",
+                "step_5": "En la pantalla Repositorios, toque el icono «+» en la esquina superior.",
+                "step_6": "Se añadirá automáticamente la dirección del repositorio. Toque «Activar». Nota: el repositorio se guardará en los repositorios de F-Droid, pero no se instalará ninguna aplicación hasta que usted seleccione una manualmente y la instale."
+            },
+            "title": "Escanear un código QR desde otro dispositivo"
+        },
+        "title": "Cómo añadir repositorios a F-Droid"
+    },
+    "create_repo": {
+        "customize_repo": {
+            "description": "Es posible editar los resúmenes de aplicación y de archivo para que sean comprensibles para su audiencia de destino. Puede editar el texto para que sea específico para un cierto país. Al terminar, comparta el repositorio con los asistentes antes de emprender conferencias y capacitaciones.",
+            "steps": {
+                "step_1": "Pulse en un elemento para abrir sus detalles.",
+                "step_2": "Pulse en «Editar».",
+                "step_3": "Personaliza el contenido apropiado para la audiencia a la que te diriges. Nota: los cambios que hagas se harán solo a tu repositorio. No se actualizarán para la fuente original. Por favor utiliza respeto cuando personalices la información de contenido que no es tuyo.",
+                "step_4": "Se guardan automáticamente todos sus cambios."
+            },
+            "title": "Personalizar su repositorio"
+        },
+        "download_and_install": {
+            "steps": {
+                "step_1": "Descargue e instale la aplicación web Repomaker en su equipo de escritorio. Para mayor información, consulte la <a href=\"https://gitlab.com/fdroid/repomaker/blob/master/README.md#installation\">guía de instalación</a>.",
+                "step_2": "Inicie la aplicación web Repomaker. Regístrese o acceda para comenzar.",
+                "step_3": "Cree un repositorio nuevo y dele un nombre apropiado.",
+                "step_4": "Escoge para añadir aplicaciones desde la galería y repositorios disponibles, o sube tus propios archivos. Haz clic en el botón 'Añadir desde Galería' para escoger contenido ya disponible.",
+                "step_5": "Utilice el botón «Añadir» ubicado junto a los elementos que desee añadir. Cuando termine, pulse en la flecha «Atrás» para volver a su repositorio.",
+                "step_6": "Las aplicaciones se mostrarán en la vista de contenido del repositorio."
+            },
+            "title": "Descargue e instale Repomaker para comenzar a crear"
+        },
+        "intro": "¿No halla lo que busca? Descárguese la aplicación web Repomaker en su equipo para crear su propia colección personalizada de aplicaciones y archivos.",
+        "overview": {
+            "summary": "Cree su propio repositorio personalizado de aplicaciones. Aproveche F-Droid para distribuir el contenido. Los capacitadores utilizan los repositorios para compartir con facilidad colecciones de recursos y aplicaciones con los participantes de una capacitación cuando no hay una conexión confiable a Internet. Los desarrolladores utilizan los repositorios para distribuir sus aplicaciones a sus audiencias específicas.",
+            "title": "Añada sus propias aplicaciones y archivos."
+        },
+        "related_tutorial": "También puede interesarte: <a href=\"../add-repo/\">Cómo Añadir un Repositorio a F-Droid</a>",
+        "share_repo": {
+            "steps": {
+                "step_1": "Con el repositorio que deseas compartir, haz clic en 'Compartir' en el menú. Nota: Necesitas configurar un lugar en el que almacenar tu repositorio antes de compartirlo. Las instrucciones para esto están en el Paso 2.",
+                "step_2": "Se te pedirá que configures el almacenamiento para publicar tu repositorio antes de compartirlo. Si no ves esta página, continúa en el Paso 4.",
+                "step_3": "Selecciona la opción de almacenamiento que mejor se ajuste a tus necesidades. Una vez que tengas almacenamiento, ¡estás listo para compartir! Vuelve a 'Compartir'.",
+                "step_4": "Selecciona para copiar el enlace y envíalo directamente a la gente a través de correo electrónico o un mensaje, o comparte tu repositorio en Facebook o Twitter. Cuando la gente abra el enlace a tu repositorio, necesitarán añadirlo a un dispositivo Android para acceder a las aplicaciones en el repositorio. Mira <a href=\"../add-repo/\">Cómo Añadir un Repositorio a F-Droid</a> para más información.",
+                "step_5": "La opción «Ver repositorio» le permite ver lo que ha publicado o compartido."
+            },
+            "title": "Personalizar su repositorio"
+        },
+        "title": "Cómo crear un repositorio",
+        "update_repo": {
+            "steps": {
+                "step_1": "Si añades aplicaciones de la galería, se actualizan automáticamente cuando la fuente añade versiones nuevas. Para archivos que subiste, puedes arrastrar y soltar versiones actualizadas en la vista de repositorio.",
+                "step_2": "Alternativamente, puedes abrir un único ítem para añadir una versión nueva. Selecciona editar.",
+                "step_3": "Desliza hacia abajo a versiones. Después, añade una versión nueva en la sección 'Historial de Versiones'.",
+                "step_4": "Después, añade una versión nueva en la sección 'Historial de Versiones'."
+            },
+            "title": "Actualizar su repositorio"
+        }
+    },
+    "misc": {
+        "option_x_description": "Opción {{ number }}: {{ description }}",
+        "overview": {
+            "summary": "F-Droid es una tienda de aplicaciones independiente, de origen comunitario para Android que es completamente gratuita y de código abierto. Con F-Droid puede explorar más de 1.200 aplicaciones de código abierto, buscar e instalar aplicaciones desde repositorios creados o crear su propio repositorio. ¡Abre f-droid.org en tu dispositivo Android para descargar la aplicación y empezar!",
+            "title": "Qué se puede hacer con F-Droid",
+            "tutorial_x_title": "Tutorial {{ number }}: {{ title }}"
+        },
+        "step_x": "Paso {{ number }}",
+        "step_x_description": "Paso {{ number }}: {{ description }}"
+    },
+    "swap": {
+        "all_devices_need_fdroid": "Antes de comenzar, todos los dispositivos deben haberse descargado e instalado F-Droid. Todos los dispositivos deben seguir los pasos que se enumeran a continuación.",
+        "intro": "¿Sin internet? No hay problema. Descargue aplicaciones de las personas a su alrededor.",
+        "overview": {
+            "summary": "¿Sin internet? No hay problema. F-Droid Nerby te da la posibilidad de enviar y recibir contenido con la gente en la misma habitación.",
+            "title": "Envíe y reciba aplicaciones sin conexión."
+        },
+        "related_tutorial": "También puede interesarle: <a href=\"../create-repo/\">Cómo crear un repositorio</a>",
+        "step_1": "Abre F-Droid. Toca 'Cercano' en la barra inferior de tu pantalla.",
+        "step_10": "Para acceder a tus aplicaciones instaladas, abre los ajustes de F-Droid y selecciona 'Gestionar las aplicaciones instaladas' en la sección 'Mis Aplicaciones'.",
+        "step_2": "Toca 'Encontrar gente cerca' para buscar dispositivos compatibles.",
+        "step_3": "Cuando se haya encontrado gente cerca, tú y el contacto deberéis de seleccionar al otro.",
+        "step_4": "Cuando se establezca la conexión, elija las aplicaciones que desee compartir con su contacto.",
+        "step_5": "Toque el botón «→».",
+        "step_6": "A una persona se le pedirá confirmar la solicitud de conexión.",
+        "step_7": "Toque el botón «Instalar» junto a aquellas aplicaciones que desee instalar.",
+        "step_8": "Toque «Instalar» una vez más. Acto seguido, confirme las pantallas de Android para completar el proceso de instalación.",
+        "step_9": "Cuando finalicen las instalaciones, sus aplicaciones estarán disponibles en la galería de aplicaciones de Android y en la pantalla «Aplicaciones instaladas» de su aplicación F-Droid.",
+        "title": "Cómo enviar y recibir aplicaciones sin conexión"
+    }
+}

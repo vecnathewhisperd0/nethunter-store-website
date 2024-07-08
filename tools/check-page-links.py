@@ -2,13 +2,9 @@
 
 import glob
 import io
-import os
 import re
-import shutil
-import subprocess
 import sys
-from babel.messages.pofile import read_po, write_po
-from babel.messages.catalog import Message
+from babel.messages.pofile import read_po
 
 errorcount = 0
 md_link_pattern = re.compile(r'](\([^h][^\)]+\))')
@@ -21,12 +17,11 @@ for f in sorted(glob.glob('po/*.po*')):
     with open(f) as fp:
         contents = fp.read()
     try:
-        catalog = read_po(io.StringIO(contents))
+        catalog = read_po(io.StringIO(contents), abort_invalid=True)
     except Exception as e:
         errorcount += 1
         output += 'ERROR: %s' % e
     for message in catalog:
-
         if message.fuzzy:
             continue
 
@@ -54,6 +49,9 @@ for f in sorted(glob.glob('po/*.po*')):
                     with open(f, 'w') as fp:
                         fp.write(out)
 
+        if re.match(r'.*{ +{', message.string) or re.match(r'.*} +}', message.string):
+            output += 'Broken Liquid tag:' + message.string
+
         if 'type: Title #' in message.auto_comments:
             if message.string:
                 if '"' in (message.string[0], message.string[-1]) and message.string.count('"') % 2:
@@ -76,23 +74,31 @@ for f in sorted(glob.glob('po/*.po*')):
             print('URL', url)
             contents = contents.replace('</https:>', '').replace('<https:>', url)
 
+        # bleach/safe_html plugin messes up <> examples
+        if '</applicationid>' in message.string.lower():
+            output += ('\nMessed up example URL </applicationid> in: %s\n' % message.string)
+            rewrite = True
+
+        if (message.id and message.id[-1] == '\n') and (message.string and message.string[-1] != '\n'):
+            output += ("\n'msgid' and 'msgstr' entries do not both end with '\\n': %s\n" % message.string)
+
         idlinks = []
         for m in url_link_pattern.findall(message.id):
-            idlinks.append(m)
+            idlinks.append(m.replace('\n', ' '))
         for m in md_link_pattern.findall(message.id):
-            idlinks.append(m)
+            idlinks.append(m.replace('\n', ' '))
         strlinks = []
         for m in url_link_pattern.findall(message.string):
-            strlinks.append(m)
+            strlinks.append(m.replace('\n', ' '))
         for m in md_link_pattern.findall(message.string):
-            strlinks.append(m)
-        if message.id and len(strlinks) > 0 and len(idlinks) != len(strlinks):
-            output += 'ERROR ' + f + ' ' + str(len(idlinks)) + ' != ' + str(len(strlinks)) + ' ' + message.id + '\n'
+            strlinks.append(m.replace('\n', ' '))
+        if message.id and message.string and len(idlinks) != len(strlinks):
+            output += "URL counts don't match: " + f + ' ' + str(len(idlinks)) + ' != ' + str(len(strlinks)) + ' ' + message.id + '\n'
             errorcount += 1
         for i in range(len(strlinks)):
-            if message.string and i < len(idlinks) and i < len(strlinks) and idlinks[i] != strlinks[i]:
+            if message.string and i < len(idlinks) and i < len(strlinks) and strlinks[i] not in idlinks:
                 errorcount += 1
-                output += '\n' + f + '\nmsgstr    ' + idlinks[i] + '\n !=       ' + strlinks[i]
+                output += '\n' + f + '\nmsgstr    ' + strlinks[i] + '\n not in       ' + str(idlinks)
                 # inputf = f + '.orig'
                 # shutil.copy(f, inputf)
                 # cmd = ('msgfilter --input=' + inputf + ' --output-file=' + f
