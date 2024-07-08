@@ -1,4 +1,4 @@
-# Copyright (C) 2021, Felix C. Stegerman <flx@obfusk.net>
+# Copyright (C) 2021, FC Stegerman <flx@obfusk.net>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -44,7 +44,7 @@ module Jekyll
       file  = destination(path)
       unless @@assets.has_key?(file)
         asset = "/assets/#{base}_#{digest(path)}#{ext}"
-        @@assets[file] = { path: asset, file: destination(asset) }
+        @@assets[file] = { path: URL.escape_path(asset), file: destination(asset) }
       end
       @@baseurl + @@assets[file][:path]
     end
