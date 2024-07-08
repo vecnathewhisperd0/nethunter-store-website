@@ -1,6 +1,7 @@
 ---
 
-image: debian:bookworm
+## Debian 12
+image: docker.io/debian:bookworm-slim
 
 stages:
   - deploy
@@ -30,19 +31,22 @@ variables:
   echo 'Acquire::https::Verify-Peer "false";' > /etc/apt/apt.conf.d/99nocacertificates
   apt-get update
   apt-get install ca-certificates
-  rm /etc/apt/apt.conf.d/99nocacertificates
+  rm -vf /etc/apt/apt.conf.d/99nocacertificates
   apt-get dist-upgrade
   set +x
 
 
-# Common steps required for each type of "Build" (staging.nethunter.com, store.nethunter.com, GitLab Pages, feature branches)
+# Common steps required for each type of "Build" (*.nethunter.com, GitLab Pages, feature branches)
 #
 # This template needs to be in text block format since gitlab-runner
 # exec cannot handling templates in list format.
 .setup_for_jekyll: &setup_for_jekyll |
   set -x
   set -e
-  apt-get install --install-recommends git libunicode-linebreak-perl po4a
+  apt-get install --install-recommends \
+    git \
+    libunicode-linebreak-perl \
+    po4a
   apt-get install \
     gettext \
     linkchecker \
@@ -62,37 +66,38 @@ variables:
     ruby-rspec \
     ruby-zip \
     unzip
-  rm -f Gemfile.lock
+  rm -vf Gemfile.lock
   bundle install --local --verbose
-  ./tools/i18n.sh
+  bash -x ./tools/i18n.sh
   set +x
 
 
 # This is a manual task for building in preparation to deploy to
-# https://staging.nethunter.com & https://store.nethunter.com.
+# https://store.nethunter.com & https://staging.nethunter.com.
 # The intention is for it to be run locally using
 # `gitlab-runner` each time a tag is found that is signed by a key in
 # the whitelist keyring.  Invoke like so:
 #
-#  gitlab-runner exec docker staging.nethunter.com --pre-build-script ./prepare-for-deploy.py \
+#  gitlab-runner exec docker store.nethunter.com --pre-build-script ./prepare-for-deploy.py \
 #    --docker-volumes "/root/deploy-whitelist-keyring.gpg:/root/.gnupg/pubring.gpg:ro" \
-#    --docker-volumes `pwd`/_site:/builds/output
+#    --docker-volumes $(pwd)/_site:/builds/output
 #
 # And when it is finished, you should have a directory in _site/build/
 # which includes the entire static site ready to be deployed to
-# https://staging.nethunter.com & https://store.nethunter.com.
-staging.nethunter.com:
+# https://store.nethunter.com & https://staging.nethunter.com.
+## REF: https://store.nethunter.com
+store.nethunter.com:
   stage: production
   only:
     - tags@kalilinux/nethunter/store/nethunter-store-server
-    - master@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter@kalilinux/nethunter/store/nethunter-store-server
   when: manual
   script:
     - '[ ! -d /builds/output ] && echo "ERROR: /builds/output is not mounted inside docker!" && exit 1'
     - *apt-template
     - *setup_for_jekyll
     - sed -Ei
-        -e "s,^(url\x3a).*,\1 https://staging.nethunter.com,"
+        -e "s,^(url\x3a).*,\1 https://store.nethunter.com,"
         -e 's,^(baseurl\x3a).*,\1 "",'
         _config.yml
     - echo "Jekyll config used for CI:" && cat _config.yml
@@ -102,6 +107,7 @@ staging.nethunter.com:
     - rsync -ax --delete $OUT_DIR /builds/output/
 
 
+## REF: https://kalilinux.gitlab.io/nethunter/store/nethunter-store-website/
 pages:
   stage: deploy
   except:
@@ -114,9 +120,11 @@ pages:
   script:
     - (find _*/ -type f | grep -Ev '\.(html|json|md|rb|scss|xml|yaml)$')
          && (echo "ERROR The above files have a bad or missing file extension"; exit 1)
-
     - *apt-template
-    - apt-get install curl python3-colorama python3-yaml
+    - apt-get install
+        curl
+        python3-colorama
+        python3-yaml
     - ./tools/trigger-spellcheckbot
     # use the 'gitlab ci' subset of languages
     - sed -i 's,^languages:,ignored_languages:,' _config.yml
@@ -128,8 +136,7 @@ pages:
     - ./tools/check-yaml-front-matter.py
     - ./tools/check-do-not-translate
     - ./tools/check-markdown-headers-are-localizable.py
-
-    # This is where GitLab pages will deploy to by default (e.g. "https://kalilinux.gitlab.io/nethunter-store-website")
+    # This is where GitLab pages will deploy to by default (e.g. "https://kalilinux.gitlab.io/nethunter/store/nethunter-store-website/")
     # so we need to make sure that the Jekyll configuration understands this.
     - sed -Ei
         -e "s,^(url\x3a).*,\1 'https://$CI_PROJECT_NAMESPACE.gitlab.io',"
@@ -137,7 +144,7 @@ pages:
         _config.yml
     - echo "Jekyll config used for CI:" && cat _config.yml
     - jekyll build -d public --trace --future
-    - cp public/robots.txt.noindex public/robots.txt
+    - cp -v public/robots.txt.noindex public/robots.txt
     - ./tools/prepare-multi-lang.sh public --no-type-maps
     - mkdir linkchecker/
     - ln -s ../public linkchecker/$CI_PROJECT_NAME
@@ -195,34 +202,39 @@ weblate merge conflict:
 
 
 spellcheckbot:
-  image: debian:bookworm
   stage: deploy
   allow_failure: true
   only:
     - triggers
   script:
     - *apt-template
-    - apt-get install git
+    - apt-get install
+        git
     - test -n ${FROM_CI_PROJECT_URL}
     - test -n ${FROM_CI_COMMIT_SHA}
     - git fetch ${FROM_CI_PROJECT_URL} ${FROM_CI_COMMIT_SHA}
-    - for f in `git diff --name-only --diff-filter=d HEAD...${FROM_CI_COMMIT_SHA}`; do
-          export CHANGED="$CHANGED `echo $f | grep '\.md$' || true`";
+    - for f in $(git diff --name-only --diff-filter=d HEAD...${FROM_CI_COMMIT_SHA}); do
+          export CHANGED="$CHANGED $(echo $f | grep '\.md$' || true)";
       done
-    - if [ -z "`echo $CHANGED | sed 's,\s*,,g'`" ]; then
+    - if [ -z "$(echo $CHANGED | sed 's,\s*,,g')" ]; then
           echo "No markdown files changed";
           exit 0;
       else
           echo "Spellchecking $CHANGED";
           git checkout --force ${FROM_CI_COMMIT_SHA};
       fi
-    - apt-get install hunspell-en-us jq nodejs npm python3-gitlab python3-requests
+    - apt-get install
+        hunspell-en-us
+        jq
+        nodejs
+        npm
+        python3-gitlab
+        python3-requests
     - ./tools/fetch-spelling-words.py >> .spelling
     # Android permission strings
     - jq --raw-output 'keys[]' _data/android_permissions.json >> .spelling
     # version strings
     - grep --no-filename -rEo 'v[0-9]+(:?\.[0-9]+)+' _* | sort -u >> .spelling
-
     - npm i markdown-spellcheck -g
     - (mdspell --report --en-gb --ignore-numbers --ignore-acronyms $CHANGED > output.txt 2>&1)
         || ./tools/spellcheckbot.py
@@ -241,7 +253,7 @@ check_fdroid_apk_bot:
   stage: deploy
   only:
     - schedules
-    - master@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter@kalilinux/nethunter/store/nethunter-store-server
   image: alpine:3.16
   variables:
     apk: NetHunterStore.apk
@@ -277,17 +289,21 @@ check_fdroid_apk_bot:
 # basic checks for dev setup
 Vagrantfile:
   stage: deploy
-  image: debian:bookworm-slim
   rules:
     - if: $CI_PIPELINE_SOURCE != "trigger"
       changes:
         - .gitlab-ci.yml
         - Vagrantfile
   script:
-    - apt-get update
-    - apt-get -qy install --no-install-recommends kmod procps ruby vagrant vagrant-libvirt
+    - *apt-template
+    - apt-get install
+        kmod
+        procps
+        ruby
+        vagrant
+        vagrant-libvirt
     - export EXITVALUE=0
-    - function set_error() { export EXITVALUE=1; printf "\x1b[31mERROR `history|tail -2|head -1|cut -b 6-500`\x1b[0m\n"; }
+    - function set_error() { export EXITVALUE=1; printf "\x1b[31mERROR $(history|tail -2|head -1|cut -b 6-500)\x1b[0m\n"; }
     - ruby -c Vagrantfile || set_error
     - vagrant validate || set_error;
     - exit $EXITVALUE
@@ -295,7 +311,6 @@ Vagrantfile:
 
 YAML Front Matter:
   stage: deploy
-  image: debian:bookworm-slim
   rules:
     - if: $CI_PIPELINE_SOURCE != "trigger"
       changes:
@@ -304,22 +319,25 @@ YAML Front Matter:
         - _pages/*.md
         - _posts/*.md
   script:
-    - apt-get update
-    - apt-get -qy install --no-install-recommends python3-yaml yamllint
-
+    - *apt-template
+    - apt-get install
+        python3-yaml
+        yamllint
     - EXITVALUE=0
     - ls _docs/*.md _pages/*.md _posts/*.md || true
       | while read -r f; do
           echo $f;
           python3 -c "import re; print(re.match(r'---\n.*?---',  open('$f').read(), re.DOTALL).group())" > ${f}.yml;
-          if ! yamllint ${f}.yml; then cat ${f}.yml; export EXITVALUE=1; fi;
+          if ! yamllint ${f}.yml; then
+              cat ${f}.yml;
+              export EXITVALUE=1;
+          fi;
       done
     - ./tools/check-yaml-front-matter.py
     - exit $EXITVALUE
 
 
 yamllint:
-  image: debian:bookworm-slim
   stage: deploy
   rules:
     - if: $CI_PIPELINE_SOURCE != "trigger"
@@ -329,5 +347,6 @@ yamllint:
         - ".yamllint"
   script:
     - *apt-template
-    - apt-get install yamllint
+    - apt-get install
+        yamllint
     - yamllint .yamllint .*.yml _config.yml
