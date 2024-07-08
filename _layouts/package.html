@@ -9,7 +9,7 @@ layout: default-package-sidebar
 		{% if page.icon != "" and page.icon != nil %}
 		<img class="package-icon" src="{{ site.fdroid-repo }}/{{ page.icon }}" alt="{{ strings.package_icon_alt }}" />
 		{% else %}
-		<img class="package-icon" src="{% asset ic_repo_app_default.png %}" alt="{{ strings.alt_package_icon }}" />
+		<img class="package-icon" src="{% asset ic_repo_app_default.png %}" alt="{{ strings.package_icon_alt }}" />
 		{% endif %}
 		<div class="package-title">
 			<h3 class="package-name">
@@ -23,7 +23,8 @@ layout: default-package-sidebar
 	{% if page.whats_new and page.suggested_version_name %}
 	<div class="package-whats-new">
 		{% assign fmt_latest_version = '{{ latest_version }}' %}
-		<div class="new-in-version">{{ strings.new_in_version | replace: fmt_latest_version, page.suggested_version_name }}</div>
+		{% assign version_name = page.suggested_version_name | i18n_number %}
+		<div class="new-in-version">{{ strings.new_in_version | replace: fmt_latest_version, version_name }}</div>
 		<div dir="auto">
 			{{ page.whats_new }}
 		</div>
@@ -32,6 +33,36 @@ layout: default-package-sidebar
 	<div class="package-description" dir="auto">
 		{{ page.description }}
 	</div>
+	{% if page.anti_features != nil or page.versions.first.anti_features != nil %}
+	<div class="package-anti-features">
+		<h3>{{ strings.anti_features }}</h3>
+		<p>{{ strings.anti_features_warning }} <a class="anti-features-more" href="{{ site.baseurl }}/docs/Anti-Features/">Learn more!</a></p>
+		<ul class="package-version-anti-features-list">
+			{% comment %} Display Antifeatures for package {% endcomment %}
+			{% for anti_feature in page.anti_features %}
+			<li class="anti-feature-item">
+			  <a class="anti-feature-link" href="{{ site.baseurl }}/docs/Anti-Features/#{{ anti_feature }}">
+					<img class="anti-feature-icon" src="{{ anti_feature | prepend: 'icons/antifeatures/' | append: '.svg' | asset }}" alt=""> 
+					<div class="anti-feature-text">
+						{{ site.data.strings.antifeatures[anti_feature] }}
+					</div>
+			  </a>
+			</li>
+			{% endfor %}
+			{% comment %} Display Antifeatures for most recent app release (Code active?) {% endcomment %}
+			{% for anti_feature in page.versions.first.anti_features %}
+			<li class="anti-feature-item">
+			  <a class="anti-feature-link" href="{{ site.baseurl }}/docs/Anti-Features/#{{ anti_feature }}">
+					<img class="anti-feature-icon" src="{{ anti_feature | prepend: 'icons/antifeatures/' | append: '.svg' | asset }}" alt=""> 
+					<div class="anti-feature-text">
+						{{ site.data.strings.antifeatures[anti_feature] }}
+					</div>
+			  </a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
 	<ul class="package-links">
 		{% if page.author_email != "" and page.author_email != nil %}
 		<li class="package-link">
@@ -136,32 +167,35 @@ layout: default-package-sidebar
 	{% endif %}
 
 	<div class="package-versions">
-		<h3>{{ strings.packages }}</h3>
+		<a name="versions"></a>
+		<h3>{{ strings.versions }}</h3>
 		<p>
 			{{ strings.suggest_downloading_via_fdroid }}
 		</p>
-		<!-- The FDroid.apk links need the space at the start of the href=""
-				 to disable the polyglot link "relativization":
-				 https://github.com/untra/polyglot/issues/79 -->
-		<a href=" https://store.nethunter.com/NetHunterStore.apk" class="material-button">{{ site.data.strings.index.download_fdroid }}</a>
+		<a href="{{ site.fdroid_apk_download_url }}" class="material-button">{{ site.data.strings.index.download_fdroid }}</a>
 		<ul class="package-versions-list">
-			{% for package in page.packages %}
+			{% for package in page.versions %}
 			<li class="package-version" {% if forloop.first %}id="latest"{% endif %}>
 			{% if page.suggested_version_name == package.version_name and suggestedDisplayed != true %}<a name="suggested"></a>{% endif %}
 				<div class="package-version-header">
-					{% comment %}
-					Use YYYY-MM-DD format, because it is more internationalizable than versions which include English month names.
-					{% endcomment %}
-					{% assign package_added_date = package.added | date: "%F" %}
+					{% assign package_added_date = package.added | date: site.data.strings.news.date_format %}
 					<a name="{{ package.version_name }}"></a>
 					<a name="{{ package.version_code }}"></a>
+					{% comment %}fmt_package_version_* are strings in the JSON that are replaced here{% endcomment %}
 					{% assign fmt_package_version = '{{ package_version }}' %}
+					{% assign version_name = package.version_name | i18n_number %}
 					{% assign fmt_package_version_code = '{{ package_version_code }}' %}
-					{{ strings.version_info | replace: fmt_package_version, package.version_name | replace: fmt_package_version_code, package.version_code }}
+					{% assign version_code = package.version_code | i18n_number %}
+					{{ strings.version_info | replace: fmt_package_version, version_name | replace: fmt_package_version_code, version_code }}
 					{% if page.suggested_version_name == package.version_name and suggestedDisplayed != true %}<span class="suggested-badge">{{ strings.suggested }}</span>{% assign suggestedDisplayed = true %}{% else %} - {% endif %}
 					{% assign fmt_package_added_date = '{{ package_added_date }}' %}
 					{{ strings.added_on | replace: fmt_package_added_date, package_added_date }}
 				</div>
+				<p class="package-version-nativecode">
+					{% for abi in package.nativecode %}
+					<code class="package-nativecode">{{ abi }}</code>
+					{% endfor %}
+				</p>
 				<p class="package-version-requirement">
 					{% assign fmt_android_version = '{{ android_version }}' %}
 					{% assign android_version = package.min_sdk_version | android_sdk_level_to_version %}
@@ -174,7 +208,7 @@ layout: default-package-sidebar
 					{% assign source_code_url = site.fdroid-repo | append: '/' | append: package.srcname %}
 					{{ strings.signed_by_fdroid | replace: fmt_source_code_url, source_code_url }}
 					{% else %}
-					{{ strings.signed_by_developer }}
+					{{ strings.signed_by_developer | replace: fmt_source_code_url, source_code_url }}
 					{% endif %}
 				</p>
 
@@ -182,7 +216,7 @@ layout: default-package-sidebar
 				<div class="package-version-anti-features">
 					<details {% if forloop.first %}open{% endif %}>
 						<summary class="package-version-anti-features-summary">
-							{{ strings.anti-features }}
+							{{ strings.anti_features }}
 						</summary>
 						<ul class="package-version-anti-features-list">
 							{% for anti_feature in package.anti_features %}
@@ -197,21 +231,30 @@ layout: default-package-sidebar
 				</div>
 				{% endif %}
 
-				{% if package.uses_permission != "" and package.uses_permission != nil %}
 				<div class="package-version-permissions">
+					{% if package.uses_permission != empty and package.uses_permission != nil %}
 					<details {% if forloop.first %}open{% endif %}>
 						<summary class="package-version-permissions-summary">
 							{{ strings.permissions }}
 						</summary>
 						<ul class="package-version-permissions-list">
-							{% for permission in package.uses_permission %}
+							{% assign unique_permissions = package.uses_permission | uniq | sort: "permission" %}
+							{% for permission in unique_permissions %}
 
 							<li class="permission">
 
 							{% if site.data.android_permissions[permission.permission] != nil %}
 								{% assign perm = site.data.android_permissions[permission.permission] %}
-								<div class="permission-label">{{ site.data.strings.permissions[perm.label] }}</div>
+								<div class="permission-label">
+								{% if perm.label %}
+									{{ site.data.strings.permissions[perm.label] }}
+								{% else %}
+									{{ permission.permission }}
+								{% endif %}
+								</div>
+								{% if perm.description %}
 								<div class="permission-description">{{ site.data.strings.permissions[perm.description] }}</div>
+								{% endif %}								
 							{% else %}
 								<div class="permission-label">{{ permission.permission }}</div>
 							{% endif %}
@@ -224,10 +267,11 @@ layout: default-package-sidebar
 							{% endfor %}
 						</ul>
 					</details>
+					{% else %}
+					<div class="no-permissions">{{ strings.no_permissions }}</div>
+					{% endif %}
 				</div>
-				{% endif %}
 
-				
 				<p class="package-version-download">
 					<b>
 						<a href="{{ site.fdroid-repo }}/{{ package.apk_name }}">
@@ -235,7 +279,7 @@ layout: default-package-sidebar
 							{{ strings.download | replace: fmt_file_extension, package.file_extension }}
 						</a>
 					</b>
-					{{ package.size|file_size_human_readable }}
+					{{ package.size | file_size_human_readable }}
 					<a href="{{ site.fdroid-repo }}/{{ package.apk_name }}.asc">{{ strings.gpg_signature }}</a>
 					&#124;
 					<a href="{{ site.fdroid-repo }}/{{ package.apk_name | split: '.' | pop | join: '.' }}.log.gz">{{ strings.build_log }}</a>
@@ -251,5 +295,5 @@ layout: default-package-sidebar
 
 </article>
 
-<script src="{% asset lib/lory.min.js %}"></script>
-<script src="{% asset package.js %}"></script>
+<script src="{% asset lib/lory.min.js %}" async></script>
+<script src="{% asset package.js %}" async></script>

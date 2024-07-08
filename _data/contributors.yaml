@@ -1,5 +1,7 @@
 ---
 - name: Alberto A. Fuentes
+- name: Aleksey Zaprudnov
+  weblate: aleksey.zaprudnov
 - name: Alex Oberhauser
 - name: Ali Demirtaş
 - name: Andreas Itzchak Rehberg
@@ -14,6 +16,9 @@
 - name: Balázs Meskó
 - name: Ben Arnold
 - name: Boris Kraut
+- name: Calcitem
+  gitlab: calcitem
+  weblate: calcitem
 - name: Chirayu Desai
   gitlab: cde
 - name: Ciaran Gultnieks
@@ -28,10 +33,15 @@
 - name: Daniel Martí
 - name: David Black
 - name: David Sterry
+- name: Davide Silvetti
+  gitlab: TheZ3ro
+- name: Denys Nykula
+  Cyrl: Денис Никула
+  weblate: nykula
 - name: Dominik Schürmann
   gitlab: dschuermann
 - name: Fabian Rodriguez
-- name: Felix C. Stegerman
+- name: FC Stegerman
   gitlab: obfusk
   gpg: D5E4A51DF8D255B9FAC6A9BB2F9607F09B360F2D
   matrix: "@obfusk:matrix.org"
@@ -41,6 +51,8 @@
   gitlab: fynngodau
 - name: Graziano Sorbaioli
 - name: Greg Lyle
+- name: Gregor Düster
+  gitlab: FestplattenSchnitzel
 - name: Hans-Christoph Steiner
   gitlab: eighthave
   gpg: EE6620C7136B0D2C456C0A4DE9E28DEA00AA5556
@@ -58,6 +70,8 @@
 - name: Jochen Sprickerhof
   gitlab: jspricke
 - name: John Sullivan
+- name: jonnysemon
+  weblate: jonnysemon
 - name: João Fernando C. Júnior
 - name: Karl Ove Hufthammer
   weblate: huftis
@@ -73,6 +87,10 @@
   gitlab: mvgorcum
 - name: Matt Kraai
 - name: Matthias Weiler
+- name: Michael Downey
+  gitlab: downeym
+  gpg: F4CE0A85264218323509015E293A33F5F6A22352
+  matrix: "@michael:downey.net"
 - name: Michael Haas
 - name: Michael Pöhn
   gitlab: uniqx
@@ -95,11 +113,20 @@
 - name: Osoitz Elkorobarrutia
 - name: Oğuz Ersen
   weblate: ersen
+- name: Pander
+  gitlab: Pander
+  weblate: pander
 - name: Paul Sokolovsky
 - name: Peter Serwylo
 - name: Philipp Wollschlegel
 - name: Pierre Rudloff
 - name: Rafael Fontenelle
+- name: Raffaele Cecoro
+  weblate: raffaele-1990
+  gitlab: raffaele-1990
+- name: Reza Almanda
+  gitlab: rezaalmanda
+  weblate: rezaalmanda
 - name: Robert Martinez
 - name: Ruslan Boitsov
   gitlab: thermatk

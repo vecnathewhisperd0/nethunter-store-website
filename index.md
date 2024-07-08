@@ -13,13 +13,13 @@ permalink: /
 <div class="download-and-screenshot">
     <div class="download">
         <div class="button">
-            <a class="material-button" href=" https://store.nethunter.com/NetHunterStore.apk">{{ strings.download_fdroid }}</a>
+            <a class="material-button" href="{{ site.fdroid_apk_download_url }}">{{ strings.download_fdroid }}</a>
         </div>
         <div class="gpg">
-            <a href=" https://store.nethunter.com/NetHunterStore.apk.asc">{{ strings.gpg_signature }}</a>
+            <a href="{{ site.fdroid_apk_download_url }}.asc">{{ strings.gpg_signature }}</a>
         </div>
         <div class="qr">
-            <img src="{{ site.baseurl }}/assets/download-nethunter-store-qr.png" />
+            <img src="{% asset download-fdroid-qr.png %}" />
         </div>
     </div>
     <div class="screenshot">
@@ -29,4 +29,4 @@ permalink: /
     </div>
 </div>
 
-<script src="{% asset donate.js %}"></script>
+<script src="{% asset donate.js %}" async></script>
