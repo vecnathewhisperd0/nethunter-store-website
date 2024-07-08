@@ -33,6 +33,7 @@ plugins:
   - jekyll-paginate-v2
   - jekyll-redirect-from
   - jekyll-fdroid
+## REF: https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata
 fdroid-repo: https://store.nethunter.com/repo
 
 strict_front_matter: true
