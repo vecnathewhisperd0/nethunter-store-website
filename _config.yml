@@ -48,10 +48,9 @@ pagination:
 # Languages are manually chosen by looking at languages that are fully
 # translated across the whole project. Check with this script:
 #   ./tools/print-language-status.py
-# languages: [ bo, en, de, es, fa, fr, he, it, ko, pt_BR, ru, tr, uk, zh_Hans, zh_Hant ]
-languages: [ en ]
+languages: [en]
 # the languages built and deployed when run with gitlab-ci
-gitlab_ci_languages: [ en ]
+gitlab_ci_languages: [en]
 # Specifying the default language as "_" forces polyglot to generate a
 # en/ subdirectory too (with correct links). See
 # https://github.com/untra/polyglot/issues/60
