@@ -1,9 +1,0 @@
-{% assign strings = site.data.strings.mirrors %}
-<table><tbody>
-  {%- for mirrordict in site.data.rsync_mirrors -%}
-  {%- for mirror in mirrordict -%}
-  {% assign key = mirror[0] %}
-  <tr><td>{{ strings[key] | default: key }}</td><td><code class="highlighter-rouge">rsync -axv {{ mirror[1] }}::fdroid</code></td></tr>
-  {%- endfor -%}
-  {%- endfor -%}
-</tbody></table>

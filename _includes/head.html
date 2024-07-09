@@ -20,7 +20,7 @@
   {% if page.icon and page.icon != blank %}
     <meta property="og:image" content="{{ site.fdroid-repo }}/{{ page.icon }}">
   {% else %}
-    <meta property="og:image" content="{{ site.url }}{% asset fdroid-logo.png %}">
+    <meta property="og:image" content="{{ site.url }}{% asset kali-nethunter.png %}">
   {% endif %}
 
   <link rel="preload" href="{% asset roboto.ttf %}" as="font" type="font/ttf" crossorigin />
@@ -34,8 +34,6 @@
   <link rel="canonical" href='{{ page.permalink | replace:'index.html','' | absolute_url }}'/>
   {% endif %}
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.baseurl }}/feed.xml"/>
-
-  <link href="{{ site.baseurl }}/osd.xml" rel="search" title="F-Droid" type="application/opensearchdescription+xml">
 
   <link rel="apple-touch-icon" sizes="180x180" href="{% asset apple-touch-icon.png %}">
   <link rel="icon" type="image/png" sizes="48x48" href="{% asset favicon.png %}">

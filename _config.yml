@@ -4,9 +4,9 @@
 
 title: Kali NetHunter App Store - Android App Repository for Penetraton Testing and Forensics
 header-title: NetHunter Store
-copyright: © 2010-2019 Kali Linux, F-Droid, and Contributors
+copyright: © 2010-2024 Kali Linux, F-Droid, and Contributors
 baseurl: ""  # the subpath of your site, e.g. /fdroid-website
-url: "https://store.nethunter.com" # the base hostname & protocol for your site
+url: "http://localhost:4000"  # the base hostname & protocol for your site
 
 exclude:
   - build
@@ -23,7 +23,7 @@ include:
   - "api"
 collections:
   tutorials:
-    output: true
+    output: false
     permalink: /tutorials/:title/
   docs:
     output: true
@@ -33,6 +33,7 @@ plugins:
   - jekyll-paginate-v2
   - jekyll-redirect-from
   - jekyll-fdroid
+## REF: https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata
 fdroid-repo: https://store.nethunter.com/repo
 
 strict_front_matter: true
@@ -48,10 +49,9 @@ pagination:
 # Languages are manually chosen by looking at languages that are fully
 # translated across the whole project. Check with this script:
 #   ./tools/print-language-status.py
-# languages: [ bo, en, de, es, fa, fr, he, it, ko, pt_BR, ru, tr, uk, zh_Hans, zh_Hant ]
-languages: [ en ]
+languages: [en]
 # the languages built and deployed when run with gitlab-ci
-gitlab_ci_languages: [ en ]
+gitlab_ci_languages: [en]
 # Specifying the default language as "_" forces polyglot to generate a
 # en/ subdirectory too (with correct links). See
 # https://github.com/untra/polyglot/issues/60
@@ -63,7 +63,7 @@ exclude_from_localization:
   - \.htaccess
   - \.well-known/
   - CONTRIBUTING\.md
-  - F-Droid\.apk
+  - NetHunter\.apk
   - LICENSE
   - README\.md
   - TRANSLATIONS\.md
@@ -84,7 +84,7 @@ exclude_from_localization:
 # name in download link must match name listed in exclude_from_localizations:
 fdroid_apk_download_url: https://store.nethunter.com/NetHunterStore.apk
 
-fdroid_apk_pgp_verification_instructions_url: docs/Verifying_Downloaded_APK
+#fdroid_apk_pgp_verification_instructions_url: docs/Verifying_Downloaded_APK
 
 # App categories
 app_categories:
