@@ -1,10 +1,13 @@
 - key       : home
   url       : /
-- key       : browse
+- key       : apps
   url       : /packages/
 - key       : forum
-  url       : https://forums.kali.org
+  url       : https://forums.kali.org/
   external  : true
+- key       : documentation
+  url       : https://www.kali.org/docs/nethunter/
+  external  : true  
 - key       : issues
   url       : /issues/
 - key       : contribute
