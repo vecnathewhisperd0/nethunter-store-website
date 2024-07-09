@@ -28,5 +28,3 @@ permalink: /
             style="background: url('{{ site.baseurl }}/{% fdroid_screenshot %}') center center no-repeat; background-size: 78% auto" />
     </div>
 </div>
-
-<script src="{% asset donate.js %}" async></script>
