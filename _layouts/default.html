@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% include html-tag.html %}
+<html lang="en">
 
   {% include head.html %}
 
@@ -22,6 +22,10 @@
 
           <div class="sidebar-widget">
             {% include_cached sidebar-latest-packages.html %}
+          </div>
+
+          <div class="sidebar-widget">
+            {% include sidebar-connect.html %}
           </div>
         </div>
 

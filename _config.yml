@@ -1,15 +1,21 @@
+---
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 title: Kali NetHunter App Store - Android App Repository for Penetraton Testing and Forensics
 header-title: NetHunter Store
-description: >
-  © 2010-2019 Kali Linux, F-Droid, and Contributors
-baseurl: "" # the subpath of your site, e.g. /fdroid-website
-url: "https://store.nethunter.com" # the base hostname & protocol for your site
+copyright: © 2010-2024 Kali Linux, F-Droid, and Contributors
+baseurl: ""  # the subpath of your site, e.g. /fdroid-website
+url: "http://localhost:4000"  # the base hostname & protocol for your site
 
 exclude:
   - build
+  - public
+  - .jekyll-cache
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 include:
   - "_pages"
   - ".htaccess"
@@ -17,7 +23,7 @@ include:
   - "api"
 collections:
   tutorials:
-    output: true
+    output: false
     permalink: /tutorials/:title/
   docs:
     output: true
@@ -27,6 +33,7 @@ plugins:
   - jekyll-paginate-v2
   - jekyll-redirect-from
   - jekyll-fdroid
+## REF: https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata
 fdroid-repo: https://store.nethunter.com/repo
 
 strict_front_matter: true
@@ -41,11 +48,10 @@ pagination:
 
 # Languages are manually chosen by looking at languages that are fully
 # translated across the whole project. Check with this script:
-#   ./tools/check-language-status.sh
-# languages: [ bo, en, de, es, fa, fr, he, it, ko, pt_BR, ru, tr, uk, zh_Hans, zh_Hant ]
-languages: [ en ]
+#   ./tools/print-language-status.py
+languages: [en]
 # the languages built and deployed when run with gitlab-ci
-gitlab_ci_languages: [ ce ]
+gitlab_ci_languages: [en]
 # Specifying the default language as "_" forces polyglot to generate a
 # en/ subdirectory too (with correct links). See
 # https://github.com/untra/polyglot/issues/60
@@ -57,7 +63,7 @@ exclude_from_localization:
   - \.htaccess
   - \.well-known/
   - CONTRIBUTING\.md
-  - F-Droid\.apk
+  - NetHunter\.apk
   - LICENSE
   - README\.md
   - TRANSLATIONS\.md
@@ -69,12 +75,16 @@ exclude_from_localization:
   - po/
   - repo/
   - robots\.txt
+  - robots\.txt\.noindex
   - tools/
   - wiki/
   - wp-content/
+  - sitemap\.xml
 
 # name in download link must match name listed in exclude_from_localizations:
 fdroid_apk_download_url: https://store.nethunter.com/NetHunterStore.apk
+
+#fdroid_apk_pgp_verification_instructions_url: docs/Verifying_Downloaded_APK
 
 # App categories
 app_categories:
@@ -95,3 +105,8 @@ app_categories:
 
 # Set a custom cutmark to separate the excerpt from the rest of the post
 excerpt_separator: <!--more-->
+
+# A workaround to fix the CSS
+# https://github.com/untra/polyglot/issues/107
+sass:
+  sourcemap: never

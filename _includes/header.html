@@ -1,27 +1,20 @@
 <header class="site-header">
+
   <a class="site-title" href="{{ site.baseurl }}/">
-    <img src="{{ site.baseurl }}/assets/kali-nethunter-app-store.svg" alt="{{ site.header-title }}" />
+    <img src="{% asset kali-nethunter-app-store.svg %}" alt="{{ site.header-title }}" />
   </a>
+
+  <nav class="site-nav">
+  {% for nav-item in site.data.navigation %}
+    {% if nav-item.key %}
+      {% assign title = site.data.strings.navigation[nav-item.key] %}
+      {% if nav-item.external %}
+        <a class="page-link" href="{{ nav-item.url }}">{{ title }}</a>
+      {% else %}
+        <a class="page-link {% if nav-item.url != '/' and page.url contains nav-item.url %} current {% elsif nav-item.url == '/' and page.url == nav-item.url %} current {% endif %}" href="{{ nav-item.url | prepend: site.baseurl }}">{{ title }}</a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  </nav>
+
 </header>
-</div><!-- end first site-wrapper -->
-
-<div class="nav-background">
-    <div class="site-wrapper">
-        <nav class="site-nav">
-        {% for nav-item in site.data.navigation %}
-          {% if nav-item.key %}
-            {% assign title = site.data.strings.navigation[nav-item.key] %}
-            {% if nav-item.external %}
-              <a class="page-link" href="{{ nav-item.url }}">{{ title }}</a>
-            {% else %}
-              <a class="page-link {% if nav-item.url != '/' and page.url contains nav-item.url %} current {% elsif nav-item.url == '/' and page.url == nav-item.url %} current {% endif %}" href="{{ nav-item.url | prepend: site.baseurl }}">{{ title }}</a>
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-        </nav>
-
-    </div>
-
-</div><!-- end full width bar -->
-
-<div class="site-wrapper">
