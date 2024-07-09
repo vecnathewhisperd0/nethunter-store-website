@@ -44,7 +44,7 @@ r.raise_for_status()
 pages = r.json()
 
 with open(os.path.join(projectbasedir, '_config.yml')) as fp:
-    site_languages = yaml.load(fp)['languages']
+    site_languages = yaml.safe_load(fp)['languages']
 
 strings_entries = dict()
 pages_entries = dict()
@@ -92,6 +92,9 @@ for commit in reversed(
 ):
     pick = False
     for f in commit.stats.files.keys():
+        if f == '_data/zh_Hans/strings.json':  # ignore edit war
+            continue
+
         m = LOCALE_REGEX.match(f)
         if m and m.group(1) in merge_locales:
             pick = True

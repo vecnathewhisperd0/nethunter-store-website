@@ -15,6 +15,7 @@ import email.utils
 import os
 import re
 import requests
+import socket
 import subprocess
 import sys
 
@@ -26,7 +27,7 @@ r.raise_for_status()
 date = '{:04g}-{:02g}-{:02g}'.format(*email.utils.parsedate(r.headers['Date'])).encode()
 
 data = None
-r = requests.get('https://staging.f-droid.org/en/index.html', headers=headers)
+r = requests.get('https://staging.f-droid.org/en/about/index.html', headers=headers)
 r.raise_for_status()
 for chunk in r.iter_content(chunk_size=1024):
     if chunk:  # filter out keep-alive new chunks
@@ -47,8 +48,15 @@ m = re.search(b'''[0-9]\.[0-9]+-[0-9]+-g[0-9a-f]+''', data)
 if m:
     last_git_describe = m.group()
 
-subprocess.check_call(['git', 'fetch', '--quiet',
-                       'https://hosted.weblate.org/git/f-droid/website'])
+# production needs to check the canonical git repo, while other
+# instances should check weblate, e.g. so staging.f-droid.org will
+# update when new translations appear.
+if 'deployserver' in socket.gethostname():
+    git_remote_url = 'https://gitlab.com/fdroid/fdroid-website.git'
+else:
+    git_remote_url = 'https://hosted.weblate.org/git/f-droid/website'
+
+subprocess.check_call(['git', 'fetch', '--quiet', git_remote_url])
 git_describe = subprocess.check_output(['git', 'describe', '--always', 'FETCH_HEAD']).strip()
 
 if last_date == date and last_git_describe == git_describe:
