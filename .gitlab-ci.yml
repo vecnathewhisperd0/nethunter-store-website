@@ -1,5 +1,52 @@
 ---
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#
+## REF (Project): https://gitlab.com/kalilinux/nethunter/store/nethunter-store-website/-/environments
+#
+## Operate -> Environments -> New environment
+#    - Name: production
+#    - URL: https://store.nethunter.com
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#
+## REF (Project): https://gitlab.com/kalilinux/nethunter/store/nethunter-store-website/-/settings/ci_cd
+#
+
+## Settings -> CI/CD -> Variables -> Expand -> Add variable
+#   - Type: Variable
+#   - Environments: production
+#   - Visibility: Masked
+#   - Flags
+#       Protect variable: Enabled
+#       Expand variable reference: Disabled
+#   - Key: SSH_KEY
+#   - Value: <kali_nethunter_store_os_private_key | base64 -w0; echo>
+
+## Settings -> CI/CD -> Variables -> Expand -> Add variable
+#   - Type: Variable
+#   - Environments: production
+#   - Visibility: Masked
+#   - Flags
+#       Protect variable: Enabled
+#       Expand variable reference: Disabled
+#   - Key: SSH_USER
+#   - Value: <kali_nethunter_store_os_user>
+
+## Settings -> CI/CD -> Variables -> Expand -> Add variable
+#   - Type: Variable
+#   - Environments: production
+#   - Visibility: Masked
+#   - Flags
+#       Protect variable: Enabled
+#       Expand variable reference: Disabled
+#   - Key: SSH_HOST
+#   - Value: <ansible_host>
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 ## Debian 12
 image: docker.io/debian:bookworm-slim
 
@@ -101,11 +148,15 @@ variables:
 store.nethunter.com:
   stage: production
   only:
-    - tags@kalilinux/nethunter/store/nethunter-store-server
-    - nethunter@kalilinux/nethunter/store/nethunter-store-server
+    - tags
+    - nethunter
   when: manual
+  ## For CI/CD variable
+  environment:
+    name: production
+    url: https://${CI_JOB_NAME}
   variables:
-    url: https://$CI_JOB_NAME
+    url: https://${CI_JOB_NAME}
     baseurl: ""
   script:
     - '[ ! -d /builds/output ] && echo "ERROR: /builds/output is not mounted inside docker!" && exit 1'
@@ -115,6 +166,19 @@ store.nethunter.com:
     - ./tools/prepare-multi-lang.sh $OUT_DIR
     - ./tools/deploy-external-assets.sh $OUT_DIR
     - rsync -ax --delete $OUT_DIR /builds/output/
+    ## Upload
+    - 'command -v ssh-agent >/dev/null || ( apt-get install openssh-client )'   # Alt: 'command -v ssh-agent >/dev/null || ( apt-get --quiet update; apt-get --quiet install --yes --no-install-recommends openssh-client )'
+    - eval "$( ssh-agent -s )"
+    - echo "${SSH_KEY}" | base64 -d | ssh-add -
+    - unset SSH_KEY
+    - mkdir -pv ~/.ssh/
+    - ssh-keyscan -t rsa ${SSH_HOST} | tee ~/.ssh/known_hosts
+    - rsync -ax --delete /builds/output/ ${SSH_USER}@${SSH_HOST}:nethunter-store-server
+  after_script:
+    - unset SSH_KEY
+    - ssh-agent -k   # SSH_AGENT_PID="$(pidof ssh-agent)" ssh-agent -k // kill -9 $(pidof ssh-agent) // killall ssh-agent
+    - shred -fv ~/.ssh/* || true
+    - rm -rfv ~/.ssh
 
 
 ## REF: https://kalilinux.gitlab.io/nethunter/store/nethunter-store-website/
