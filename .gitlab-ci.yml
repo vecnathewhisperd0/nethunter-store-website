@@ -100,9 +100,12 @@ variables:
 ## REF: https://store.nethunter.com
 store.nethunter.com:
   stage: production
+  ## Need to stop using only:refs (been deprecated) ~ https://docs.gitlab.com/ee/ci/yaml/#onlyrefs--exceptrefs
   only:
-    - tags@kalilinux/nethunter/store/nethunter-store-server
-    - nethunter@kalilinux/nethunter/store/nethunter-store-server
+    ## Tag added
+    - tags      # Alt: tags@kalilinux/nethunter/store/nethunter-store-server
+    ## Branch name
+    - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-server
   when: manual
   variables:
     url: https://$CI_JOB_NAME
@@ -211,7 +214,7 @@ check_fdroid_apk_bot:
   stage: deploy
   only:
     - schedules
-    - nethunter@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-server
   image: alpine:3.16
   variables:
     apk: NetHunterStore.apk
