@@ -13,7 +13,7 @@ This is the git repository for Kali NetHunter App store.
 ### Links
 
 **Store**:
-- [NetHunter-Storedata](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata)
+- [NetHunter-Store-Data](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-data) <!-- fdroidserver's /repo (`_config.yml`'s `fdroid-repo` -->
 - [NetHunter-Store-Client](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-client)
 
 **Apps**:

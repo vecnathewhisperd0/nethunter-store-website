@@ -13,7 +13,7 @@ To propose inclusion of a new application to the main NetHunter Store repository
 one could post the applications relevant information to the Submission
 Queue. The more advanced alternative is writing a complete metadata file
 yourself, test, and propose inclusion (merge request) directly into
-the nethunter-storedata Git repository; speeding up the process. Both ways will be
+the nethunter-store-data Git repository; speeding up the process. Both ways will be
 described below in detail.
 
 Note that you can propose inclusion even you are not a developer or
@@ -38,8 +38,8 @@ application and do all necessary steps for you.
 A more advanced alternative for application inclusion is to
 write a NetHunter Store metadata file for the application yourself, and propose
 inclusion by filing a git merge request on the NetHunter Store application metadata
-repository ([nethunter-storedata GitLab
-repository](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/)). This will lead to
+repository ([nethunter-store-data GitLab
+repository](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-data/)). This will lead to
 much quicker inclusion as the already-available metadata file will reduce
 the burden on reviewers when inspecting your proposed metadata; the submitter
 assumes responsibility of providing a correct metadata file.
@@ -240,5 +240,5 @@ list](https://f-droid.org/).
 
 -   [NetHunter Store application submission queue on
     GitLab](https://gitlab.com/kalilinux/nethunter/store/rfp/issues) (for new submissions)
--   [NetHunter storedata GitLab repository](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata)
--   [nethunter-storedata revision history](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/commits/master)
+-   [NetHunter Store Data repository](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-data)
+-   [nethunter-store-data revision history](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-data/commits/master)

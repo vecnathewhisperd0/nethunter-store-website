@@ -10,7 +10,7 @@ If you're having a problem with the NetHunter Store client application, please c
 * [Request For Packaging (RFP)](https://gitlab.com/kalilinux/nethunter/store/rfp/issues) tracker:
 To request a new app be added, submit a "Request For Packaging" on the RFP tracker.
 
-* [NetHunter Store Data](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/issues) issue tracker:
+* [NetHunter Store Data](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-data/issues) issue tracker:
 For problems relating to the contents of the repository, such as missing or outdated applications, please use this issue tracker.
 
 * [NetHunter Store Website](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-website/issues) issue tracker:

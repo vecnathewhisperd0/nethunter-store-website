@@ -13,7 +13,7 @@ in the issue tracker (see below), or discuss them in the [forums](https://forums
 For reporting issues, choose an appropriate tracker from the following:
 
 * [NetHunter Store client app](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-client/issues)
-* [NetHunter Store repository metadata](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/issues)
+* [NetHunter Store repository data](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-data/issues)
 
 ### Submit Applications
 
@@ -24,7 +24,7 @@ issue tracker.
 
 If you have the technical skills required, you can also put together the
 relevant metadata and
-[submit that via the NetHunter Store Data repository](https://gitlab.com/kalilinux/nethunter/store/nethunter-storedata/issues),
+[submit that via the NetHunter Store Data repository](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-data/issues),
 which will drastically speed up the inclusion of the application.
 
 The same applies for helping to build newer versions of applications.

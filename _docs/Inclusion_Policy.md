@@ -127,7 +127,7 @@ Liberapay/OpenCollective/Bitcoin/etc) must also be available either:
 -   In a [_FUNDING.yml_](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository#about-funding-files) file included in the project's source code.
 -   On the applications main website.
 -   If the software is hosted on GitLab, then it is sufficient that the
-    person requesting donation info to be added to the nethunter-storedata repository
+    person requesting donation info to be added to the nethunter-store-data repository
     is the same user account which manages the application source code.
 
 This is to prevent arbitrary people from maliciously changing the donation links of

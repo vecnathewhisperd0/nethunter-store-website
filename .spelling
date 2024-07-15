@@ -136,7 +136,7 @@ msgmerge
 NDK
 NetHunter
 nethunter
-nethunter-storedata
+nethunter-store-data
 NewPipe
 Nextcloud
 nginx
@@ -183,7 +183,7 @@ SSLv2
 SSLv3
 standalone
 store.nethunter.com
-storedata
+store-data
 stretch
 Techlore
 timestamp
