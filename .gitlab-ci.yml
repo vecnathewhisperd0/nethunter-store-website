@@ -48,6 +48,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ## Debian 12
+##   REF: https://hub.docker.com/_/debian
 image: docker.io/debian:bookworm-slim
 
 
@@ -299,7 +300,8 @@ check_fdroid_apk_bot:
   only:
     - schedules
     - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-server
-  image: alpine:3.16
+  ##   REF: https://hub.docker.com/_/alpine
+  image: docker.io/alpine:3.16
   variables:
     apk: NetHunterStore.apk
     asc: NetHunterStore.apk.asc
