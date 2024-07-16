@@ -55,6 +55,7 @@ image: docker.io/debian:bookworm-slim
 stages:
   - deploy
   - production
+  - test
 
 
 variables:
@@ -295,8 +296,10 @@ spellcheckbot:
 # website. The gpg key model is to trust only the key that is included
 # in this script, so there is a test to check that it is starting with
 # an empty keyring.
-check_fdroid_apk_bot:
-  stage: deploy
+check_store_apk:
+  stage: test
+  needs:
+    - job: store.nethunter.com
   only:
     - schedules
     - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-server
