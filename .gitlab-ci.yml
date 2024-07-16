@@ -55,6 +55,7 @@ image: docker.io/debian:bookworm-slim
 stages:
   - deploy
   - production
+  - test
 
 
 variables:
@@ -151,9 +152,9 @@ variables:
   ## Need to stop using only:refs (been deprecated) ~ https://docs.gitlab.com/ee/ci/yaml/#onlyrefs--exceptrefs
   only:
     ## Tag added
-    - tags      # Alt: tags@kalilinux/nethunter/store/nethunter-store-server
+    - tags      # Alt: tags@kalilinux/nethunter/store/nethunter-store-website
     ## Branch name
-    - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-website
   ## REF: https://gitlab.com/kalilinux/nethunter/store/nethunter-store-website/-/pipelines/latest
   when: manual
   ## For CI/CD variable
@@ -295,11 +296,13 @@ spellcheckbot:
 # website. The gpg key model is to trust only the key that is included
 # in this script, so there is a test to check that it is starting with
 # an empty keyring.
-check_fdroid_apk_bot:
-  stage: deploy
+check_store_apk:
+  stage: test
+  needs:
+    - job: store.nethunter.com
   only:
     - schedules
-    - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-website
   ##   REF: https://hub.docker.com/_/alpine
   image: docker.io/alpine:3.16
   variables:
@@ -361,7 +364,7 @@ Vagrantfile:
     - exit $EXITVALUE
 
 
-YAML Front Matter:
+yaml_front_matter:
   stage: deploy
   rules:
     - if: $CI_PIPELINE_SOURCE != "trigger"
