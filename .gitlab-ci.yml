@@ -149,12 +149,16 @@ variables:
 # https://store.nethunter.com & https://staging.nethunter.com.
 .production_build:
   stage: production
+  needs:
+    - job: pages
+    - job: yaml_front_matter
+    - job: yamllint
   ## Need to stop using only:refs (been deprecated) ~ https://docs.gitlab.com/ee/ci/yaml/#onlyrefs--exceptrefs
   only:
     ## Tag added
-    - tags      # Alt: tags@kalilinux/nethunter/store/nethunter-store-server
+    - tags      # Alt: tags@kalilinux/nethunter/store/nethunter-store-website
     ## Branch name
-    - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-website
   ## REF: https://gitlab.com/kalilinux/nethunter/store/nethunter-store-website/-/pipelines/latest
   when: manual
   ## For CI/CD variable
@@ -299,10 +303,11 @@ spellcheckbot:
 check_store_apk:
   stage: test
   needs:
-    - job: store.nethunter.com
+    #- job: store.nethunter.com
+    - job: pages # So that schedules can work
   only:
     - schedules
-    - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-server
+    - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-website
   ##   REF: https://hub.docker.com/_/alpine
   image: docker.io/alpine:3.16
   variables:
@@ -364,7 +369,7 @@ Vagrantfile:
     - exit $EXITVALUE
 
 
-YAML Front Matter:
+yaml_front_matter:
   stage: deploy
   rules:
     - if: $CI_PIPELINE_SOURCE != "trigger"
