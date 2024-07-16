@@ -305,7 +305,7 @@ check_fdroid_apk_bot:
   variables:
     apk: NetHunterStore.apk
     asc: NetHunterStore.apk.asc
-    curl: "curl --user-agent NetHunter-Store --retry 99"
+    curl: "curl --fail --user-agent NetHunter-Store --retry 99"
     fingerprint: A059280A900687A9B197A562FEF44D71290987F0
     pip: pip3 --timeout 100 --retries 10
     domain: https://store.nethunter.com
