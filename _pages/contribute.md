@@ -12,7 +12,7 @@ in the issue tracker (see below), or discuss them in the [forums](https://forums
 
 For reporting issues, choose an appropriate tracker from the following:
 
-* [NetHunter Store client app](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-client/issues)
+* [NetHunter Store client app](https://gitlab.com/kalilinux/nethunter/apps/kali-nethunter-store-client/issues)
 * [NetHunter Store repository data](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-data/issues)
 
 ### Submit Applications

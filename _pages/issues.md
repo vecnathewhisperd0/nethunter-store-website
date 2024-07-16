@@ -4,7 +4,7 @@ title: Issues
 permalink: /issues/
 ---
 
-* [NetHunter Store Client](https://gitlab.com/kalilinux/nethunter/store/nethunter-store-client/issues) issue tracker:
+* [NetHunter Store Client](https://gitlab.com/kalilinux/nethunter/apps/kali-nethunter-store-client/issues) issue tracker:
 If you're having a problem with the NetHunter Store client application, please check if we already know about it, and/or report it in this issue tracker.
 
 * [Request For Packaging (RFP)](https://gitlab.com/kalilinux/nethunter/store/rfp/issues) tracker:
