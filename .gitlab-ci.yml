@@ -151,8 +151,6 @@ variables:
   stage: production
   needs:
     - job: pages
-    - job: yaml_front_matter
-    - job: yamllint
   ## Need to stop using only:refs (been deprecated) ~ https://docs.gitlab.com/ee/ci/yaml/#onlyrefs--exceptrefs
   only:
     ## Tag added
