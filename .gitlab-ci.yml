@@ -120,7 +120,7 @@ variables:
     unzip
   rm -vf Gemfile.lock
   bundle install --local --verbose
-  bash -x ./tools/i18n.sh
+  #bash -x ./tools/i18n.sh
   sed -Ei \
     -e "s,^(url\x3a).*,\1 '$url'," \
     -e "s,^(baseurl\x3a).*,\1 '$baseurl'," \
@@ -174,10 +174,9 @@ variables:
     - *apt-template
     - *setup_for_jekyll
     - jekyll build -d $OUT_DIR --trace
-    - ./tools/prepare-multi-lang.sh $OUT_DIR --no-type-maps
-    #- ./tools/prepare-multi-lang.sh $OUT_DIR           # Not using/doing: Apache/i18n/PO/MultiView
-    #- ./tools/deploy-external-assets.sh $OUT_DIR       # Legacy upstream files
-    #- rsync -ax --delete $OUT_DIR /builds/output/      # Using GitLab SaaS runners
+    #- ./tools/prepare-multi-lang.sh $OUT_DIR # --no-type-maps # Not using/doing: Apache/i18n/PO/MultiView - _config.yml: default_lang/gitlab_ci_languages/languages
+    #- ./tools/deploy-external-assets.sh $OUT_DIR              # Legacy upstream files
+    #- rsync -ax --delete $OUT_DIR /builds/output/             # Using GitLab SaaS runners
     ## Upload to external host
     - 'command -v ssh-agent >/dev/null || ( apt-get install openssh-client )'   # Alt: 'command -v ssh-agent >/dev/null || ( apt-get --quiet update; apt-get --quiet install --yes --no-install-recommends openssh-client )'
     - eval "$( ssh-agent -s )"
@@ -246,7 +245,7 @@ pages:
     - ./tools/check-markdown-headers-are-localizable.py
     - jekyll build -d public --trace --future
     - cp -v public/robots.txt.noindex public/robots.txt
-    - ./tools/prepare-multi-lang.sh public --no-type-maps
+    #- ./tools/prepare-multi-lang.sh $OUT_DIR # Not using/doing: Apache/i18n/PO/MultiView - _config.yml: default_lang/gitlab_ci_languages/languages
     - mkdir -pv $(dirname linkchecker/$baseurl)
     - ln -svf $(pwd)/public linkchecker/$baseurl
     - ruby -run -e httpd linkchecker/ -p 4000 > /dev/null 2>&1 &
