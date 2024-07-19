@@ -16,9 +16,14 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - tools/
+  - README.md
+  - LICENSE
+  - robots.txt.noindex
+  - Vagrantfile
 include:
   - "_pages"
-  - ".htaccess"
+  #- ".htaccess"
   - ".well-known"
   - "api"
 collections:

@@ -244,7 +244,7 @@ pages:
     - ./tools/check-do-not-translate
     - ./tools/check-markdown-headers-are-localizable.py
     - jekyll build -d public --trace --future
-    - cp -v public/robots.txt.noindex public/robots.txt
+    - cp -v robots.txt.noindex public/robots.txt
     #- ./tools/prepare-multi-lang.sh $OUT_DIR # Not using/doing: Apache/i18n/PO/MultiView - _config.yml: default_lang/gitlab_ci_languages/languages
     - mkdir -pv $(dirname linkchecker/$baseurl)
     - ln -svf $(pwd)/public linkchecker/$baseurl
