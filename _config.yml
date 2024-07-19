@@ -55,9 +55,9 @@ gitlab_ci_languages: [en]
 # Specifying the default language as "_" forces polyglot to generate a
 # en/ subdirectory too (with correct links). See
 # https://github.com/untra/polyglot/issues/60
-default_lang: "_"
+default_lang: en
 # get the lang: front matter from the path, e.g. _pages/zh_Hans/about.md
-lang_from_path: true
+lang_from_path: false
 # exclude these regexp chunks based on what is in the href=""
 exclude_from_localization:
   - \.htaccess
