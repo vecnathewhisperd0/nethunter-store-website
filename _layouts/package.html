@@ -206,9 +206,9 @@ layout: default-package-sidebar
 					{% if package.srcname != "" and package.srcname != nil %}
 					{% assign fmt_source_code_url = '{{ source_code_url }}' %}
 					{% assign source_code_url = site.fdroid-repo | append: '/' | append: package.srcname %}
-					{{ strings.signed_by_fdroid | replace: fmt_source_code_url, source_code_url }}
-					{% else %}
 					{{ strings.signed_by_developer | replace: fmt_source_code_url, source_code_url }}
+					{% else %}
+					<!-- Missing package.srcname -->
 					{% endif %}
 				</p>
 
@@ -281,8 +281,10 @@ layout: default-package-sidebar
 					</b>
 					{{ package.size | file_size_human_readable }}
 					<a href="{{ site.fdroid-repo }}/{{ package.apk_name }}.asc">{{ strings.gpg_signature }}</a>
+					{% if site.build_logs %}
 					&#124;
 					<a href="{{ site.fdroid-repo }}/{{ package.apk_name | split: '.' | pop | join: '.' }}.log.gz">{{ strings.build_log }}</a>
+					{% endif %}
 				</p>
 
 			</li>
