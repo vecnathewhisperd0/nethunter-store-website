@@ -154,7 +154,7 @@ variables:
   ## Need to stop using only:refs (been deprecated) ~ https://docs.gitlab.com/ee/ci/yaml/#onlyrefs--exceptrefs
   only:
     ## Tag added
-    - tags      # Alt: tags@kalilinux/nethunter/store/nethunter-store-website
+    #- tags      # Alt: tags@kalilinux/nethunter/store/nethunter-store-website
     ## Branch name
     - nethunter # Alt: nethunter@kalilinux/nethunter/store/nethunter-store-website
   ## REF: https://gitlab.com/kalilinux/nethunter/store/nethunter-store-website/-/pipelines/latest
@@ -166,7 +166,6 @@ variables:
   variables:
     url: https://${CI_JOB_NAME}
     baseurl: ""
-    fdroid_repo: https://staging.nethunter.com/repo
   script:
     #- '[ ! -d /builds/output ] && echo "ERROR: /builds/output is not mounted inside docker!" && exit 1'   # Using GitLab SaaS runners
     - *apt-template
