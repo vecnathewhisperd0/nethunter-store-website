@@ -42,6 +42,7 @@
         "Utilities": "Utilities",
         "Vulnerability Analysis": "Vulnerability Analysis",
         "WiFi": "Wi-Fi",
+        "show_package": "Show package",
         "show_all_packages": "Show all %d packages"
     },
     "index": {
