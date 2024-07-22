@@ -2,16 +2,17 @@
   url       : /
 - key       : apps
   url       : /packages/
-- key       : forum
-  url       : https://forums.kali.org/
-  external  : true
+- key       : categories
+  url       : /categories/
 - key       : documentation
   url       : https://www.kali.org/docs/nethunter/
   external  : true  
+- key       : forum
+  url       : https://forums.kali.org/
+  external  : true
 - key       : issues
   url       : /issues/
 - key       : contribute
   url       : /contribute/
 - key       : about
   url       : /about/
-
