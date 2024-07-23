@@ -94,11 +94,13 @@ fdroid_apk_download_url: https://store.nethunter.com/NetHunterStore.apk
 #fdroid_apk_pgp_verification_instructions_url: docs/Verifying_Downloaded_APK
 
 # App categories
-## REF: https://gitlab.com/kalilinux/nethunter/store/nethunter-store-data/-/blob/master/stats/categories.txt
+##  - REF: https://gitlab.com/kalilinux/nethunter/store/nethunter-store-data/-/blob/master/stats/categories.txt
+##      $ grep -h '^  \-' metadata/*.yml | grep -v ':' | sort -u
+##  - ./_data/strings.json
 app_categories:
   - Development
   - Exploitation
-  - Forensic
+  - Forensics
   - Information Gathering
   - NetHunter
   - Privacy
