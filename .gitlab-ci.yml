@@ -180,7 +180,7 @@ variables:
     - echo "${SSH_KEY}" | base64 -d | ssh-add -
     - unset SSH_KEY
     - mkdir -pv ~/.ssh/
-    - ssh-keyscan -t ssh-ed25519 ${SSH_HOST} | tee ~/.ssh/known_hosts
+    - ssh-keyscan -t ssh-ed25519 ${SSH_HOST} > ~/.ssh/known_hosts
     - rsync -ax --delete ${OUT_DIR}/ ${SSH_USER}@${SSH_HOST}:${CI_JOB_NAME}
   after_script:
     - unset SSH_KEY
