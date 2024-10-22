@@ -28,4 +28,4 @@ This is the git repository for Kali NetHunter App store.
 **Downloads**:
 - [kali.org/get-kali/](https://www.kali.org/get-kali/#kali-mobile)
 - [image-nethunter.kali.org](https://image-nethunter.kali.org/)
-- [nethunter/build-scripts/](https://gitlab.com/kalilinux/nethunter/build-scripts/)
+- [nethunter/build-scripts/](https://gitlab.com/kalilinux/nethunter/build-scripts)
